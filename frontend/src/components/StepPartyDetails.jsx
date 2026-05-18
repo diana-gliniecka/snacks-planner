@@ -177,7 +177,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Ilu gości?</div>
-              <div className="form-step-num">01 / 05</div>
+              <div className="form-step-num">01 / 06</div>
             </div>
             <div className="guests">
               <button className="guests-btn" onClick={() => setBrief({ ...brief, guests: Math.max(1, brief.guests - 1) })} aria-label="mniej">−</button>
@@ -192,7 +192,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Gdzie świętujemy?</div>
-              <div className="form-step-num">02 / 05</div>
+              <div className="form-step-num">02 / 06</div>
             </div>
             <div className="tile-grid">
               {VENUES.map((v) => (
@@ -208,11 +208,11 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
             </div>
           </div>
 
-          {/* 03 Diet + allergens */}
+          {/* 03 Diet */}
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Preferencje żywieniowe</div>
-              <div className="form-step-num">03 / 05</div>
+              <div className="form-step-num">03 / 06</div>
             </div>
             <div className="chip-row">
               {DIETS.map((d) => (
@@ -224,11 +224,29 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
             </div>
           </div>
 
-          {/* 04 Effort */}
+          {/* 04 Hungry */}
+          <div className="form-section">
+            <div className="form-section-head">
+              <div className="form-label">Apetyt gości</div>
+              <div className="form-step-num">04 / 06</div>
+            </div>
+            <div className="chip-row">
+              <button className="chip" aria-pressed={!brief.hungry}
+                onClick={() => setBrief({ ...brief, hungry: false })}>
+                <span className="chip-dot" />Normalny
+              </button>
+              <button className="chip" aria-pressed={brief.hungry}
+                onClick={() => setBrief({ ...brief, hungry: true })}>
+                <span className="chip-dot" />Mega głodni (+30%)
+              </button>
+            </div>
+          </div>
+
+          {/* 05 Effort */}
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Jak bardzo chcesz się napracować?</div>
-              <div className="form-step-num">04 / 05</div>
+              <div className="form-step-num">05 / 06</div>
             </div>
             <div className="effort-tiles">
               {EFFORT_TIERS.map((t) => (
@@ -248,7 +266,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Budżet na osobę</div>
-              <div className="form-step-num">05 / 05</div>
+              <div className="form-step-num">06 / 06</div>
             </div>
             <div className="budget-tiles">
               {BUDGET_TIERS.map((t) => (

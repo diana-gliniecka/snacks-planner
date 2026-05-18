@@ -66,10 +66,12 @@ def suggest_recipes(body: PartyInput, db: Session = Depends(get_db)):
         allowed = None
 
     if allowed is not None:
-        def has_allowed_tag(r):
+        def passes_diet(r):
+            if r.is_universal:
+                return True
             tags = set(r.diet_tags.split(","))
             return bool(tags & allowed)
-        recipes = [r for r in recipes if has_allowed_tag(r)]
+        recipes = [r for r in recipes if passes_diet(r)]
 
     # 3. Filter by effort_level
     recipes = [r for r in recipes if r.effort_level <= body.effort_level]
@@ -85,6 +87,7 @@ def suggest_recipes(body: PartyInput, db: Session = Depends(get_db)):
             effort_level=r.effort_level,
             cost_per_person=r.cost_per_person,
             scaled_cost=round(r.cost_per_person * body.guests, 2),
+            is_universal=r.is_universal,
         )
         for r in recipes
     ]
@@ -99,6 +102,10 @@ def get_shopping_list(body: ShoppingListRequest, db: Session = Depends(get_db)):
     # ingredient_id -> ShoppingItem (non-summable)
     special_items: dict[int, dict] = {}
 
+    portion_factor = min(1.0, 6.0 / body.num_dishes) if body.num_dishes > 0 else 1.0
+    hungry_factor = 1.3 if body.hungry else 1.0
+    total_factor = portion_factor * hungry_factor
+
     for recipe_id in body.recipe_ids:
         recipe = db.query(Recipe).filter(Recipe.id == recipe_id).first()
         if not recipe:
@@ -109,7 +116,7 @@ def get_shopping_list(body: ShoppingListRequest, db: Session = Depends(get_db)):
         for ri in ris:
             ing: Ingredient = ri.ingredient
             if ri.quantity_type == "exact":
-                scaled = ri.quantity * (guests / recipe.base_servings)
+                scaled = ri.quantity * (guests / recipe.base_servings) * total_factor
                 if ri.ingredient_id in exact_totals:
                     exact_totals[ri.ingredient_id]["total_quantity"] += scaled
                 else:

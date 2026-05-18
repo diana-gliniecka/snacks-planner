@@ -207,6 +207,7 @@ export default function App() {
     allergens: [],
     effort: 2,
     budgetPP: 0,
+    hungry: false,
   });
   const [allDishes, setAllDishes] = useState(null); // all matching from /suggest
   const [menu, setMenu] = useState(null);            // currently selected subset
@@ -224,7 +225,7 @@ export default function App() {
   // Demo fill
   useEffect(() => {
     if (!tweaks._demo) return;
-    setBrief({ guests: 24, venue: "ogród", diet: "miesna", allergens: [], effort: 3, budgetPP: 40 });
+    setBrief({ guests: 24, venue: "ogród", diet: "miesna", allergens: [], effort: 3, budgetPP: 40, hungry: false });
     setAllDishes(null);
     setMenu(null);
     setStep(1);
@@ -248,7 +249,15 @@ export default function App() {
           setBrief={setBrief}
           onNext={(dishes) => {
             setAllDishes(dishes);
-            setMenu(dishes.slice(0, 6));
+            let initial;
+            if (brief.diet === "miesna") {
+              const meat = dishes.filter((d) => !d.isUniversal);
+              const universal = dishes.filter((d) => d.isUniversal);
+              initial = [...meat.slice(0, 5), ...universal.slice(0, 1)].slice(0, 6);
+            } else {
+              initial = dishes.slice(0, 6);
+            }
+            setMenu(initial);
             setStep(2);
           }}
         />

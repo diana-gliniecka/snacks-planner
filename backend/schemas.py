@@ -16,6 +16,7 @@ class RecipeSuggestion(BaseModel):
     effort_level: int
     cost_per_person: float
     scaled_cost: float
+    is_universal: bool
 
     model_config = {"from_attributes": True}
 
@@ -31,3 +32,5 @@ class ShoppingItem(BaseModel):
 class ShoppingListRequest(BaseModel):
     recipe_ids: list[int]
     guests: int
+    num_dishes: int = 6
+    hungry: bool = False

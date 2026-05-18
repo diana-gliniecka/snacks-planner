@@ -19,11 +19,11 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
   useEffect(() => {
     const ids = menu.map((d) => d.id);
     setLoading(true);
-    getShoppingList(ids, brief.guests)
+    getShoppingList(ids, brief.guests, menu.length, brief.hungry)
       .then(setAisles)
       .catch(() => setError("Nie udało się załadować listy zakupów."))
       .finally(() => setLoading(false));
-  }, [menu, brief.guests]);
+  }, [menu, brief.guests, brief.hungry]);
 
   const allItems = useMemo(
     () => aisles.flatMap((a) => a.items.map((item, idx) => ({ ...item, key: `${a.id}-${item.name}-${idx}` }))),

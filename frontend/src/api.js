@@ -48,6 +48,7 @@ function toDish(r) {
     scaledCost: r.scaled_cost,
     emoji: "🍽️",
     tag: r.diet_tags.split(",")[0],
+    isUniversal: r.is_universal,
   };
 }
 
@@ -63,11 +64,16 @@ export async function getSuggestions(brief) {
   return data.map(toDish);
 }
 
-export async function getShoppingList(recipeIds, guests) {
+export async function getShoppingList(recipeIds, guests, numDishes, hungry) {
   const res = await fetch(`${BASE}/shopping-list`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ recipe_ids: recipeIds.map(Number), guests }),
+    body: JSON.stringify({
+      recipe_ids: recipeIds.map(Number),
+      guests,
+      num_dishes: numDishes ?? 6,
+      hungry: hungry ?? false,
+    }),
   });
   if (!res.ok) throw new Error("Błąd podczas generowania listy zakupów.");
   const items = await res.json();

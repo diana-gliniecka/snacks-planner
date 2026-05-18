@@ -90,10 +90,18 @@ def seed():
     olej                = ing("olej roślinny",           S, "łyżka")
     majonez_weganski    = ing("majonez wegański",        S, "łyżka")
 
+    drozdze         = ing("drożdże",                  D, "g")
+    maka_pizza      = ing("mąka do pizzy",             D, "g")
+    salami          = ing("salami",                    M, "g")
+    ser_weganski    = ing("ser wegański do pizzy",     A, "g")
+    mozz_starta     = ing("mozzarella (starta)",       N, "g")
+    przecier_pom    = ing("przecier pomidorowy",       S, "g")
+    oregano_susz    = ing("oregano",                   S, "łyżeczka")
+
     db.flush()
 
     # --- Recipes ---
-    def recipe(name, party_types, diet_tags, effort, cost, servings, notes, instructions=None, group_name=None):
+    def recipe(name, party_types, diet_tags, effort, cost, servings, notes, instructions=None, group_name=None, is_universal=False):
         r = Recipe(
             name=name,
             party_types=party_types,
@@ -104,6 +112,7 @@ def seed():
             notes=notes,
             instructions=instructions,
             group_name=group_name,
+            is_universal=is_universal,
         )
         db.add(r)
         return r
@@ -157,7 +166,8 @@ def seed():
                 "grill,wnetrze,ogrod,koktajl", "wegetarianskie", 1, 2.50, 2,
                 "Nabijać na wykałaczki lub małe patyczki do szaszłyków",
                 instructions="1. Mozzarellę pokrój w kostkę wielkości pomidorków.\n2. Na wykałaczkę nabij kolejno: pomidorek, listek bazylii, kostkę mozzarelli.\n3. Skrop oliwą i szczyptą soli.\n4. Tuż przed podaniem polej glazurą balsamiczną.",
-                group_name="Szaszłyki caprese")
+                group_name="Szaszłyki caprese",
+                is_universal=True)
     ri(r3, pomidorki,    6,    "szt",   "exact")
     ri(r3, mozzarella,   100,  "g",     "exact")
     ri(r3, bazylia,      6,    "szt",   "exact")
@@ -170,7 +180,8 @@ def seed():
                 "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 1, 1.50, 1,
                 "Podawać na dużym talerzu, warzywa ułożyć wokół hummusu",
                 instructions="1. Marchewkę, ogórka i paprykę pokrój w słupki.\n2. Hummus przełóż na środek dużego talerza, skrop oliwą i posyp papryką mieloną.\n3. Ułóż warzywa wokół hummusu.",
-                group_name="Hummus z warzywami")
+                group_name="Hummus z warzywami",
+                is_universal=True)
     ri(r4, hummus,          50,   "g",        "exact")
     ri(r4, marchewka,       50,   "g",        "exact")
     ri(r4, ogurek,          50,   "g",        "exact")
@@ -183,7 +194,8 @@ def seed():
                 "wnetrze,koktajl", "wegetarianskie,weganskie", 1, 2.00, 4,
                 "Przygotować tuż przed podaniem, żeby awokado nie ściemniało",
                 instructions="1. Awokado przekrój, wyjmij pestki, wydrąż łyżką miąższ do miski.\n2. Rozgnieć widelcem na w miarę gładką masę.\n3. Dodaj sok z limonki, drobno posiekaną cebulę czerwoną, kolendrę, sól i chili.\n4. Wymieszaj i od razu podawaj z chipsami tortilla.",
-                group_name="Guacamole")
+                group_name="Guacamole",
+                is_universal=True)
     ri(r7, awokado,        2,    "szt",   "exact")
     ri(r7, chipsy_tortilla,150,  "g",     "exact")
     ri(r7, sok_limonki,    1,    "łyżka", "exact")
@@ -197,7 +209,8 @@ def seed():
                 "grill", "wegetarianskie,weganskie", 1, 1.00, 2,
                 "Grillować 15–20 minut, obracając co kilka minut",
                 instructions="1. Kolby kukurydzy posmaruj masłem, posól i popieprz.\n2. Grilluj na średnim ogniu 15–20 minut, obracając co kilka minut.\n3. Przed podaniem przeciąć kolbę na pół.\n4. Podawaj od razu z grilla.",
-                group_name="Kukurydza z grilla")
+                group_name="Kukurydza z grilla",
+                is_universal=True)
     ri(r8, kolba_kukurydzy, 1,    "szt",  "exact")
     ri(r8, maslo,           10,   "g",    "exact")
     ri(r8, sol,             None, None,   "to_taste")
@@ -208,7 +221,8 @@ def seed():
                  "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 2, 1.50, 4,
                  "Chleb opiec tuż przed podaniem, żeby pozostał chrupiący",
                  instructions="1. Pomidory pokrój w kostkę.\n2. Odstaw na 5 minut i odlej nadmiar soku.\n3. Dodaj posiekane liście bazylii, czosnek przeciśnięty przez praskę, sól i pieprz do smaku.\n4. Bagietkę pokrój w skośne plastry i opiecz w tosterze lub na grillu.\n5. Skrop grzanki oliwą i nałóż mieszankę pomidorową.\n6. Na wierzch dodaj kilka listków bazylii dla ozdoby.",
-                 group_name="Bruschetta")
+                 group_name="Bruschetta",
+                is_universal=True)
     ri(r10, bagietka,  1,    "szt",   "exact")
     ri(r10, pomidor,   3,    "szt",   "exact")
     ri(r10, czosnek,   3,    "szt",   "exact", "ząbki")
@@ -286,8 +300,67 @@ def seed():
     ri(r12, olej,           3,   "łyżka", "exact")
     ri(r12, czosnek,        3,   "szt",   "exact", "ząbki, przeciśnięte przez praskę")
 
+    # Wspólna baza instrukcji dla wszystkich pizzerinek (12 szt.)
+    _pizza_base = (
+        "1. Rozrób drożdże w letniej wodzie (300 ml), odstaw na 5 minut.\n"
+        "2. Wsyp mąkę i sól, dodaj wodę z drożdżami i oliwę. Zagniataj 5–8 minut aż ciasto będzie gładkie i elastyczne.\n"
+        "3. Przykryj ściereczką i zostaw w ciepłym miejscu na min. 1 godzinę.\n"
+        "4. Pieczarki podsmaż z odrobiną oleju na patelni 2–3 minuty.\n"
+        "5. Ciasto podziel na 12 części, rozciągnij dłońmi w kształt koła. Ułóż na blasze z papierem.\n"
+        "6. Posmaruj środek przecierem, posyp oregano."
+    )
+
+    # 13 — Pizzerinki z salami
+    r13 = recipe("Pizzerinki z salami",
+                 "wnetrze,ogrod", "miesne", 2, 2.00, 12,
+                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+                 instructions=_pizza_base + "\n7. Nałóż 3/4 mozzarelli, ułóż salami i pieczarki, resztę mozzarelli na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
+                 group_name="Pizzerinki")
+    ri(r13, drozdze,       10,   "g",        "exact")
+    ri(r13, maka_pizza,    500,  "g",        "exact")
+    ri(r13, oliwa,         3,    "łyżka",    "exact")
+    ri(r13, sol,           0.5,  "łyżeczka", "exact")
+    ri(r13, oregano_susz,  2,    "łyżeczka", "exact")
+    ri(r13, przecier_pom,  200,  "g",        "exact")
+    ri(r13, pieczarki,     200,  "g",        "exact")
+    ri(r13, olej,          None, None,       "descriptive", "odrobina do smażenia")
+    ri(r13, salami,        150,  "g",        "exact")
+    ri(r13, mozz_starta,   200,  "g",        "exact")
+
+    # 14 — Pizzerinki wegetariańskie
+    r14 = recipe("Pizzerinki wegetariańskie",
+                 "wnetrze,ogrod", "wegetarianskie", 2, 1.50, 12,
+                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+                 instructions=_pizza_base + "\n7. Nałóż 3/4 mozzarelli, ułóż pieczarki, resztę mozzarelli na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
+                 group_name="Pizzerinki")
+    ri(r14, drozdze,       10,   "g",        "exact")
+    ri(r14, maka_pizza,    500,  "g",        "exact")
+    ri(r14, oliwa,         3,    "łyżka",    "exact")
+    ri(r14, sol,           0.5,  "łyżeczka", "exact")
+    ri(r14, oregano_susz,  2,    "łyżeczka", "exact")
+    ri(r14, przecier_pom,  200,  "g",        "exact")
+    ri(r14, pieczarki,     200,  "g",        "exact")
+    ri(r14, olej,          None, None,       "descriptive", "odrobina do smażenia")
+    ri(r14, mozz_starta,   200,  "g",        "exact")
+
+    # 15 — Pizzerinki wegańskie
+    r15 = recipe("Pizzerinki wegańskie",
+                 "wnetrze,ogrod", "weganskie", 2, 2.00, 12,
+                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+                 instructions=_pizza_base + "\n7. Nałóż 3/4 sera wegańskiego, ułóż pieczarki, resztę sera na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
+                 group_name="Pizzerinki")
+    ri(r15, drozdze,       10,   "g",        "exact")
+    ri(r15, maka_pizza,    500,  "g",        "exact")
+    ri(r15, oliwa,         3,    "łyżka",    "exact")
+    ri(r15, sol,           0.5,  "łyżeczka", "exact")
+    ri(r15, oregano_susz,  2,    "łyżeczka", "exact")
+    ri(r15, przecier_pom,  200,  "g",        "exact")
+    ri(r15, pieczarki,     200,  "g",        "exact")
+    ri(r15, olej,          None, None,       "descriptive", "odrobina do smażenia")
+    ri(r15, ser_weganski,  200,  "g",        "exact")
+
     db.commit()
-    print("Baza danych wypełniona danymi. Dodano 12 przepisów z instrukcjami i grupami.")
+    print("Baza danych wypełniona danymi. Dodano 15 przepisów z instrukcjami i grupami.")
 
 
 if __name__ == "__main__":

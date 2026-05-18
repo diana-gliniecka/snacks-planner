@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Text, Float, ForeignKey
+from sqlalchemy import Column, Integer, Text, Float, Boolean, ForeignKey
 from sqlalchemy.orm import DeclarativeBase, relationship
 
 
@@ -19,6 +19,7 @@ class Recipe(Base):
     notes = Column(Text)
     instructions = Column(Text)
     group_name = Column(Text)
+    is_universal = Column(Boolean, default=False)
 
     recipe_ingredients = relationship("RecipeIngredient", back_populates="recipe")
 
