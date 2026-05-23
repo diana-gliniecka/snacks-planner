@@ -34,7 +34,7 @@ def on_startup():
         db.close()
 
 
-@app.get("/")
+@router.get("/health")
 def health_check():
     return {"status": "ok"}
 
