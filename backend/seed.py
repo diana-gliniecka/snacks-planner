@@ -193,7 +193,7 @@ def seed():
 
     # 1 — Sałatka Cezar z kurczakiem wegetariańskim
     r1 = recipe("Sałatka Cezar z kurczakiem wegetariańskim",
-                "wnetrze,ogrod", "wegetarianskie", 2, 3.50, 4,
+                "wnetrze,ogrod", "wegetarianskie", 2, 6.00, 4,
                 "Sos wymieszać osobno, dodać tuż przed podaniem",
                 instructions="1. Wymieszaj majonez, musztardę, kilka kropli octu, cukier, sól i pieprz — to sos.\n2. Kurczaka wegetariańskiego podsmaż na patelni do zrumienienia.\n3. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n4. Wszystko wyłóż na talerz, polej sosem tuż przed podaniem.\n5. Na wierzch zetrzyj parmezan.",
                 group_name="Sałatka Cezar")
@@ -211,7 +211,7 @@ def seed():
 
     # 2 — Klasyczne burgery z grilla
     r2 = recipe("Klasyczne burgery z grilla",
-                "grill", "miesne", 2, 5.00, 1,
+                "grill", "miesne", 2, 13.00, 1,
                 "Kotlety grillować po 4–5 minut z każdej strony",
                 instructions="1. Mieloną wołowinę przypraw solą i pieprzem, uformuj kotlety.\n2. Grilluj kotlety po 4–5 minut z każdej strony.\n3. Pod koniec połóż na każdym kotlecie plaster cheddara i poczekaj aż się rozpuści.\n4. Bułki lekko opiecz na grillu.\n5. Złóż burgera: bułka, sałata, pomidor, kotlet, ketchup i musztarda.",
                 group_name="Burgery")
@@ -227,7 +227,7 @@ def seed():
 
     # 3 — Szaszłyki caprese
     r3 = recipe("Szaszłyki caprese",
-                "grill,wnetrze,ogrod,koktajl", "wegetarianskie", 1, 2.50, 2,
+                "grill,wnetrze,ogrod,koktajl", "wegetarianskie", 1, 4.00, 2,
                 "Nabijać na wykałaczki lub małe patyczki do szaszłyków",
                 instructions="1. Mozzarellę pokrój w kostkę wielkości pomidorków.\n2. Na wykałaczkę nabij kolejno: pomidorek, listek bazylii, kostkę mozzarelli.\n3. Skrop oliwą i szczyptą soli.\n4. Tuż przed podaniem polej glazurą balsamiczną.",
                 group_name="Szaszłyki caprese",
@@ -241,7 +241,7 @@ def seed():
 
     # 4 — Hummus z pitą i warzywami
     r4 = recipe("Hummus z warzywami",
-                "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 1, 1.50, 1,
+                "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 1, 3.00, 1,
                 "Podawać na dużym talerzu, warzywa ułożyć wokół hummusu",
                 instructions="1. Marchewkę, ogórka i paprykę pokrój w słupki.\n2. Hummus przełóż na środek dużego talerza, skrop oliwą i posyp papryką mieloną.\n3. Ułóż warzywa wokół hummusu.",
                 group_name="Hummus z warzywami",
@@ -255,7 +255,7 @@ def seed():
 
     # 5 — Guacamole z chipsami tortilla
     r7 = recipe("Guacamole z chipsami tortilla",
-                "wnetrze,koktajl", "wegetarianskie,weganskie", 1, 2.00, 4,
+                "wnetrze,koktajl", "wegetarianskie,weganskie", 1, 3.50, 4,
                 "Przygotować tuż przed podaniem, żeby awokado nie ściemniało",
                 instructions="1. Awokado przekrój, wyjmij pestki, wydrąż łyżką miąższ do miski.\n2. Rozgnieć widelcem na w miarę gładką masę.\n3. Dodaj sok z limonki, drobno posiekaną cebulę czerwoną, kolendrę, sól i chili.\n4. Wymieszaj i od razu podawaj z chipsami tortilla.",
                 group_name="Guacamole",
@@ -270,7 +270,7 @@ def seed():
 
     # 8 — Kolby kukurydzy z grilla
     r8 = recipe("Kolby kukurydzy z grilla",
-                "grill", "wegetarianskie,weganskie", 1, 1.00, 2,
+                "grill", "wegetarianskie,weganskie", 1, 3.50, 1,
                 "Grillować 15–20 minut, obracając co kilka minut",
                 instructions="1. Kolby kukurydzy posmaruj masłem, posól i popieprz.\n2. Grilluj na średnim ogniu 15–20 minut, obracając co kilka minut.\n3. Przed podaniem przeciąć kolbę na pół.\n4. Podawaj od razu z grilla.",
                 group_name="Kukurydza z grilla",
@@ -282,7 +282,7 @@ def seed():
 
     # 8 — Bruschetta z pomidorami
     r10 = recipe("Bruschetta z pomidorami",
-                 "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 2, 1.50, 4,
+                 "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 2, 3.00, 4,
                  "Chleb opiec tuż przed podaniem, żeby pozostał chrupiący",
                  instructions="1. Pomidory pokrój w kostkę.\n2. Odstaw na 5 minut i odlej nadmiar soku.\n3. Dodaj posiekane liście bazylii, czosnek przeciśnięty przez praskę, sól i pieprz do smaku.\n4. Bagietkę pokrój w skośne plastry i opiecz w tosterze lub na grillu.\n5. Skrop grzanki oliwą i nałóż mieszankę pomidorową.\n6. Na wierzch dodaj kilka listków bazylii dla ozdoby.",
                  group_name="Bruschetta",
@@ -312,7 +312,7 @@ def seed():
 
     # 10 — Sałatka Cezar z kurczakiem
     r10b = recipe("Sałatka Cezar z kurczakiem",
-                "wnetrze,ogrod", "miesne", 2, 4.00, 4,
+                "wnetrze,ogrod", "miesne", 2, 7.00, 4,
                 "Sos wymieszać osobno, dodać tuż przed podaniem",
                 instructions="1. Wymieszaj majonez, musztardę, kilka kropli octu, cukier, sół i pieprz — to sos.\n2. Pierś z kurczaka usmaż na patelni lub z grilla, pokrój w paski.\n3. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n4. Wszystko wyłóż na talerz, ułóż kurczaka, polej sosem tuż przed podaniem.\n5. Na wierzch zetrzyj parmezan.",
                 group_name="Sałatka Cezar")
@@ -339,7 +339,7 @@ def seed():
     ri(r11, cukinia,       280, "g",     "exact")
     ri(r11, pieczarki,     200, "g",     "exact", "małe")
     ri(r11, cebula,        200, "g",     "exact")
-    ri(r11, tofu,          180, "g",     "exact")
+    ri(r11, tofu,          350, "g",     "exact")
     ri(r11, sos_sojowy,    3,   "łyżka", "exact", "najlepiej ciemny")
     ri(r11, musztarda,     3,   "łyżka", "exact", "miodowa, Dijon lub ostra")
     ri(r11, miod,          2,   "łyżka", "exact")
@@ -357,7 +357,7 @@ def seed():
     ri(r12, cukinia,        280, "g",     "exact")
     ri(r12, pieczarki,      200, "g",     "exact", "małe")
     ri(r12, cebula,         200, "g",     "exact")
-    ri(r12, pierś_kurczaka, 350, "g",     "exact")
+    ri(r12, pierś_kurczaka, 500, "g",     "exact")
     ri(r12, sos_sojowy,     3,   "łyżka", "exact", "najlepiej ciemny")
     ri(r12, musztarda,      3,   "łyżka", "exact", "miodowa, Dijon lub ostra")
     ri(r12, miod,           2,   "łyżka", "exact")
@@ -465,7 +465,7 @@ def seed():
 
     # 19 — Carpaccio z buraka z płatkami drożdżowymi
     r19 = recipe("Carpaccio z buraka z płatkami drożdżowymi",
-                 "wnetrze,ogrod,koktajl", "weganskie,wegetarianskie", 1, 3.00, 4,
+                 "wnetrze,ogrod,koktajl", "weganskie,wegetarianskie", 1, 3.50, 4,
                  "Użyć gotowych buraków w próżni — surowe wymagają długiego gotowania",
                  instructions="1. Słonecznik upraż na suchej patelni, aż lekko ściemnieje.\n2. Buraki pokrój w bardzo cienkie plastry i ułóż na dużym talerzu na zakładkę.\n3. W małym naczyniu wymieszaj oliwę z syropem i skrop buraki.\n4. Całość posyp obficie płatkami drożdżowymi oraz uprażonym słonecznikiem.",
                  group_name="Carpaccio z buraka")
@@ -478,7 +478,7 @@ def seed():
 
     # 20 — Melon w szynce parmeńskiej
     r20 = recipe("Melon w szynce parmeńskiej",
-                 "grill,wnetrze,ogrod,koktajl", "miesne", 1, 3.00, 6,
+                 "grill,wnetrze,ogrod,koktajl", "miesne", 1, 5.00, 6,
                  "Najlepszy schłodzony — przed podaniem wstawić do lodówki na min. 30 minut",
                  instructions="1. Melon przekrój na pół, łyżką wyjmij ze środka gniazda nasienne.\n2. Pokrój melon w łódki, odetnij skórę, a miąższ podziel na ok. 5-centymetrowe kawałki.\n3. Każdy plaster szynki przekrój wzdłuż na pół, aby powstały węższe paski.\n4. Owiń ściśle każdy kawałek melona paskiem szynki i ułóż na półmisku.",
                  group_name="Melon w szynce")
@@ -498,7 +498,7 @@ def seed():
 
     # 22 — Tatar z łososia na grzankach
     r22 = recipe("Tatar z łososia na grzankach",
-                 "wnetrze,ogrod,koktajl", "rybne", 2, 2.50, 12,
+                 "wnetrze,ogrod,koktajl", "rybne", 2, 4.00, 12,
                  "Łososia kroić tuż przed podaniem — ryba szybko traci świeżość",
                  instructions="1. Łososia pokrój w bardzo drobną kostkę (ok. 3mm).\n2. Ogórka obierz, usuń pestki, pokrój tak samo drobno.\n3. Cebulę i kapary drobno posiekaj.\n4. Wymieszaj wszystko z sokiem z cytryny, oliwą, solą i pieprzem.\n5. Bagietkę pokrój w skośne plastry (~1cm), skrop oliwą i grilluj lub piecz w 200°C przez 5–7 min aż będą chrupiące.\n6. Przed podaniem nakładaj tatar łyżeczką na każdą grzankę, udekoruj koperkiem.",
                  group_name="Tatar z łososia")
@@ -668,7 +668,7 @@ def seed():
 
     # 32 — Szaszłyki z krewetek z grilla
     r32 = recipe("Szaszłyki z krewetek z grilla",
-                 "grill,wnetrze,ogrod,koktajl", "rybne", 2, 5.00, 8,
+                 "grill,wnetrze,ogrod,koktajl", "rybne", 2, 8.50, 8,
                  "Nie marynować dłużej niż 30 min — kwas cytrynowy zaczyna 'gotować' krewetki",
                  instructions="1. Namocz drewniane patyczki w wodzie minimum 30 min.\n2. Krewetki obierz i usuń jelito (czarna nitka wzdłuż grzbietu).\n3. Wymieszaj oliwę z rozgniecionym czosnkiem, sokiem z cytryny i płatkami chili. Zalej krewetki i odstaw na 20–30 min.\n4. Nabijaj po 4 krewetki na patyczek, zginając każdą w literę C.\n5. Grilluj na mocno rozgrzanym grillu 2 min z każdej strony — gotowe gdy zmienią kolor na różowo-pomarańczowy i lekko się zwijają.\n6. Zdejmij z grilla, połóż kawałek masła na każdym szaszłyku i posyp natką. Podawaj z ćwiartkami limonki.",
                  group_name="Szaszłyki z krewetek")
