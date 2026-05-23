@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: party-planner
+    env: python
+    buildCommand: pip install -r backend/requirements.txt && cd frontend && npm ci && npm run build
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: party-planner-db
+          property: connectionString
+
+databases:
+  - name: party-planner-db
+    plan: free

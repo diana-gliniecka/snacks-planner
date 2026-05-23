@@ -1,5 +1,68 @@
 import { useState, useEffect, useMemo } from "react";
-import { getShoppingList } from "../api.js";
+import { getShoppingList, getRecipeDetail } from "../api.js";
+
+function RecipeAccordion({ dish, detail, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <article className={`recipe-acc${open ? " is-open" : ""}`}>
+      <button className="recipe-acc-head" onClick={() => setOpen(!open)} aria-expanded={open}>
+        <span className="recipe-acc-emoji" aria-hidden="true">{dish.emoji}</span>
+        <span className="recipe-acc-text">
+          <span className="recipe-acc-cat">{dish.category}</span>
+          <span className="recipe-acc-name">{dish.name}</span>
+        </span>
+        <span className="recipe-acc-meta">{dish.time} min · nakład {dish.effort + 1}/5</span>
+        <span className="recipe-acc-chev" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
+      </button>
+
+      {open && (
+        <div className="recipe-acc-body">
+          <div className="recipe-acc-ings">
+            <h5 className="recipe-acc-h">Składniki</h5>
+            {!detail
+              ? <p style={{ fontSize: 13, color: "var(--ink-3)", margin: 0 }}>Brak danych.</p>
+              : (
+                <ul>
+                  {detail.ingredients.map((ing, i) => (
+                    <li key={i}>
+                      <span>{ing.name}</span>
+                      <span className="recipe-acc-qty">{ing.qty}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+          </div>
+          <div className="recipe-acc-steps">
+            <h5 className="recipe-acc-h">Przygotowanie</h5>
+            {!detail || detail.steps.length === 0
+              ? <p style={{ fontSize: 13, color: "var(--ink-3)", margin: 0 }}>Brak kroków.</p>
+              : (
+                <ol>
+                  {detail.steps.map((step, i) => (
+                    <li key={i}>
+                      <span className="recipe-acc-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            {detail?.notes && (
+              <div className="recipe-acc-tip">
+                <span>Wskazówka szefa</span>
+                <p style={{ margin: 0 }}>{detail.notes}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </article>
+  );
+}
 
 function guestsWord(n) {
   if (n === 1) return "gość";
@@ -15,6 +78,8 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [checked, setChecked] = useState({});
+  const [recipeDetails, setRecipeDetails] = useState({});
+  const [allOpen, setAllOpen] = useState(false);
 
   useEffect(() => {
     const ids = menu.map((d) => d.id);
@@ -24,6 +89,20 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
       .catch(() => setError("Nie udało się załadować listy zakupów."))
       .finally(() => setLoading(false));
   }, [menu, brief.guests, brief.hungry]);
+
+  useEffect(() => {
+    Promise.all(
+      menu.map((d) =>
+        getRecipeDetail(d.id)
+          .then((detail) => ({ id: d.id, detail }))
+          .catch(() => ({ id: d.id, detail: null }))
+      )
+    ).then((results) => {
+      const map = {};
+      results.forEach(({ id, detail }) => { map[id] = detail; });
+      setRecipeDetails(map);
+    });
+  }, [menu]);
 
   const allItems = useMemo(
     () => aisles.flatMap((a) => a.items.map((item, idx) => ({ ...item, key: `${a.id}-${item.name}-${idx}` }))),
@@ -83,6 +162,33 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
         )}
         {error && (
           <p style={{ color: "var(--accent)", fontFamily: "var(--font-mono)", fontSize: 12 }}>{error}</p>
+        )}
+
+        {!loading && !error && menu.length > 0 && (
+          <section className="recipes-section">
+            <header className="recipes-section-head">
+              <div>
+                <div className="recipes-section-eyebrow">Wybrane przez Ciebie</div>
+                <h2 className="recipes-section-title">Przepisy <em>krok po kroku</em></h2>
+              </div>
+              <button
+                className="recipes-section-toggle"
+                onClick={() => setAllOpen(!allOpen)}
+              >
+                {allOpen ? "Zwiń wszystkie" : "Rozwiń wszystkie"}
+              </button>
+            </header>
+            <div className="recipes-list">
+              {menu.map((d, i) => (
+                <RecipeAccordion
+                  key={`${d.id}-${i}-${allOpen}`}
+                  dish={d}
+                  detail={recipeDetails[d.id]}
+                  defaultOpen={allOpen}
+                />
+              ))}
+            </div>
+          </section>
         )}
 
         {!loading && !error && aisles.map((aisle, ai) => (
@@ -159,12 +265,12 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
         ))}
 
         <div className="side-actions">
-          <button className="side-btn dark" onClick={handleCopy}>
-            <span>Kopiuj listę zakupów</span>
+          <button className="side-btn dark" onClick={() => window.print()}>
+            <span>Drukuj / Zapisz PDF</span>
             <span className="side-btn-arrow">↗</span>
           </button>
-          <button className="side-btn" onClick={() => window.print()}>
-            <span>Drukuj listę</span>
+          <button className="side-btn" onClick={handleCopy}>
+            <span>Kopiuj listę zakupów</span>
             <span className="side-btn-arrow">↗</span>
           </button>
         </div>
