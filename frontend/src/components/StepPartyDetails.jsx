@@ -179,7 +179,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
             </div>
             <div className="guests">
               <button className="guests-btn" onClick={() => setBrief({ ...brief, guests: Math.max(1, brief.guests - 1) })} aria-label="mniej">−</button>
-              <input className="guests-input" type="number" value={brief.guests || ""} placeholder="20"
+              <input className="guests-input" type="number" value={brief.guests || ""} placeholder="0"
                 onChange={(e) => setBrief({ ...brief, guests: Math.max(0, parseInt(e.target.value) || 0) })} />
               <button className="guests-btn" onClick={() => setBrief({ ...brief, guests: brief.guests + 1 })} aria-label="więcej">+</button>
               <span className="guests-cap">osób przy stole</span>

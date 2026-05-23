@@ -12,7 +12,7 @@ function RecipeAccordion({ dish, detail, defaultOpen = false }) {
           <span className="recipe-acc-cat">{dish.category}</span>
           <span className="recipe-acc-name">{dish.name}</span>
         </span>
-        <span className="recipe-acc-meta">{dish.time} min · nakład {dish.effort + 1}/5</span>
+        <span className="recipe-acc-meta">{dish.time} min · nakład {dish.effort + 1}/3</span>
         <span className="recipe-acc-chev" aria-hidden="true">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 9l6 6 6-6" />
@@ -80,6 +80,8 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
   const [checked, setChecked] = useState({});
   const [recipeDetails, setRecipeDetails] = useState({});
   const [allOpen, setAllOpen] = useState(false);
+  const [shopOpen, setShopOpen] = useState(true);
+  const [recipesOpen, setRecipesOpen] = useState(false);
 
   useEffect(() => {
     const ids = menu.map((d) => d.id);
@@ -146,7 +148,8 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
       <main className="shop-main">
         <div className="shop-head">
           <div className="brief-eyebrow">Krok 03 z 03 · {brief.guests} {guestsWord(brief.guests)}</div>
-          <h1 className="shop-title">Lista <em>zakupów</em></h1>
+          <div className="recipes-section-eyebrow" style={{ marginTop: 12 }}>Wszystkie składniki zostały zaokrąglone w górę do pełnych wartości</div>
+          <h1 className="recipes-section-title">Lista <em>zakupów</em></h1>
           {!loading && !error && (
             <div className="shop-progress">
               <div className="shop-progress-bar">
@@ -164,61 +167,84 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
           <p style={{ color: "var(--accent)", fontFamily: "var(--font-mono)", fontSize: 12 }}>{error}</p>
         )}
 
-        {!loading && !error && menu.length > 0 && (
-          <section className="recipes-section">
-            <header className="recipes-section-head">
-              <div>
-                <div className="recipes-section-eyebrow">Wybrane przez Ciebie</div>
-                <h2 className="recipes-section-title">Przepisy <em>krok po kroku</em></h2>
-              </div>
-              <button
-                className="recipes-section-toggle"
-                onClick={() => setAllOpen(!allOpen)}
-              >
-                {allOpen ? "Zwiń wszystkie" : "Rozwiń wszystkie"}
-              </button>
-            </header>
-            <div className="recipes-list">
-              {menu.map((d, i) => (
-                <RecipeAccordion
-                  key={`${d.id}-${i}-${allOpen}`}
-                  dish={d}
-                  detail={recipeDetails[d.id]}
-                  defaultOpen={allOpen}
-                />
-              ))}
-            </div>
+        {!loading && !error && (
+          <section className="collapsible-section">
+            <button className="collapsible-toggle" onClick={() => setShopOpen(!shopOpen)}>
+              <span className="collapsible-toggle-label">Produkty do kupienia</span>
+              <span className={`collapsible-chev${shopOpen ? " is-open" : ""}`} aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </button>
+            {shopOpen && aisles.map((aisle, ai) => (
+              <section className="aisle" key={aisle.id}>
+                <header className="aisle-head">
+                  <span className="aisle-num">{String(ai + 1).padStart(2, "0")}</span>
+                  <h2 className="aisle-name">{aisle.name}</h2>
+                  <span className="aisle-count">
+                    {aisle.items.length} {aisle.items.length === 1 ? "pozycja" : "pozycji"}
+                  </span>
+                </header>
+                {aisle.items.map((item, idx) => {
+                  const key = `${aisle.id}-${item.name}-${idx}`;
+                  const isChecked = !!checked[key];
+                  return (
+                    <div key={key} className={`item${isChecked ? " checked" : ""}`} onClick={() => toggleItem(key)}>
+                      <span className="item-check">
+                        {isChecked && (
+                          <svg width="12" height="12" viewBox="0 0 14 14">
+                            <path d="M3 7.2 5.8 10 11 4.2" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                      </span>
+                      <span className="item-name">{item.name}</span>
+                      <span className="item-qty">{item.qty}</span>
+                    </div>
+                  );
+                })}
+              </section>
+            ))}
           </section>
         )}
 
-        {!loading && !error && aisles.map((aisle, ai) => (
-          <section className="aisle" key={aisle.id}>
-            <header className="aisle-head">
-              <span className="aisle-num">{String(ai + 1).padStart(2, "0")}</span>
-              <h2 className="aisle-name">{aisle.name}</h2>
-              <span className="aisle-count">
-                {aisle.items.length} {aisle.items.length === 1 ? "pozycja" : "pozycji"}
+        {!loading && !error && menu.length > 0 && (
+          <section className="collapsible-section">
+            <button className="collapsible-toggle" onClick={() => setRecipesOpen(!recipesOpen)}>
+              <span className="collapsible-toggle-label">Przepisy krok po kroku</span>
+              <span className={`collapsible-chev${recipesOpen ? " is-open" : ""}`} aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
               </span>
-            </header>
-            {aisle.items.map((item, idx) => {
-              const key = `${aisle.id}-${item.name}-${idx}`;
-              const isChecked = !!checked[key];
-              return (
-                <div key={key} className={`item${isChecked ? " checked" : ""}`} onClick={() => toggleItem(key)}>
-                  <span className="item-check">
-                    {isChecked && (
-                      <svg width="12" height="12" viewBox="0 0 14 14">
-                        <path d="M3 7.2 5.8 10 11 4.2" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
-                  </span>
-                  <span className="item-name">{item.name}</span>
-                  <span className="item-qty">{item.qty}</span>
+            </button>
+            {recipesOpen && (
+              <>
+                <header className="recipes-section-head" style={{ marginTop: 16 }}>
+                  <div>
+                    <div className="recipes-section-eyebrow">Wybrane przez Ciebie</div>
+                  </div>
+                  <button
+                    className="recipes-section-toggle"
+                    onClick={() => setAllOpen(!allOpen)}
+                  >
+                    {allOpen ? "Zwiń wszystkie" : "Rozwiń wszystkie"}
+                  </button>
+                </header>
+                <div className="recipes-list">
+                  {menu.map((d, i) => (
+                    <RecipeAccordion
+                      key={`${d.id}-${i}-${allOpen}`}
+                      dish={d}
+                      detail={recipeDetails[d.id]}
+                      defaultOpen={allOpen}
+                    />
+                  ))}
                 </div>
-              );
-            })}
+              </>
+            )}
           </section>
-        ))}
+        )}
 
         <div className="step-foot">
           <button className="btn btn-ghost" onClick={onBack}>

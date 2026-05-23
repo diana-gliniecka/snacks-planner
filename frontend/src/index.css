@@ -7,7 +7,7 @@
   --paper: #fbf7ee;
   --ink: #1a1612;
   --ink-2: #4a3f33;
-  --ink-3: #8a7f70;
+  --ink-3: #6b6258;
   --rule: rgba(26, 22, 18, 0.12);
   --rule-2: rgba(26, 22, 18, 0.06);
   --primary: #2d4a3e;
@@ -394,9 +394,10 @@ button {
 }
 
 .form-card {
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto;
 }
+
 
 .form-section {
   padding: 22px 0;
@@ -992,6 +993,31 @@ button {
   font-weight: 500;
   margin-right: 4px;
   font-variant-numeric: tabular-nums;
+}
+
+.snack-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.snack-shuffle {
+  font-size: 13px;
+  padding: 10px 16px;
+  gap: 7px;
+  color: var(--ink-3);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+}
+
+.snack-shuffle:hover {
+  color: var(--ink);
+  border-color: var(--ink-2);
+}
+
+.snack-shuffle .btn-icon {
+  width: 15px;
+  height: 15px;
 }
 
 /* Snack grid — 2 cols of horizontal cards on desktop, 1 col on mobile */
@@ -1883,6 +1909,40 @@ button {
   font-variant-numeric: tabular-nums;
 }
 
+/* Collapsible section toggle */
+.collapsible-section {
+  margin-top: 32px;
+}
+.collapsible-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 10px 0 10px;
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink-1);
+  text-align: left;
+}
+.collapsible-toggle:hover { color: var(--primary); }
+.collapsible-toggle-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.collapsible-chev {
+  display: flex;
+  align-items: center;
+  transition: transform 0.18s ease;
+  color: var(--ink-3);
+}
+.collapsible-chev.is-open { transform: rotate(180deg); }
+
 /* Aisle group */
 .aisle {
   margin-top: 36px;
@@ -2242,7 +2302,40 @@ button {
     gap: 10px;
   }
   .step2 {
-    padding: 32px 18px 80px;
+    padding: 28px 16px 80px;
+  }
+  .menu-title {
+    font-size: 36px;
+  }
+  .menu-head {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+  }
+  .menu-summary {
+    gap: 16px;
+  }
+  .snack-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .snack {
+    grid-template-columns: 90px 1fr;
+  }
+  .snack-img {
+    min-height: 110px;
+  }
+  .snack .snack-remove {
+    opacity: 1 !important;
+  }
+  .step-foot {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .step-foot-meta {
+    order: -1;
+    width: 100%;
+    font-size: 11px;
   }
   .tile-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -161,7 +161,7 @@ function SnackCard({ dish, brief, onSwap, onRemove, onRecipe, showImagery }) {
             </svg>
             {dish.time} min
           </span>
-          <span className="snack-meta-item">nakład {dish.effort + 1}/5</span>
+          <span className="snack-meta-item">nakład {dish.effort + 1}/3</span>
           {dish.allergens?.length > 0 && (
             <span className="snack-meta-item dim" title={`Zawiera: ${dish.allergens.join(", ")}`}>
               zawiera {dish.allergens.slice(0, 2).join(", ")}{dish.allergens.length > 2 ? "…" : ""}
@@ -284,7 +284,7 @@ function SwapModal({ open, mode, currentDish, menu, allDishes, brief, showImager
                       <span>·</span>
                       <span>{d.time} min</span>
                       <span>·</span>
-                      <span>nakład {d.effort + 1}/5</span>
+                      <span>nakład {d.effort + 1}/3</span>
                     </div>
                   </div>
                 </button>
@@ -335,6 +335,15 @@ export default function StepSuggestions({ brief, allDishes, menu, setMenu, showI
   };
 
   const removeAt = (index) => setMenu(menu.filter((_, i) => i !== index));
+
+  const shuffleMenu = () => {
+    const pool = [...allDishes];
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    setMenu(pool.slice(0, menu.length));
+  };
 
   const totalPP = menu.reduce((sum, d) => sum + (d?.costPP || 0), 0);
   const totalAll = totalPP * brief.guests;
@@ -414,6 +423,15 @@ export default function StepSuggestions({ brief, allDishes, menu, setMenu, showI
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="snack-toolbar">
+        <button className="btn btn-ghost snack-shuffle" onClick={shuffleMenu} title="Losuj nowe menu">
+          <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M16 3h5v5M4 20l16-16M21 16v5h-5M15 15l6 6M4 4l5 5" />
+          </svg>
+          Losuj menu
+        </button>
       </div>
 
       <div className="snack-grid">
