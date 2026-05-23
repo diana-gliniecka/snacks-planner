@@ -4,8 +4,8 @@ const BASE = "/api";
 function briefToInput(brief) {
   const venueMap = { grill: "grill", mieszkanie: "wnetrze", "ogród": "ogrod", koktajl: "koktajl" };
   const dietMap  = { miesna: "miesne", weg: "wegetarianskie", "wegańska": "weganskie", rybna: "rybne" };
-  // effort 0-4 → backend 1-3
-  const effortMap = [1, 1, 2, 2, 3];
+  // effort 0-2 → backend 1-3
+  const effortMap = [1, 2, 3];
 
   return {
     guests: brief.guests,
@@ -50,6 +50,12 @@ function toDish(r) {
     tag: r.diet_tags.split(",")[0],
     isUniversal: r.is_universal,
   };
+}
+
+export async function getRecipeDetail(id) {
+  const res = await fetch(`${BASE}/recipe/${Number(id)}`);
+  if (!res.ok) throw new Error("Nie udało się pobrać przepisu.");
+  return res.json();
 }
 
 export async function getSuggestions(brief) {

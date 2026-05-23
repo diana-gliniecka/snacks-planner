@@ -17,11 +17,9 @@ const DIETS = [
 
 
 const EFFORT_TIERS = [
-  { value: 0, label: "Bardzo łatwe", sub: "< 20 min" },
-  { value: 1, label: "Łatwe",        sub: "20–40 min" },
-  { value: 2, label: "Średnie",      sub: "40–60 min" },
-  { value: 3, label: "Wymagające",   sub: "1–2 h" },
-  { value: 4, label: "Mistrzowskie", sub: "2 h+" },
+  { value: 0, label: "Łatwe",   sub: "do 30 min" },
+  { value: 1, label: "Średnie", sub: "30–60 min" },
+  { value: 2, label: "Trudne",  sub: "ponad 1 h" },
 ];
 
 const BUDGET_TIERS = [
@@ -31,7 +29,7 @@ const BUDGET_TIERS = [
   { value: 40, label: "Premium",       tag: "fine dining", sub: "do 40 zł / os." },
 ];
 
-const EFFORT_LABELS = ["Bardzo łatwe","Łatwe","Średnie","Wymagające","Mistrzowskie"];
+const EFFORT_LABELS = ["Łatwe", "Średnie", "Trudne"];
 
 function guestsWord(n) {
   if (n === 1) return "gość";
