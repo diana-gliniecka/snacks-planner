@@ -16,6 +16,13 @@ function briefToInput(brief) {
   };
 }
 
+function guessTime(name, effortLevel) {
+  const n = name.toLowerCase();
+  if (/cezar|caesar/.test(n)) return 15;
+  if (/skrzydełk/.test(n)) return 60;
+  return (effortLevel ?? 1) * 20;
+}
+
 // Guess a visual category from the recipe name (backend has no category field)
 function guessCategory(name) {
   const n = name.toLowerCase();
@@ -43,7 +50,7 @@ function toDish(r) {
     diet: tags,
     allergens: [],
     effort: Math.max(0, (r.effort_level ?? 1) - 1),
-    time: (r.effort_level ?? 1) * 20,
+    time: guessTime(r.name, r.effort_level),
     costPP: r.cost_per_person,
     scaledCost: r.scaled_cost,
     emoji: "🍽️",
@@ -139,8 +146,15 @@ export async function getShoppingList(recipeIds, guests, numDishes, hungry) {
 function formatQty(item) {
   if (item.display_note) return item.display_note;
   if (item.total_quantity == null) return "";
-  const qty = Number.isInteger(item.total_quantity)
-    ? item.total_quantity
-    : parseFloat(item.total_quantity.toFixed(1));
+  let qty;
+  if (item.unit === "szt") {
+    qty = Math.ceil(item.total_quantity);
+  } else if (item.unit === "g") {
+    qty = Math.ceil(item.total_quantity / 10) * 10;
+  } else {
+    qty = Number.isInteger(item.total_quantity)
+      ? item.total_quantity
+      : parseFloat(item.total_quantity.toFixed(1));
+  }
   return item.unit ? `${qty} ${item.unit}` : String(qty);
 }
