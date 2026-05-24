@@ -27,7 +27,12 @@ def on_startup():
     init_db()
     db = SessionLocal()
     try:
-        if db.query(Recipe).count() == 0:
+        needs_seed = db.query(Recipe).count() == 0
+        # If schema was just migrated (column freshly added), all rows have prep_time_minutes=0
+        # — re-seed to populate real values.
+        if not needs_seed and db.query(Recipe).filter(Recipe.prep_time_minutes == 0).count() == db.query(Recipe).count():
+            needs_seed = True
+        if needs_seed:
             from seed import seed
             seed()
     finally:
