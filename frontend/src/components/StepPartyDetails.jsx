@@ -1,35 +1,26 @@
 import { useState } from "react";
 import { getSuggestions } from "../api.js";
 
-const VENUES = [
-  { id: "grill",     label: "Grill",         tag: "outdoor · ogień" },
-  { id: "mieszkanie",label: "W mieszkaniu",   tag: "indoor · klasyk" },
-  { id: "ogród",     label: "W ogrodzie",     tag: "outdoor · lato" },
-  { id: "koktajl",   label: "Koktajl",        tag: "na stojąco" },
-];
-
 const DIETS = [
-  { id: "miesna",    label: "Mięsna" },
-  { id: "weg",       label: "Wegetariańska" },
-  { id: "wegańska",  label: "Wegańska" },
-  { id: "rybna",     label: "Pescetariańska" },
+  { id: "mieszana", label: "Wszystko",  sub: "Mięso, ryby, warzywa - żadnych wykluczeń." },
+  { id: "weg",      label: "Bez mięsa", sub: "Wegetariańskie przekąski - mogą zawierać nabiał i jaja." },
+  { id: "wegańska", label: "Wegańskie", sub: "Wyłącznie roślinne - bez produktów odzwierzęcych." },
 ];
-
 
 const EFFORT_TIERS = [
-  { value: 0, label: "Łatwe",   sub: "do 30 min" },
-  { value: 1, label: "Średnie", sub: "30–60 min" },
-  { value: 2, label: "Trudne",  sub: "ponad 1 h" },
+  { value: 0, label: "do 1h",      sub: "szybkie przekąski, głównie składanie" },
+  { value: 1, label: "1h–2h",      sub: "kilka dań z krótkim gotowaniem" },
+  { value: 2, label: "powyżej 2h", sub: "czasochłonne przepisy w menu" },
 ];
 
 const BUDGET_TIERS = [
-  { value: 10, label: "Studencko",     tag: "kameralnie",  sub: "do 10 zł / os." },
-  { value: 20, label: "Budżetowo",     tag: "wygodnie",    sub: "do 20 zł / os." },
-  { value: 30, label: "Klasa średnia", tag: "z rozmachem", sub: "do 30 zł / os." },
-  { value: 40, label: "Premium",       tag: "fine dining", sub: "do 40 zł / os." },
+  { value: 20, label: "Studencko",     tag: "kameralnie",  sub: "do 20 zł / os." },
+  { value: 40, label: "Budżetowo",     tag: "wygodnie",    sub: "do 40 zł / os." },
+  { value: 60, label: "Klasa średnia", tag: "z rozmachem", sub: "do 60 zł / os." },
+  { value: 80, label: "Premium",       tag: "fine dining", sub: "do 80 zł / os." },
 ];
 
-const EFFORT_LABELS = ["Łatwe", "Średnie", "Trudne"];
+const EFFORT_LABELS = ["do 1h", "1h–2h", "powyżej 2h"];
 
 function guestsWord(n) {
   if (n === 1) return "gość";
@@ -40,35 +31,16 @@ function guestsWord(n) {
   return "gości";
 }
 
-function venueLabel(v) {
-  const map = { grill:"grill party", mieszkanie:"w domu", "ogród":"w ogrodzie", koktajl:"koktajl" };
-  return v ? map[v] : "wybierz miejsce";
+function dietCenterLabel(d) {
+  const map = { mieszana: "dla wszystkich", weg: "bez mięsa", "wegańska": "weganie" };
+  return d ? map[d] : "wybierz dietę";
 }
 
-function VenueIcon({ id }) {
-  const props = { width:28, height:28, viewBox:"0 0 24 24", fill:"none", stroke:"currentColor", strokeWidth:1.4, strokeLinecap:"round", strokeLinejoin:"round" };
-  if (id === "grill") return (
-    <svg {...props}>
-      <path d="M5 9h14l-1.5 7.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5L5 9Z" />
-      <path d="M8 4c0 1-1 1.5-1 2.5S8 8 8 9" /><path d="M12 4c0 1-1 1.5-1 2.5s1 1.5 1 2.5" /><path d="M16 4c0 1-1 1.5-1 2.5s1 1.5 1 2.5" />
-    </svg>);
-  if (id === "mieszkanie") return (
-    <svg {...props}>
-      <path d="M4 11 12 4l8 7" /><path d="M6 10v9h12v-9" /><path d="M10 19v-5h4v5" />
-    </svg>);
-  if (id === "ogród") return (
-    <svg {...props}>
-      <path d="M12 17c-2 0-5-1-5-4 0-2 2-3 2-3s-1-3 1-4c1-.5 2 0 2 0s1-.5 2 0c2 1 1 4 1 4s2 1 2 3c0 3-3 4-5 4Z" />
-      <path d="M12 17v5" />
-    </svg>);
-  if (id === "koktajl") return (
-    <svg {...props}>
-      <path d="M5 5h14l-7 9v6" /><path d="M9 20h6" /><path d="M8 8h8" />
-    </svg>);
-  return null;
+function DietTileLabel({ id }) {
+  return <>{DIETS.find((d) => d.id === id)?.label ?? id}</>;
 }
 
-function TablePreview({ guests, venue }) {
+function TablePreview({ guests, diet }) {
   const MAX_SEATS = 12;
   const visibleSeats = Math.min(guests, MAX_SEATS);
   const overflow = Math.max(0, guests - MAX_SEATS);
@@ -83,7 +55,7 @@ function TablePreview({ guests, venue }) {
         <circle className="table-ring" cx="120" cy="120" r="92" />
         <circle className="table-plate" cx="120" cy="120" r="58" />
         <text className="table-center" x="120" y="118">
-          {guests > 0 ? venueLabel(venue) : "czeka na gości"}
+          {guests > 0 ? dietCenterLabel(diet) : "czeka na gości"}
         </text>
         <text className="table-center" x="120" y="134"
           style={{ fontSize:12, fontStyle:"normal", fontFamily:"var(--font-mono)", letterSpacing:"0.1em", textTransform:"uppercase" }}>
@@ -108,7 +80,20 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
   const [error, setError] = useState("");
 
   const totalBudget = brief.guests && brief.budgetPP ? brief.guests * brief.budgetPP : 0;
-  const canProceed = brief.guests > 0 && brief.venue && brief.diet && brief.budgetPP > 0;
+  const canProceed = brief.guests > 0 && brief.diet && brief.budgetPP > 0;
+
+  const currentDietIdx = DIETS.findIndex((d) => d.id === brief.diet);
+
+  function handleDietKeyDown(e) {
+    const len = DIETS.length;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      setBrief({ ...brief, diet: DIETS[(currentDietIdx + 1) % len].id });
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      setBrief({ ...brief, diet: DIETS[(currentDietIdx - 1 + len) % len].id });
+    }
+  }
 
   async function handleSubmit() {
     setError("");
@@ -136,7 +121,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
             Powiedz nam kto, gdzie i ile — zaproponujemy menu przekąsek specjalnie dla Ciebie.
           </p>
         </div>
-        <TablePreview guests={brief.guests} venue={brief.venue} />
+        <TablePreview guests={brief.guests} diet={brief.diet} />
       </aside>
 
       {/* Stats strip */}
@@ -159,10 +144,10 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
           </div>
         </div>
         <div className="brief-stat">
-          <div className="brief-stat-label">Charakter</div>
-          <div className={`brief-stat-val${!brief.venue ? " dim" : ""}`}
-            style={{ fontStyle: !brief.venue ? "italic" : "normal", fontSize: 22 }}>
-            {brief.venue ? VENUES.find((v) => v.id === brief.venue)?.label : "—"}
+          <div className="brief-stat-label">Dieta</div>
+          <div className={`brief-stat-val${!brief.diet ? " dim" : ""}`}
+            style={{ fontStyle: !brief.diet ? "italic" : "normal", fontSize: 22 }}>
+            {brief.diet ? DIETS.find((d) => d.id === brief.diet)?.label : "—"}
           </div>
         </div>
       </div>
@@ -175,7 +160,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Ilu gości?</div>
-              <div className="form-step-num">01 / 06</div>
+              <div className="form-step-num">01 / 05</div>
             </div>
             <div className="guests">
               <button className="guests-btn" onClick={() => setBrief({ ...brief, guests: Math.max(1, brief.guests - 1) })} aria-label="mniej">−</button>
@@ -186,47 +171,49 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
             </div>
           </div>
 
-          {/* 02 Venue */}
+          {/* 02 Co jecie? */}
           <div className="form-section">
             <div className="form-section-head">
-              <div className="form-label">Gdzie świętujemy?</div>
-              <div className="form-step-num">02 / 06</div>
+              <div className="form-label">Co jecie?</div>
+              <div className="form-step-num">02 / 05</div>
             </div>
-            <div className="tile-grid">
-              {VENUES.map((v) => (
-                <button key={v.id} className="tile" aria-pressed={brief.venue === v.id}
-                  onClick={() => setBrief({ ...brief, venue: v.id })}>
-                  <span className="tile-icon"><VenueIcon id={v.id} /></span>
-                  <span>
-                    <span className="tile-name">{v.label}</span><br />
-                    <span className="tile-sub">{v.tag}</span>
+            <p className="form-help">Dopasujemy menu do tego, co lubicie - wybierz jedną opcję.</p>
+            <div
+              className="diet-tile-grid"
+              role="radiogroup"
+              aria-label="Preferencje żywieniowe"
+              onKeyDown={handleDietKeyDown}
+            >
+              {DIETS.map((d, i) => (
+                <button
+                  key={d.id}
+                  className="diet-tile"
+                  role="radio"
+                  aria-checked={brief.diet === d.id}
+                  aria-pressed={brief.diet === d.id}
+                  tabIndex={brief.diet === d.id || (!brief.diet && i === 0) ? 0 : -1}
+                  onClick={() => setBrief({ ...brief, diet: d.id })}
+                >
+                  <span className="diet-tile-marker">
+                    <span className="diet-tile-dot" />
+                    <span className="diet-tile-ordinal">0{i + 1}</span>
+                  </span>
+                  <span className="diet-tile-body">
+                    <span className="diet-tile-name">
+                      <DietTileLabel id={d.id} />
+                    </span>
+                    <span className="diet-tile-sub">{d.sub}</span>
                   </span>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* 03 Diet */}
-          <div className="form-section">
-            <div className="form-section-head">
-              <div className="form-label">Preferencje żywieniowe</div>
-              <div className="form-step-num">03 / 06</div>
-            </div>
-            <div className="chip-row">
-              {DIETS.map((d) => (
-                <button key={d.id} className="chip" aria-pressed={brief.diet === d.id}
-                  onClick={() => setBrief({ ...brief, diet: d.id })}>
-                  <span className="chip-dot" />{d.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 04 Hungry */}
+          {/* 03 Hungry */}
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Apetyt gości</div>
-              <div className="form-step-num">04 / 06</div>
+              <div className="form-step-num">03 / 05</div>
             </div>
             <div className="chip-row">
               <button className="chip" aria-pressed={!brief.hungry}
@@ -240,12 +227,13 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
             </div>
           </div>
 
-          {/* 05 Effort */}
+          {/* 04 Effort */}
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Jak bardzo chcesz się napracować?</div>
-              <div className="form-step-num">05 / 06</div>
+              <div className="form-step-num">04 / 05</div>
             </div>
+            <p className="form-help">Czas całkowity spędzony na przygotowaniach</p>
             <div className="effort-tiles">
               {EFFORT_TIERS.map((t) => (
                 <button key={t.value} className="effort-tile" aria-pressed={brief.effort === t.value}
@@ -264,7 +252,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
           <div className="form-section">
             <div className="form-section-head">
               <div className="form-label">Budżet na osobę</div>
-              <div className="form-step-num">06 / 06</div>
+              <div className="form-step-num">05 / 05</div>
             </div>
             <div className="budget-tiles">
               {BUDGET_TIERS.map((t) => (

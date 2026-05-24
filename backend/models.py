@@ -14,6 +14,7 @@ class Recipe(Base):
     party_types = Column(Text, nullable=False)
     diet_tags = Column(Text, nullable=False)
     effort_level = Column(Integer, nullable=False)
+    prep_time_minutes = Column(Integer, nullable=False, default=0)
     cost_per_person = Column(Float, nullable=False)
     base_servings = Column(Integer, nullable=False)
     notes = Column(Text)
