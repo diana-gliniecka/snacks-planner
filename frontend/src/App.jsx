@@ -102,9 +102,9 @@ export default function App() {
             setAllDishes(dishes);
             let initial;
             if (brief.diet === "mieszana") {
-              const meat = dishes.filter((d) => !d.isUniversal);
+              const meatOrFish = dishes.filter((d) => !d.isUniversal && (d.diet.includes("mięsna") || d.diet.includes("rybna")));
               const universal = dishes.filter((d) => d.isUniversal);
-              initial = [...meat.slice(0, 5), ...universal.slice(0, 1)].slice(0, 6);
+              initial = [...meatOrFish.slice(0, 5), ...universal.slice(0, 1)].slice(0, 6);
             } else {
               initial = dishes.slice(0, 6);
             }
