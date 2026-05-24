@@ -21,7 +21,7 @@ function Topbar({ step, setStep, canVisit }) {
   return (
     <header className="topbar">
       <div className="brand">
-        <span className="brand-mark"><em>Planer</em> Imprezy</span>
+        <span className="brand-mark"><em>Snacks</em> Planner</span>
         <span className="brand-tag">v1 · próba kuchni</span>
       </div>
       <nav className="stepper" aria-label="Postęp">
@@ -52,12 +52,11 @@ export default function App() {
     setTweaksState((prev) => ({ ...prev, [key]: val }));
   }, []);
 
-  const [step, setStep] = useState(1);
+  const [step, setStepRaw] = useState(1);
+  const setStep = (n) => { setStepRaw(n); window.scrollTo({ top: 0, behavior: "instant" }); };
   const [brief, setBrief] = useState({
     guests: 0,
-    venue: "",
-    diet: "",
-    allergens: [],
+    diet: "mieszana",
     effort: null,
     budgetPP: 0,
     hungry: false,
@@ -78,7 +77,7 @@ export default function App() {
   // Demo fill
   useEffect(() => {
     if (!tweaks._demo) return;
-    setBrief({ guests: 24, venue: "ogród", diet: "miesna", allergens: [], effort: 3, budgetPP: 40, hungry: false });
+    setBrief({ guests: 24, diet: "mieszana", effort: 2, budgetPP: 40, hungry: false });
     setAllDishes(null);
     setMenu(null);
     setStep(1);
@@ -87,7 +86,7 @@ export default function App() {
 
   const canVisit = (n) => {
     if (n === 1) return true;
-    if (n === 2) return brief.guests > 0 && brief.venue && brief.diet && brief.budgetPP > 0;
+    if (n === 2) return brief.guests > 0 && brief.diet && brief.budgetPP > 0;
     if (n === 3) return menu && menu.length > 0;
     return false;
   };
@@ -103,7 +102,7 @@ export default function App() {
           onNext={(dishes) => {
             setAllDishes(dishes);
             let initial;
-            if (brief.diet === "miesna") {
+            if (brief.diet === "mieszana") {
               const meat = dishes.filter((d) => !d.isUniversal);
               const universal = dishes.filter((d) => d.isUniversal);
               initial = [...meat.slice(0, 5), ...universal.slice(0, 1)].slice(0, 6);

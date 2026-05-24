@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class PartyInput(BaseModel):
     guests: int
-    party_type: str
+    party_type: str | None = None
     diet: str
     effort_level: int
     budget_per_person: float
@@ -14,6 +14,7 @@ class RecipeSuggestion(BaseModel):
     name: str
     diet_tags: str
     effort_level: int
+    prep_time_minutes: int
     cost_per_person: float
     scaled_cost: float
     is_universal: bool

@@ -2,25 +2,15 @@ const BASE = "/api";
 
 // Map design-form brief → backend PartyInput
 function briefToInput(brief) {
-  const venueMap = { grill: "grill", mieszkanie: "wnetrze", "ogród": "ogrod", koktajl: "koktajl" };
-  const dietMap  = { miesna: "miesne", weg: "wegetarianskie", "wegańska": "weganskie", rybna: "rybne" };
-  // effort 0-2 → backend 1-3
+  const dietMap = { mieszana: "mieszane", weg: "wegetarianskie", "wegańska": "weganskie" };
   const effortMap = [1, 2, 3];
 
   return {
     guests: brief.guests,
-    party_type: venueMap[brief.venue] ?? "grill",
     diet: dietMap[brief.diet] ?? "mieszane",
     effort_level: effortMap[brief.effort ?? 2],
     budget_per_person: brief.budgetPP,
   };
-}
-
-function guessTime(name, effortLevel) {
-  const n = name.toLowerCase();
-  if (/cezar|caesar/.test(n)) return 15;
-  if (/skrzydełk/.test(n)) return 60;
-  return (effortLevel ?? 1) * 20;
 }
 
 // Guess a visual category from the recipe name (backend has no category field)
@@ -50,7 +40,7 @@ function toDish(r) {
     diet: tags,
     allergens: [],
     effort: Math.max(0, (r.effort_level ?? 1) - 1),
-    time: guessTime(r.name, r.effort_level),
+    time: r.prep_time_minutes ?? 0,
     costPP: r.cost_per_person,
     scaledCost: r.scaled_cost,
     emoji: "🍽️",
@@ -59,8 +49,11 @@ function toDish(r) {
   };
 }
 
-export async function getRecipeDetail(id) {
-  const res = await fetch(`${BASE}/recipe/${Number(id)}`);
+export async function getRecipeDetail(id, guests) {
+  const url = guests
+    ? `${BASE}/recipe/${Number(id)}?guests=${Number(guests)}`
+    : `${BASE}/recipe/${Number(id)}`;
+  const res = await fetch(url);
   if (!res.ok) throw new Error("Nie udało się pobrać przepisu.");
   return res.json();
 }

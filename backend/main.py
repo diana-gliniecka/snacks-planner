@@ -58,10 +58,11 @@ def get_all_recipes(db: Session = Depends(get_db)):
 
 
 @router.get("/recipe/{recipe_id}")
-def get_recipe_detail(recipe_id: int, db: Session = Depends(get_db)):
+def get_recipe_detail(recipe_id: int, guests: int | None = None, db: Session = Depends(get_db)):
     r = db.query(Recipe).filter(Recipe.id == recipe_id).first()
     if not r:
         raise HTTPException(status_code=404, detail="Przepis nie znaleziony")
+    scale = (guests / r.base_servings) if guests and r.base_servings else 1.0
     ingredients = []
     for ri in r.recipe_ingredients:
         ing = ri.ingredient
@@ -71,9 +72,14 @@ def get_recipe_detail(recipe_id: int, db: Session = Depends(get_db)):
             qty_str = ri.display_note or "wg potrzeb"
         else:
             if ri.quantity is not None:
-                q = float(ri.quantity)
-                qty = int(q) if q == int(q) else round(q, 2)
-                qty_str = f"{qty} {ri.unit}" if ri.unit else str(qty)
+                raw = float(ri.quantity) * scale
+                if ri.unit == "szt":
+                    q = max(1, round(raw))
+                elif ri.unit == "g":
+                    q = int(round(raw / 10.0) * 10)
+                else:
+                    q = int(raw) if raw == int(raw) else round(raw, 1)
+                qty_str = f"{q} {ri.unit}" if ri.unit else str(q)
                 if ri.display_note:
                     qty_str += f" ({ri.display_note})"
             else:
@@ -101,7 +107,8 @@ def get_recipe_detail(recipe_id: int, db: Session = Depends(get_db)):
 def suggest_recipes(body: PartyInput, db: Session = Depends(get_db)):
     recipes = db.query(Recipe).all()
 
-    recipes = [r for r in recipes if body.party_type in r.party_types.split(",")]
+    if body.party_type:
+        recipes = [r for r in recipes if body.party_type in r.party_types.split(",")]
 
     diet = body.diet
     if diet == "miesne":
@@ -123,11 +130,18 @@ def suggest_recipes(body: PartyInput, db: Session = Depends(get_db)):
             return bool(tags & allowed)
         recipes = [r for r in recipes if passes_diet(r)]
 
-    recipes = [r for r in recipes if r.effort_level <= body.effort_level]
-    recipes = [r for r in recipes if r.cost_per_person <= body.budget_per_person]
+    # effort_level 1 → max 10 min/danie (6 dań × 10 = 60 min = "do 1h")
+    # effort_level 2 → max 20 min/danie (6 × 20 = 120 min = "do 2h")
+    # effort_level 3 → brak limitu
+    _time_limit = {1: 10, 2: 20, 3: None}.get(body.effort_level)
+    if _time_limit is not None:
+        recipes = [r for r in recipes if r.prep_time_minutes <= _time_limit]
+    per_dish_budget = body.budget_per_person / 6
+    recipes = [r for r in recipes if r.cost_per_person <= per_dish_budget]
 
     # Deduplicate by group_name — keep the variant that best matches the requested diet
     diet_priority = {
+        "mieszane":       ["miesne", "rybne", "wegetarianskie", "weganskie"],
         "miesne":         ["miesne", "rybne", "wegetarianskie", "weganskie"],
         "wegetarianskie": ["wegetarianskie", "weganskie"],
         "weganskie":      ["weganskie"],
@@ -154,6 +168,7 @@ def suggest_recipes(body: PartyInput, db: Session = Depends(get_db)):
             name=r.name,
             diet_tags=r.diet_tags,
             effort_level=r.effort_level,
+            prep_time_minutes=r.prep_time_minutes,
             cost_per_person=r.cost_per_person,
             scaled_cost=round(r.cost_per_person * body.guests, 2),
             is_universal=r.is_universal,

@@ -1,6 +1,45 @@
 import { useState, useEffect, useMemo } from "react";
 import { getShoppingList, getRecipeDetail } from "../api.js";
 
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false);
+
+  async function handleClick(e) {
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch {}
+  }
+
+  return (
+    <button
+      className={`copy-btn${copied ? " copied" : ""}`}
+      onClick={handleClick}
+      type="button"
+      aria-label={copied ? "Skopiowano" : "Kopiuj do schowka"}
+    >
+      {copied ? (
+        <>
+          <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 7.2 5.8 10 11 4.2" />
+          </svg>
+          Skopiowano
+        </>
+      ) : (
+        <>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          Kopiuj
+        </>
+      )}
+    </button>
+  );
+}
+
 function RecipeAccordion({ dish, detail, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
 
@@ -83,6 +122,17 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
   const [shopOpen, setShopOpen] = useState(true);
   const [recipesOpen, setRecipesOpen] = useState(false);
 
+  // Expand all sections before printing (handles Ctrl+P as well as the button)
+  useEffect(() => {
+    function onBeforePrint() {
+      setShopOpen(true);
+      setRecipesOpen(true);
+      setAllOpen(true);
+    }
+    window.addEventListener("beforeprint", onBeforePrint);
+    return () => window.removeEventListener("beforeprint", onBeforePrint);
+  }, []);
+
   useEffect(() => {
     const ids = menu.map((d) => d.id);
     setLoading(true);
@@ -95,7 +145,7 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
   useEffect(() => {
     Promise.all(
       menu.map((d) =>
-        getRecipeDetail(d.id)
+        getRecipeDetail(d.id, brief.guests)
           .then((detail) => ({ id: d.id, detail }))
           .catch(() => ({ id: d.id, detail: null }))
       )
@@ -104,7 +154,7 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
       results.forEach(({ id, detail }) => { map[id] = detail; });
       setRecipeDetails(map);
     });
-  }, [menu]);
+  }, [menu, brief.guests]);
 
   const allItems = useMemo(
     () => aisles.flatMap((a) => a.items.map((item, idx) => ({ ...item, key: `${a.id}-${item.name}-${idx}` }))),
@@ -114,6 +164,11 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
   const totalCost = useMemo(
     () => menu.reduce((sum, d) => sum + d.costPP * brief.guests, 0),
     [menu, brief.guests]
+  );
+
+  const totalTime = useMemo(
+    () => menu.reduce((sum, d) => sum + (d.time ?? 0), 0),
+    [menu]
   );
 
   const checkedCount = Object.values(checked).filter(Boolean).length;
@@ -130,26 +185,77 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
     total: d.costPP * brief.guests,
   }));
 
-  async function handleCopy() {
-    const lines = [`Lista zakupów dla ${brief.guests} ${guestsWord(brief.guests)}`];
+  const shopCopyText = useMemo(() => {
+    const lines = [
+      `Lista zakupów · ${brief.guests} ${guestsWord(brief.guests)}`,
+      `Suma: ${totalCost.toFixed(0)} zł`,
+      "— — —",
+      "",
+    ];
     for (const aisle of aisles) {
-      lines.push("", aisle.name.toUpperCase());
+      lines.push(aisle.name.toUpperCase());
       for (const item of aisle.items) {
-        lines.push(item.qty ? `- ${item.name}: ${item.qty}` : `- ${item.name}`);
+        lines.push(item.qty ? `  •  ${item.name} — ${item.qty}` : `  •  ${item.name}`);
       }
+      lines.push("");
     }
-    try {
-      await navigator.clipboard.writeText(lines.join("\n"));
-    } catch {}
+    return lines.join("\n");
+  }, [aisles, brief.guests, totalCost]);
+
+  const recipesCopyText = useMemo(() => {
+    const lines = [
+      `Przepisy · ${brief.guests} ${guestsWord(brief.guests)}`,
+      "— — —",
+    ];
+    for (const d of menu) {
+      const detail = recipeDetails[d.id];
+      lines.push("", `${d.name.toUpperCase()}  ·  ${d.category}  ·  ${d.time} min`);
+      if (detail?.ingredients?.length) {
+        lines.push("", "Składniki:");
+        for (const ing of detail.ingredients) {
+          lines.push(`  •  ${ing.name} — ${ing.qty}`);
+        }
+      }
+      if (detail?.steps?.length) {
+        lines.push("", "Przygotowanie:");
+        detail.steps.forEach((step, i) => {
+          lines.push(`  ${i + 1}. ${step}`);
+        });
+      }
+      if (detail?.notes) {
+        lines.push("", `Wskazówka szefa: ${detail.notes}`);
+      }
+      lines.push("", "— — — — — —");
+    }
+    return lines.join("\n");
+  }, [menu, recipeDetails, brief.guests]);
+
+  function handlePrint() {
+    setShopOpen(true);
+    setRecipesOpen(true);
+    setAllOpen(true);
+    setTimeout(() => window.print(), 60);
   }
 
   return (
     <div className="step3">
       <main className="shop-main">
+
+        {/* 1. Back button — top-left, outside padded content */}
+        <button className="shop-back" onClick={onBack}>
+          <span className="shop-back-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M11 6l-6 6 6 6" />
+            </svg>
+          </span>
+          Wróć do menu
+        </button>
+
+        {/* 2 + 3 + 4. Eyebrow, title, progress */}
         <div className="shop-head">
           <div className="brief-eyebrow">Krok 03 z 03 · {brief.guests} {guestsWord(brief.guests)}</div>
-          <div className="recipes-section-eyebrow" style={{ marginTop: 12 }}>Wszystkie składniki zostały zaokrąglone w górę do pełnych wartości</div>
-          <h1 className="recipes-section-title">Lista <em>zakupów</em></h1>
+          <div className="shop-eyebrow-sub">Wszystkie składniki zostały zaokrąglone w górę do pełnych wartości</div>
+          <h1 className="shop-title">Lista <em>zakupów</em></h1>
           {!loading && !error && (
             <div className="shop-progress">
               <div className="shop-progress-bar">
@@ -167,70 +273,99 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
           <p style={{ color: "var(--accent)", fontFamily: "var(--font-mono)", fontSize: 12 }}>{error}</p>
         )}
 
+        {/* 5a. Mega-section: Produkty do kupienia */}
         {!loading && !error && (
-          <section className="collapsible-section">
-            <button className="collapsible-toggle" onClick={() => setShopOpen(!shopOpen)}>
-              <span className="collapsible-toggle-label">Produkty do kupienia</span>
-              <span className={`collapsible-chev${shopOpen ? " is-open" : ""}`} aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </span>
+          <section className="mega-section">
+            <button
+              className="mega-head"
+              onClick={() => setShopOpen((v) => !v)}
+            >
+              <div className="mega-head-left">
+                <span className="mega-title">Produkty do kupienia</span>
+                <span className="mega-hint">{allItems.length} pozycji · {aisles.length} kategorii</span>
+              </div>
+              <div className="mega-head-right">
+                <CopyButton text={shopCopyText} />
+                <span className={`mega-chev${shopOpen ? " is-open" : ""}`} aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </div>
             </button>
-            {shopOpen && aisles.map((aisle, ai) => (
-              <section className="aisle" key={aisle.id}>
-                <header className="aisle-head">
-                  <span className="aisle-num">{String(ai + 1).padStart(2, "0")}</span>
-                  <h2 className="aisle-name">{aisle.name}</h2>
-                  <span className="aisle-count">
-                    {aisle.items.length} {aisle.items.length === 1 ? "pozycja" : "pozycji"}
-                  </span>
-                </header>
-                {aisle.items.map((item, idx) => {
-                  const key = `${aisle.id}-${item.name}-${idx}`;
-                  const isChecked = !!checked[key];
-                  return (
-                    <div key={key} className={`item${isChecked ? " checked" : ""}`} onClick={() => toggleItem(key)}>
-                      <span className="item-check">
-                        {isChecked && (
-                          <svg width="12" height="12" viewBox="0 0 14 14">
-                            <path d="M3 7.2 5.8 10 11 4.2" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        )}
+
+            {shopOpen && (
+              <div className="mega-body">
+                {aisles.map((aisle, ai) => (
+                  <section className="aisle" key={aisle.id}>
+                    <header className="aisle-head">
+                      <span className="aisle-num">{String(ai + 1).padStart(2, "0")}</span>
+                      <h2 className="aisle-name">{aisle.name}</h2>
+                      <span className="aisle-count">
+                        {aisle.items.length} {aisle.items.length === 1 ? "pozycja" : "pozycji"}
                       </span>
-                      <span className="item-name">{item.name}</span>
-                      <span className="item-qty">{item.qty}</span>
-                    </div>
-                  );
-                })}
-              </section>
-            ))}
+                    </header>
+                    {aisle.items.map((item, idx) => {
+                      const key = `${aisle.id}-${item.name}-${idx}`;
+                      const isChecked = !!checked[key];
+                      return (
+                        <div
+                          key={key}
+                          className={`item${isChecked ? " checked" : ""}`}
+                          onClick={() => toggleItem(key)}
+                        >
+                          <span className="item-check">
+                            {isChecked && (
+                              <svg width="12" height="12" viewBox="0 0 14 14">
+                                <path d="M3 7.2 5.8 10 11 4.2" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            )}
+                          </span>
+                          <span className="item-name">{item.name}</span>
+                          <span className="item-qty">{item.qty}</span>
+                        </div>
+                      );
+                    })}
+                  </section>
+                ))}
+              </div>
+            )}
           </section>
         )}
 
+        {/* 5b. Mega-section: Przepisy krok po kroku */}
         {!loading && !error && menu.length > 0 && (
-          <section className="collapsible-section">
-            <button className="collapsible-toggle" onClick={() => setRecipesOpen(!recipesOpen)}>
-              <span className="collapsible-toggle-label">Przepisy krok po kroku</span>
-              <span className={`collapsible-chev${recipesOpen ? " is-open" : ""}`} aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </span>
+          <section className="mega-section">
+            <button
+              className="mega-head"
+              onClick={() => setRecipesOpen((v) => !v)}
+            >
+              <div className="mega-head-left">
+                <span className="mega-title">Przepisy krok po kroku</span>
+                <span className="mega-hint">
+                  {menu.length} {menu.length === 1 ? "przepis" : "przepisów"}
+                </span>
+              </div>
+              <div className="mega-head-right">
+                <CopyButton text={recipesCopyText} />
+                <span className={`mega-chev${recipesOpen ? " is-open" : ""}`} aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </div>
             </button>
+
             {recipesOpen && (
-              <>
-                <header className="recipes-section-head" style={{ marginTop: 16 }}>
-                  <div>
-                    <div className="recipes-section-eyebrow">Wybrane przez Ciebie</div>
-                  </div>
+              <div className="mega-body">
+                <div className="recipes-expand-row">
                   <button
-                    className="recipes-section-toggle"
-                    onClick={() => setAllOpen(!allOpen)}
+                    className="recipes-expand-btn"
+                    onClick={() => setAllOpen((v) => !v)}
                   >
                     {allOpen ? "Zwiń wszystkie" : "Rozwiń wszystkie"}
                   </button>
-                </header>
+                </div>
                 <div className="recipes-list">
                   {menu.map((d, i) => (
                     <RecipeAccordion
@@ -241,18 +376,20 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
                     />
                   ))}
                 </div>
-              </>
+              </div>
             )}
           </section>
         )}
 
+        {/* 6. Footer — summary + restart, no back button here */}
         <div className="step-foot">
-          <button className="btn btn-ghost" onClick={onBack}>
-            <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-              <path d="M19 12H5M11 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Wróć do menu
-          </button>
+          <div className="step-foot-meta">
+            <b>{totalCost.toFixed(0)}</b> zł łącznie
+            {" · "}
+            {overBudget
+              ? <span style={{ color: "var(--accent)" }}>{Math.abs(diff).toFixed(0)} zł ponad budżet</span>
+              : `${Math.abs(diff).toFixed(0)} zł w zapasie`}
+          </div>
           <button className="btn btn-primary" onClick={onRestart}>
             Nowa impreza
             <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -270,6 +407,11 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
         </div>
         <div className="side-per">
           {(totalCost / brief.guests).toFixed(2)} zł / osobę · {brief.guests} {guestsWord(brief.guests)}
+        </div>
+        <div className="side-per">
+          ok. {totalTime >= 60
+            ? `${Math.floor(totalTime / 60)}h ${totalTime % 60 > 0 ? `${totalTime % 60} min` : ""}`.trim()
+            : `${totalTime} min`} pracy
         </div>
 
         <div className="side-budget-row">
@@ -291,11 +433,11 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
         ))}
 
         <div className="side-actions">
-          <button className="side-btn dark" onClick={() => window.print()}>
+          <button className="side-btn dark" onClick={handlePrint}>
             <span>Drukuj / Zapisz PDF</span>
             <span className="side-btn-arrow">↗</span>
           </button>
-          <button className="side-btn" onClick={handleCopy}>
+          <button className="side-btn" onClick={async () => { try { await navigator.clipboard.writeText(shopCopyText); } catch {} }}>
             <span>Kopiuj listę zakupów</span>
             <span className="side-btn-arrow">↗</span>
           </button>

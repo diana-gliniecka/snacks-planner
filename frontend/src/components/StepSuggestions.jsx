@@ -5,7 +5,7 @@ const CATEGORIES = ["na zimno", "na ciepło", "do dzielenia", "słodkie"];
 
 function CategoryDot({ category }) {
   const colors = {
-    "na zimno":     "var(--accent)",
+    "na zimno":     "#4a7fa5",
     "na ciepło":    "#d97757",
     "do dzielenia": "var(--success)",
     "słodkie":      "var(--highlight)",
@@ -307,11 +307,11 @@ export default function StepSuggestions({ brief, allDishes, menu, setMenu, showI
     setRecipeDish(dish);
     setRecipeDetail(null);
     setRecipeLoading(true);
-    getRecipeDetail(dish.id)
+    getRecipeDetail(dish.id, brief.guests)
       .then(setRecipeDetail)
       .catch(() => setRecipeDetail(null))
       .finally(() => setRecipeLoading(false));
-  }, []);
+  }, [brief.guests]);
 
   const closeRecipe = useCallback(() => {
     setRecipeDish(null);
@@ -386,6 +386,14 @@ export default function StepSuggestions({ brief, allDishes, menu, setMenu, showI
 
   return (
     <div className="step2">
+      <button className="shop-back" onClick={onBack}>
+        <span className="shop-back-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M11 6l-6 6 6 6" />
+          </svg>
+        </span>
+        Zmień brief
+      </button>
       <div className="menu-head">
         <div>
           <div className="menu-eyebrow">
@@ -454,12 +462,6 @@ export default function StepSuggestions({ brief, allDishes, menu, setMenu, showI
       </div>
 
       <div className="step-foot">
-        <button className="btn btn-ghost" onClick={onBack}>
-          <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <path d="M19 12H5M11 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Zmień brief
-        </button>
         <span className="step-foot-meta">
           <b>{totalAll.toFixed(0)} zł</b> łącznie ·{" "}
           {overBudget

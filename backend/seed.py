@@ -162,15 +162,22 @@ def seed():
     ziemniaki       = ing("ziemniaki",                  W, "g")
     ogurek_kiszony  = ing("ogórki kiszone",              W, "g")
 
+    serek_smiet         = ing("serek śmietankowy",          N, "g")
+    camembert           = ing("ser camembert",              N, "g")
+    orzechy             = ing("orzechy włoskie",            D, "g")
+    serek_smiet_wegan   = ing("serek śmietankowy wegański", A, "g")
+    losos_wedzony       = ing("łosoś wędzony",              M, "g")
+
     db.flush()
 
     # --- Recipes ---
-    def recipe(name, party_types, diet_tags, effort, cost, servings, notes, instructions=None, group_name=None, is_universal=False):
+    def recipe(name, party_types, diet_tags, effort, cost, servings, notes, prep_time=0, instructions=None, group_name=None, is_universal=False):
         r = Recipe(
             name=name,
             party_types=party_types,
             diet_tags=diet_tags,
             effort_level=effort,
+            prep_time_minutes=prep_time,
             cost_per_person=cost,
             base_servings=servings,
             notes=notes,
@@ -194,7 +201,7 @@ def seed():
     # 1 — Sałatka Cezar z kurczakiem wegetariańskim
     r1 = recipe("Sałatka Cezar z kurczakiem wegetariańskim",
                 "wnetrze,ogrod", "wegetarianskie", 2, 6.00, 4,
-                "Sos wymieszać osobno, dodać tuż przed podaniem",
+                "Sos wymieszać osobno, dodać tuż przed podaniem", prep_time=20,
                 instructions="1. Wymieszaj majonez, musztardę, kilka kropli octu, cukier, sól i pieprz — to sos.\n2. Kurczaka wegetariańskiego podsmaż na patelni do zrumienienia.\n3. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n4. Wszystko wyłóż na talerz, polej sosem tuż przed podaniem.\n5. Na wierzch zetrzyj parmezan.",
                 group_name="Sałatka Cezar")
     ri(r1, liscie_salaty,    200,  "g",        "exact")
@@ -212,7 +219,7 @@ def seed():
     # 2 — Klasyczne burgery z grilla
     r2 = recipe("Klasyczne burgery z grilla",
                 "grill", "miesne", 2, 13.00, 1,
-                "Kotlety grillować po 4–5 minut z każdej strony",
+                "Kotlety grillować po 4–5 minut z każdej strony", prep_time=25,
                 instructions="1. Mieloną wołowinę przypraw solą i pieprzem, uformuj kotlety.\n2. Grilluj kotlety po 4–5 minut z każdej strony.\n3. Pod koniec połóż na każdym kotlecie plaster cheddara i poczekaj aż się rozpuści.\n4. Bułki lekko opiecz na grillu.\n5. Złóż burgera: bułka, sałata, pomidor, kotlet, ketchup i musztarda.",
                 group_name="Burgery")
     ri(r2, mielona_wolowina, 150, "g",        "exact")
@@ -228,10 +235,10 @@ def seed():
     # 3 — Szaszłyki caprese
     r3 = recipe("Szaszłyki caprese",
                 "grill,wnetrze,ogrod,koktajl", "wegetarianskie", 1, 4.00, 2,
-                "Nabijać na wykałaczki lub małe patyczki do szaszłyków",
+                "Nabijać na wykałaczki lub małe patyczki do szaszłyków", prep_time=15,
                 instructions="1. Mozzarellę pokrój w kostkę wielkości pomidorków.\n2. Na wykałaczkę nabij kolejno: pomidorek, listek bazylii, kostkę mozzarelli.\n3. Skrop oliwą i szczyptą soli.\n4. Tuż przed podaniem polej glazurą balsamiczną.",
                 group_name="Szaszłyki caprese",
-                is_universal=True)
+                is_universal=False)
     ri(r3, pomidorki,    6,    "szt",   "exact")
     ri(r3, mozzarella,   100,  "g",     "exact")
     ri(r3, bazylia,      6,    "szt",   "exact")
@@ -242,7 +249,7 @@ def seed():
     # 4 — Hummus z pitą i warzywami
     r4 = recipe("Hummus z warzywami",
                 "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 1, 3.00, 1,
-                "Podawać na dużym talerzu, warzywa ułożyć wokół hummusu",
+                "Podawać na dużym talerzu, warzywa ułożyć wokół hummusu", prep_time=10,
                 instructions="1. Marchewkę, ogórka i paprykę pokrój w słupki.\n2. Hummus przełóż na środek dużego talerza, skrop oliwą i posyp papryką mieloną.\n3. Ułóż warzywa wokół hummusu.",
                 group_name="Hummus z warzywami",
                 is_universal=True)
@@ -256,7 +263,7 @@ def seed():
     # 5 — Guacamole z chipsami tortilla
     r7 = recipe("Guacamole z chipsami tortilla",
                 "wnetrze,koktajl", "wegetarianskie,weganskie", 1, 3.50, 4,
-                "Przygotować tuż przed podaniem, żeby awokado nie ściemniało",
+                "Przygotować tuż przed podaniem, żeby awokado nie ściemniało", prep_time=10,
                 instructions="1. Awokado przekrój, wyjmij pestki, wydrąż łyżką miąższ do miski.\n2. Rozgnieć widelcem na w miarę gładką masę.\n3. Dodaj sok z limonki, drobno posiekaną cebulę czerwoną, kolendrę, sól i chili.\n4. Wymieszaj i od razu podawaj z chipsami tortilla.",
                 group_name="Guacamole",
                 is_universal=True)
@@ -271,7 +278,7 @@ def seed():
     # 8 — Kolby kukurydzy z grilla
     r8 = recipe("Kolby kukurydzy z grilla",
                 "grill", "wegetarianskie,weganskie", 1, 3.50, 1,
-                "Grillować 15–20 minut, obracając co kilka minut",
+                "Grillować 15–20 minut, obracając co kilka minut", prep_time=20,
                 instructions="1. Kolby kukurydzy posmaruj masłem, posól i popieprz.\n2. Grilluj na średnim ogniu 15–20 minut, obracając co kilka minut.\n3. Przed podaniem przeciąć kolbę na pół.\n4. Podawaj od razu z grilla.",
                 group_name="Kukurydza z grilla",
                 is_universal=True)
@@ -283,7 +290,7 @@ def seed():
     # 8 — Bruschetta z pomidorami
     r10 = recipe("Bruschetta z pomidorami",
                  "wnetrze,ogrod,koktajl", "wegetarianskie,weganskie", 2, 3.00, 4,
-                 "Chleb opiec tuż przed podaniem, żeby pozostał chrupiący",
+                 "Chleb opiec tuż przed podaniem, żeby pozostał chrupiący", prep_time=20,
                  instructions="1. Pomidory pokrój w kostkę.\n2. Odstaw na 5 minut i odlej nadmiar soku.\n3. Dodaj posiekane liście bazylii, czosnek przeciśnięty przez praskę, sól i pieprz do smaku.\n4. Bagietkę pokrój w skośne plastry i opiecz w tosterze lub na grillu.\n5. Skrop grzanki oliwą i nałóż mieszankę pomidorową.\n6. Na wierzch dodaj kilka listków bazylii dla ozdoby.",
                  group_name="Bruschetta",
                 is_universal=True)
@@ -297,7 +304,7 @@ def seed():
     # 9 — Sałatka Cezar wegańska
     r9 = recipe("Sałatka Cezar wegańska",
                 "wnetrze,ogrod", "weganskie", 2, 3.50, 4,
-                "Sos wymieszać osobno, dodać tuż przed podaniem",
+                "Sos wymieszać osobno, dodać tuż przed podaniem", prep_time=15,
                 instructions="1. Wymieszaj majonez wegański, musztardę, kilka kropli octu, cukier, sól i pieprz — to sos.\n2. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n3. Wszystko wyłóż na talerz, polej sosem tuż przed podaniem.",
                 group_name="Sałatka Cezar")
     ri(r9, liscie_salaty,    200,  "g",     "exact")
@@ -313,7 +320,7 @@ def seed():
     # 10 — Sałatka Cezar z kurczakiem
     r10b = recipe("Sałatka Cezar z kurczakiem",
                 "wnetrze,ogrod", "miesne", 2, 7.00, 4,
-                "Sos wymieszać osobno, dodać tuż przed podaniem",
+                "Sos wymieszać osobno, dodać tuż przed podaniem", prep_time=25,
                 instructions="1. Wymieszaj majonez, musztardę, kilka kropli octu, cukier, sół i pieprz — to sos.\n2. Pierś z kurczaka usmaż na patelni lub z grilla, pokrój w paski.\n3. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n4. Wszystko wyłóż na talerz, ułóż kurczaka, polej sosem tuż przed podaniem.\n5. Na wierzch zetrzyj parmezan.",
                 group_name="Sałatka Cezar")
     ri(r10b, liscie_salaty,    200,  "g",        "exact")
@@ -331,7 +338,7 @@ def seed():
     # 11 — Szaszłyki wegańskie z tofu
     r11 = recipe("Szaszłyki wegańskie z tofu",
                  "grill", "weganskie,wegetarianskie", 2, 2.50, 7,
-                 "Marynować minimum 1-2 godziny przed grillowaniem",
+                 "Marynować minimum 1-2 godziny przed grillowaniem", prep_time=20,
                  instructions="1. Pokrojone składniki nałóż na wykałaczki.\n2. Wymieszaj sos sojowy, musztardę, miód, olej i czosnek.\n3. Szaszłyki włóż do marynaty do lodówki na minimum 1-2h.\n4. Grilluj około 10 min.",
                  group_name="Szaszłyki warzywne")
     ri(r11, papryka,       200, "g",     "exact", "czerwona")
@@ -349,7 +356,7 @@ def seed():
     # 12 — Szaszłyki z kurczakiem z warzywami
     r12 = recipe("Szaszłyki z kurczakiem z warzywami",
                  "grill", "miesne", 2, 3.50, 7,
-                 "Marynować minimum 1-2 godziny przed grillowaniem",
+                 "Marynować minimum 1-2 godziny przed grillowaniem", prep_time=20,
                  instructions="1. Pokrojone składniki nałóż na wykałaczki.\n2. Wymieszaj sos sojowy, musztardę, miód, olej i czosnek.\n3. Szaszłyki włóż do marynaty do lodówki na minimum 1-2h.\n4. Grilluj około 10 min.",
                  group_name="Szaszłyki warzywne")
     ri(r12, papryka,        200, "g",     "exact", "czerwona")
@@ -377,7 +384,7 @@ def seed():
     # 13 — Pizzerinki z salami
     r13 = recipe("Pizzerinki z salami",
                  "wnetrze,ogrod", "miesne", 2, 2.00, 12,
-                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę", prep_time=90,
                  instructions=_pizza_base + "\n7. Nałóż 3/4 mozzarelli, ułóż salami i pieczarki, resztę mozzarelli na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
                  group_name="Pizzerinki")
     ri(r13, drozdze,       10,   "g",        "exact")
@@ -394,7 +401,7 @@ def seed():
     # 14 — Pizzerinki wegetariańskie
     r14 = recipe("Pizzerinki wegetariańskie",
                  "wnetrze,ogrod", "wegetarianskie", 2, 1.50, 12,
-                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę", prep_time=90,
                  instructions=_pizza_base + "\n7. Nałóż 3/4 mozzarelli, ułóż pieczarki, resztę mozzarelli na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
                  group_name="Pizzerinki")
     ri(r14, drozdze,       10,   "g",        "exact")
@@ -410,7 +417,7 @@ def seed():
     # 15 — Pizzerinki wegańskie
     r15 = recipe("Pizzerinki wegańskie",
                  "wnetrze,ogrod", "weganskie", 2, 2.00, 12,
-                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+                 "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę", prep_time=90,
                  instructions=_pizza_base + "\n7. Nałóż 3/4 sera wegańskiego, ułóż pieczarki, resztę sera na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
                  group_name="Pizzerinki")
     ri(r15, drozdze,       10,   "g",        "exact")
@@ -426,7 +433,7 @@ def seed():
     # 16 — Ślimaki mięsne z ciasta francuskiego
     r16 = recipe("Ślimaki mięsne z ciasta francuskiego",
                  "wnetrze,ogrod,koktajl", "miesne", 1, 1.00, 13,
-                 "Podawać gorące, prosto z piekarnika",
+                 "Podawać gorące, prosto z piekarnika", prep_time=25,
                  instructions="1. Rozwiń płat ciasta francuskiego na papierze do pieczenia.\n2. Posmaruj równomiernie przecierem pomidorowym i posyp ziołami prowansalskimi.\n3. Ułóż płasko plastry szynki, całość posyp tartą mozzarellą.\n4. Zwiń ciasto w ciasny rulon wzdłuż dłuższego boku i pokrój na plastry o grubości ok. 1,5–2 cm.\n5. Układaj płasko na blaszce i piecz w 200°C przez 15 minut, aż będą złociste.",
                  group_name="Ślimaki z ciasta francuskiego")
     ri(r16, ciasto_franc,  1,    "szt",      "exact")
@@ -438,7 +445,7 @@ def seed():
     # 17 — Ślimaki wegetariańskie ze szpinakiem i fetą
     r17 = recipe("Ślimaki wegetariańskie ze szpinakiem i fetą",
                  "wnetrze,ogrod,koktajl", "wegetarianskie", 2, 1.00, 13,
-                 "Szpinak dobrze odcisnąć — mokry sprawi, że ciasto będzie rozmoczone",
+                 "Szpinak dobrze odcisnąć — mokry sprawi, że ciasto będzie rozmoczone", prep_time=30,
                  instructions="1. Podsmaż szpinak z przeciśniętym czosnkiem i odrobiną oliwy, aż zwiędnie i odparuje z niego woda. Przestudź.\n2. Rozwiń płat ciasta francuskiego, rozłóż równomiernie podduszony szpinak.\n3. Pokrusz na wierzch ser feta oraz rozsyp tartą mozzarellę.\n4. Zwiń mocno w rulon i pokrój na kawałki ok. 1,5–2 cm.\n5. Piecz na blaszce wyłożonej papierem do pieczenia w 200°C przez 15–20 minut na złoty kolor.",
                  group_name="Ślimaki z ciasta francuskiego")
     ri(r17, ciasto_franc,  1,    "szt",      "exact")
@@ -451,7 +458,7 @@ def seed():
     # 18 — Faszerowane jajka z pastą pieczarkową
     r18 = recipe("Faszerowane jajka z pastą pieczarkową",
                  "wnetrze,ogrod,koktajl", "wegetarianskie", 2, 2.50, 4,
-                 "Pieczarki muszą być dobrze odsmażone — mokry farsz nie będzie się trzymał",
+                 "Pieczarki muszą być dobrze odsmażone — mokry farsz nie będzie się trzymał", prep_time=35,
                  instructions="1. Jajka ugotuj na twardo, ostudź, obierz, przekrój wzdłuż na pół i wyjmij żółtka.\n2. Pieczarki i cebulę posiekaj jak najdrobniej. Podsmaż na maśle lub oleju, aż całkowicie odparuje z nich woda. Przestudź.\n3. Rozgnieć żółtka widelcem, dodaj grzyby z cebulą oraz majonez. Dopraw solą, pieprzem i wymieszaj.\n4. Nakładaj farsz łyżeczką w puste miejsca po żółtkach. Przed podaniem posyp szczypiorkiem.",
                  group_name="Faszerowane jajka")
     ri(r18, jajka,       6,    "szt",   "exact")
@@ -466,7 +473,7 @@ def seed():
     # 19 — Carpaccio z buraka z płatkami drożdżowymi
     r19 = recipe("Carpaccio z buraka z płatkami drożdżowymi",
                  "wnetrze,ogrod,koktajl", "weganskie,wegetarianskie", 1, 3.50, 4,
-                 "Użyć gotowych buraków w próżni — surowe wymagają długiego gotowania",
+                 "Użyć gotowych buraków w próżni — surowe wymagają długiego gotowania", prep_time=10,
                  instructions="1. Słonecznik upraż na suchej patelni, aż lekko ściemnieje.\n2. Buraki pokrój w bardzo cienkie plastry i ułóż na dużym talerzu na zakładkę.\n3. W małym naczyniu wymieszaj oliwę z syropem i skrop buraki.\n4. Całość posyp obficie płatkami drożdżowymi oraz uprażonym słonecznikiem.",
                  group_name="Carpaccio z buraka")
     ri(r19, burak_gotowany,   400,  "g",     "exact")
@@ -479,7 +486,7 @@ def seed():
     # 20 — Melon w szynce parmeńskiej
     r20 = recipe("Melon w szynce parmeńskiej",
                  "grill,wnetrze,ogrod,koktajl", "miesne", 1, 5.00, 6,
-                 "Najlepszy schłodzony — przed podaniem wstawić do lodówki na min. 30 minut",
+                 "Najlepszy schłodzony — przed podaniem wstawić do lodówki na min. 30 minut", prep_time=10,
                  instructions="1. Melon przekrój na pół, łyżką wyjmij ze środka gniazda nasienne.\n2. Pokrój melon w łódki, odetnij skórę, a miąższ podziel na ok. 5-centymetrowe kawałki.\n3. Każdy plaster szynki przekrój wzdłuż na pół, aby powstały węższe paski.\n4. Owiń ściśle każdy kawałek melona paskiem szynki i ułóż na półmisku.",
                  group_name="Melon w szynce")
     ri(r20, melon,            1,    "szt",   "exact")
@@ -488,7 +495,7 @@ def seed():
     # 21 — Chipsy z jarmużu
     r21 = recipe("Chipsy z jarmużu",
                  "wnetrze,ogrod,koktajl", "weganskie,wegetarianskie", 1, 2.00, 4,
-                 "Piekarnik nie może być zbyt gorący — liście mają schnąć, a nie się smażyć",
+                 "Piekarnik nie może być zbyt gorący — liście mają schnąć, a nie się smażyć", prep_time=20,
                  instructions="1. Piekarnik rozgrzej do 150°C.\n2. Liście jarmużu porwij na mniejsze kawałki (odrzuć grube łodygi) i bardzo dokładnie osusz ręcznikiem.\n3. W misce wymieszaj jarmuż z oliwą, solą i czosnkiem granulowanym, dokładnie masując liście dłońmi.\n4. Rozłóż luźno na blasze z papierem i piecz przez 8–10 minut, uważając, by ich nie przypalić.",
                  group_name="Chipsy z jarmużu")
     ri(r21, jarmuz,        200,  "g",        "exact")
@@ -499,7 +506,7 @@ def seed():
     # 22 — Tatar z łososia na grzankach
     r22 = recipe("Tatar z łososia na grzankach",
                  "wnetrze,ogrod,koktajl", "rybne", 2, 4.00, 12,
-                 "Łososia kroić tuż przed podaniem — ryba szybko traci świeżość",
+                 "Łososia kroić tuż przed podaniem — ryba szybko traci świeżość", prep_time=25,
                  instructions="1. Łososia pokrój w bardzo drobną kostkę (ok. 3mm).\n2. Ogórka obierz, usuń pestki, pokrój tak samo drobno.\n3. Cebulę i kapary drobno posiekaj.\n4. Wymieszaj wszystko z sokiem z cytryny, oliwą, solą i pieprzem.\n5. Bagietkę pokrój w skośne plastry (~1cm), skrop oliwą i grilluj lub piecz w 200°C przez 5–7 min aż będą chrupiące.\n6. Przed podaniem nakładaj tatar łyżeczką na każdą grzankę, udekoruj koperkiem.",
                  group_name="Tatar z łososia")
     ri(r22, losos,          200,  "g",     "exact")
@@ -516,7 +523,7 @@ def seed():
     # 23 — Sałatka z arbuza i fety z miętą
     r23 = recipe("Sałatka z arbuza i fety z miętą",
                  "wnetrze,ogrod,koktajl", "wegetarianskie", 1, 2.50, 8,
-                 "Podawać od razu — arbuz puszcza sok i salałka traci wygląd",
+                 "Podawać od razu — arbuz puszcza sok i salałka traci wygląd", prep_time=10,
                  instructions="1. Arbuza pokrój w trójkąty lub kostki (~3cm).\n2. Fetę pokrusz lub pokrój w kostkę.\n3. Na talerzu lub w misce ułóż arbuza, posyp fetą i listkami mięty.\n4. Skrop oliwą i sokiem z limonki, posyp pieprzem.\n5. Jeśli używasz migdałów — uprażyj je chwilę na suchej patelni i posyp na wierzchu.\n6. Podawaj od razu po przygotowaniu.",
                  group_name="Sałatka z arbuza")
     ri(r23, arbuz,         800,  "g",     "exact")
@@ -530,7 +537,7 @@ def seed():
     # 24 — Grillowane halloumi z miodem i tymiankiem
     r24 = recipe("Grillowane halloumi z miodem i tymiankiem",
                  "grill,wnetrze,ogrod", "wegetarianskie", 1, 4.00, 6,
-                 "Podawać gorące — halloumi twardnieje i traci smak po ostygnięciu",
+                 "Podawać gorące — halloumi twardnieje i traci smak po ostygnięciu", prep_time=15,
                  instructions="1. Halloumi pokrój w plastry grubości ~1cm.\n2. Posmaruj lekko oliwą z każdej strony.\n3. Grilluj na mocno rozgrzanym grillu lub patelni grillowej 2–3 min z każdej strony, aż pojawią się wyraźne paski.\n4. Przełóż na talerz, od razu skrop miodem, posyp listkami tymianku i pieprzem.\n5. Podawaj gorące — halloumi twardnieje po ostygnięciu.",
                  group_name="Grillowane halloumi")
     ri(r24, halloumi,      400,  "g",     "exact")
@@ -543,7 +550,7 @@ def seed():
     # 25 — Skrzydełka w glazurze teriyaki
     r25 = recipe("Skrzydełka w glazurze teriyaki",
                  "wnetrze,ogrod,grill", "miesne", 1, 3.00, 6,
-                 "Marynować minimum 2h — najlepiej całą noc w lodówce",
+                 "Marynować minimum 2h — najlepiej całą noc w lodówce", prep_time=45,
                  instructions="1. Czosnek i imbir zetrzyj na tarce.\n2. Wymieszaj z sosem sojowym, miodem, olejem sezamowym i octem — to marynata.\n3. Zalej nią skrzydełka i odstaw minimum 2h (najlepiej całą noc).\n4. Piecz w 200°C przez 35–40 min, przewracając w połowie.\n5. W ostatnich 5 min posmaruj dodatkową glazurą z odlanej marynaty zagęszczonej skrobią dla lepszego błysku.\n6. Posyp sezamem i szczypiorkiem.",
                  group_name="Skrzydełka teriyaki")
     ri(r25, skrzydelka,    1000, "g",     "exact")
@@ -560,7 +567,7 @@ def seed():
     # 26 — Grillowane plastry bakłażana
     r26 = recipe("Grillowane plastry bakłażana",
                  "grill,wnetrze,ogrod", "weganskie,wegetarianskie", 1, 1.50, 6,
-                 "Solić i odciskać przed grillowaniem — usuwa gorycz i nadmiar wilgoci",
+                 "Solić i odciskać przed grillowaniem — usuwa gorycz i nadmiar wilgoci", prep_time=15,
                  instructions="1. Bakłażana pokrój w plastry 1–1,5cm.\n2. Posól i odstaw na 20 min, potem osusz papierowym ręcznikiem — to usuwa gorycz.\n3. Skrop oliwą, dopraw czosnkiem granulowanym, oregano i pieprzem.\n4. Grilluj 3–4 min z każdej strony aż pojawią się paski i bakłażan będzie miękki.",
                  group_name="Grillowany bakłażan")
     ri(r26, baklazan,      600,  "g",     "exact", "ok. 2 szt.")
@@ -573,7 +580,7 @@ def seed():
     # 27 — Baba ganoush
     r27 = recipe("Baba ganoush",
                  "grill,wnetrze,ogrod,koktajl", "weganskie,wegetarianskie", 1, 2.00, 8,
-                 "Zwęglona skórka to sekret głębokiego, dymnego smaku — nie skracaj tego etapu",
+                 "Zwęglona skórka to sekret głębokiego, dymnego smaku — nie skracaj tego etapu", prep_time=35,
                  instructions="1. Bakłażany nakłuj widelcem w kilku miejscach.\n2. Ułóż bezpośrednio na płomieniu gazowym lub pod grillem w piekarniku (230°C) i piecz 20–25 min, obracając co kilka minut, aż skórka będzie zwęglona a miąższ miękki.\n3. Przełóż do miski, przykryj folią na 10 min — skórka zejdzie łatwo. Odciśnij nadmiar wody z miąższu.\n4. Miąższ wymieszaj lub zblenduj z tahini, czosnkiem, sokiem z cytryny i kminkiem.\n5. Dopraw solą.\n6. Podawaj skropiony oliwą, z papryką wędzoną i natką. Najlepsze z pitą lub warzywami.",
                  group_name="Baba ganoush",
                  is_universal=True)
@@ -590,7 +597,7 @@ def seed():
     # 28 — Mini tacos z pulled pork
     r28 = recipe("Mini tacos z pulled pork",
                  "grill,wnetrze,ogrod", "miesne", 3, 3.00, 16,
-                 "Mięso piecz dzień wcześniej — odgrzane z sosem smakuje jeszcze lepiej",
+                 "Mięso piecz dzień wcześniej — odgrzane z sosem smakuje jeszcze lepiej", prep_time=30,
                  instructions="1. Wymieszaj paprykę wędzoną, kminek, czosnek i cebulę w proszku, cukier, sól i pieprz. Natrzyj mieszanką łopatkę ze wszystkich stron.\n2. Piecz w 150°C przez 4–5h (lub w wolnowarze 8h na low), aż mięso będzie się rozpadać.\n3. Rozdrobnij dwoma widelcami, wymieszaj z sosem BBQ i sokami z pieczenia.\n4. Kapustę poszatkuj cienko, skrop sokiem z limonki, posól — to szybki slaw.\n5. Tortille podgrzej na suchej patelni 30 sek z każdej strony.\n6. Nakładaj: mięso → slaw → śmietana → kolendra → jalapeño. Podawaj od razu.",
                  group_name="Mini tacos")
     ri(r28, lopatka,       800,  "g",     "exact")
@@ -612,7 +619,7 @@ def seed():
     # 29 — Paszteciki z pieczarkami
     r29 = recipe("Paszteciki z pieczarkami",
                  "wnetrze,ogrod,koktajl", "wegetarianskie", 1, 1.50, 16,
-                 "Pieczarki smażyć aż do całkowitego odparowania płynu — mokry farsz rozmoczy ciasto",
+                 "Pieczarki smażyć aż do całkowitego odparowania płynu — mokry farsz rozmoczy ciasto", prep_time=40,
                  instructions="1. Pieczarki drobno posiekaj. Cebulę i czosnek zeszklij na maśle, dodaj pieczarki i smaż na dużym ogniu 8–10 min aż odparuje cały płyn.\n2. Dodaj śmietanę, dopraw solą i pieprzem, wymieszaj z natką. Odstaw do ostygnięcia.\n3. Ciasto francuskie pokrój w prostokąty (~8x10cm). Na każdy prostokąt nakładaj łyżkę farszu, składaj i zlepiaj brzegi widelcem.\n4. Smaruj roztrzepanym jajkiem.\n5. Piecz w 200°C przez 18–20 min aż będą złociste.",
                  group_name="Paszteciki")
     ri(r29, ciasto_franc,  1,    "szt",   "exact")
@@ -630,7 +637,7 @@ def seed():
     # 30 — Paszteciki z mięsem mielonym
     r30 = recipe("Paszteciki z mięsem mielonym",
                  "wnetrze,ogrod,koktajl", "miesne", 1, 1.50, 16,
-                 "Farsz musi być suchy — smaż na dużym ogniu aż całkowicie odparuje płyn",
+                 "Farsz musi być suchy — smaż na dużym ogniu aż całkowicie odparuje płyn", prep_time=40,
                  instructions="1. Cebulę i czosnek zeszklij na oleju. Dodaj mięso mielone i smaż na dużym ogniu, rozbijając grudki, aż będzie brązowe i odparuje płyn — ok. 10 min.\n2. Dopraw majerankiem, papryką słodką, sosem Worcestershire, solą i pieprzem. Jeśli farsz jest za wilgotny, dodaj tartą bułkę.\n3. Odstaw do ostygnięcia.\n4. Ciasto pokrój w prostokąty (~8x10cm), nakładaj farsz, składaj i zlepiaj brzegi widelcem.\n5. Smaruj roztrzepanym jajkiem. Piecz w 200°C przez 18–20 min.",
                  group_name="Paszteciki")
     ri(r30, ciasto_franc,  1,    "szt",   "exact")
@@ -649,7 +656,7 @@ def seed():
     # 31 — Paszteciki wegańskie z soczewicą
     r31 = recipe("Paszteciki wegańskie z soczewicą i suszonymi pomidorami",
                  "wnetrze,ogrod,koktajl", "weganskie,wegetarianskie", 1, 1.50, 16,
-                 "Farsz musi być suchy i zwarty — odciśnij soczewicę i podsusz na patelni jeśli potrzeba",
+                 "Farsz musi być suchy i zwarty — odciśnij soczewicę i podsusz na patelni jeśli potrzeba", prep_time=40,
                  instructions="1. Soczewicę ugotuj w osolonej wodzie (~15 min) aż będzie miękka. Odcedź i lekko odciśnij.\n2. Cebulę i czosnek zeszklij na oliwie, dodaj kminek i paprykę wędzoną, smaż 1 min.\n3. Suszone pomidory drobno posiekaj.\n4. Wymieszaj soczewicę, cebulę, pomidory, sok z cytryny i natkę. Dopraw solą i pieprzem. Jeśli farsz nie jest zwarty, podsusz chwilę na patelni mieszając.\n5. Ciasto pokrój w prostokąty, nadziewaj, zlepiaj, smaruj mlekiem roślinnym.\n6. Piecz w 200°C przez 18–20 min.",
                  group_name="Paszteciki")
     ri(r31, ciasto_franc,      1,    "szt",   "exact", "wegańskie — sprawdź skład")
@@ -669,7 +676,7 @@ def seed():
     # 32 — Szaszłyki z krewetek z grilla
     r32 = recipe("Szaszłyki z krewetek z grilla",
                  "grill,wnetrze,ogrod,koktajl", "rybne", 2, 8.50, 8,
-                 "Nie marynować dłużej niż 30 min — kwas cytrynowy zaczyna 'gotować' krewetki",
+                 "Nie marynować dłużej niż 30 min — kwas cytrynowy zaczyna 'gotować' krewetki", prep_time=25,
                  instructions="1. Namocz drewniane patyczki w wodzie minimum 30 min.\n2. Krewetki obierz i usuń jelito (czarna nitka wzdłuż grzbietu).\n3. Wymieszaj oliwę z rozgniecionym czosnkiem, sokiem z cytryny i płatkami chili. Zalej krewetki i odstaw na 20–30 min.\n4. Nabijaj po 4 krewetki na patyczek, zginając każdą w literę C.\n5. Grilluj na mocno rozgrzanym grillu 2 min z każdej strony — gotowe gdy zmienią kolor na różowo-pomarańczowy i lekko się zwijają.\n6. Zdejmij z grilla, połóż kawałek masła na każdym szaszłyku i posyp natką. Podawaj z ćwiartkami limonki.",
                  group_name="Szaszłyki z krewetek")
     ri(r32, krewetki,      600,  "g",     "exact")
@@ -686,7 +693,7 @@ def seed():
     # 33 — Sałatka ziemniaczana z ogórkami kiszonymi
     r33 = recipe("Sałatka ziemniaczana z ogórkami kiszonymi",
                  "grill,wnetrze,ogrod", "wegetarianskie", 2, 1.00, 10,
-                 "Najlepsza z młodych ziemniaków — podawać w temperaturze pokojowej lub lekko schłodzoną",
+                 "Najlepsza z młodych ziemniaków — podawać w temperaturze pokojowej lub lekko schłodzoną", prep_time=15,
                  instructions="1. Ziemniaki ugotuj w osolonej wodzie do miękkości. Odcedź, ostudź i pokrój w kostkę.\n2. Ogórki kiszone pokrój w kostkę (twardszą skórkę obierz). Czerwoną cebulę pokrój w cienkie piórka.\n3. Wymieszaj śmietanę z majonezem, dopraw solą i pieprzem.\n4. Połącz ziemniaki, ogórki i cebulę z dressingiem. Wymieszaj i posyp szczypiorkiem.",
                  group_name="Sałatka ziemniaczana")
     ri(r33, ziemniaki,      1000, "g",     "exact")
@@ -701,7 +708,7 @@ def seed():
     # 34 — Sałatka z pomidorów z bazylią i parmezanem
     r34 = recipe("Sałatka z pomidorów z bazylią i parmezanem",
                  "grill,wnetrze,ogrod,koktajl", "wegetarianskie", 1, 1.00, 10,
-                 "Podawać w temperaturze pokojowej — zimne pomidory tracą aromat",
+                 "Podawać w temperaturze pokojowej — zimne pomidory tracą aromat", prep_time=10,
                  instructions="1. Pomidory pokrój na cząstki lub plastry i ułóż na półmisku.\n2. Czerwoną cebulę pokrój w bardzo cienkie piórka. Namocz przez 5 minut w zimnej wodzie — usuwa gorzkość. Odcedź i osusz.\n3. Rozłóż cebulę na pomidorach.\n4. W małej miseczce wymieszaj oliwę, sok z cytryny i ocet. Polej pomidory.\n5. Posyp posiekaną bazylią i natką pietruszki.\n6. Dopraw pieprzem. Tuż przed podaniem posyp startym parmezanem.",
                  group_name="Sałatka z pomidorów")
     ri(r34, pomidor,        500,  "g",        "exact")
@@ -713,6 +720,65 @@ def seed():
     ri(r34, ocet,           None, None,       "descriptive", "2 łyżeczki (winny lub jabłkowy)")
     ri(r34, parmezan,       10,   "g",        "exact")
     ri(r34, pieprz,         None, None,       "to_taste")
+
+    # 35 — Kanapeczki z bagietki z prosciutto i camembertem
+    r35 = recipe("Kanapeczki z bagietki z prosciutto i camembertem",
+                 "wnetrze,ogrod,koktajl", "miesne", 1, 5.50, 5,
+                 "Składać tuż przed podaniem, żeby bagietka nie namiękła od serka", prep_time=10,
+                 instructions="1. Bagietkę pokrój w skośne plastry (~1.5 cm).\n2. Każdy plastr posmaruj serkiem śmietankowym.\n3. Połóż plasterek camemberta, a na nim prosciutto — lekko zmarszczone dla objętości.\n4. Ułóż garść rukoli i kilka orzechów.\n5. Tuż przed podaniem skrop delikatnie miodem.",
+                 group_name="Kanapeczki z bagietki")
+    ri(r35, bagietka,        1,    "szt",   "exact")
+    ri(r35, szynka_parmenska, 60,  "g",     "exact")
+    ri(r35, camembert,       100,  "g",     "exact", "½ szt")
+    ri(r35, serek_smiet,     150,  "g",     "exact")
+    ri(r35, rukola,          None, None,    "descriptive", "1 garść")
+    ri(r35, orzechy,         None, None,    "descriptive", "1 garść")
+    ri(r35, miod,            None, None,    "descriptive", "do polania")
+
+    # 36 — Kanapeczki z bagietki z łososiem wędzonym
+    r36 = recipe("Kanapeczki z bagietki z łososiem wędzonym",
+                 "wnetrze,ogrod,koktajl", "rybne", 1, 5.50, 5,
+                 "Łososia układać tuż przed podaniem; czerwona cebula może być wcześniej zamarynowana w soku z cytryny — łagodnieje i ładnie różowieje", prep_time=10,
+                 instructions="1. Bagietkę pokrój w skośne plastry (~1.5 cm). Każdy posmaruj serkiem śmietankowym.\n2. Ułóż plasterki łososia wędzonego.\n3. Posyp kaparami i cienką różową cebulką.\n4. Skrop kilkoma kroplami soku z cytryny, połóż gałązkę kopru.\n5. Dopraw świeżo zmielonym pieprzem. Składać tuż przed podaniem.",
+                 group_name="Kanapeczki z bagietki z łososiem")
+    ri(r36, bagietka,        1,    "szt",   "exact")
+    ri(r36, losos_wedzony,   100,  "g",     "exact")
+    ri(r36, serek_smiet,     150,  "g",     "exact")
+    ri(r36, kapary,          15,   "g",     "exact", "ok. 1 łyżka")
+    ri(r36, czerwona_cebula, 40,   "g",     "exact")
+    ri(r36, koper,           None, None,    "descriptive", "kilka gałązek")
+    ri(r36, sok_cytryny,     None, None,    "descriptive", "kilka kropli")
+    ri(r36, pieprz,          None, None,    "to_taste")
+
+    # 37 — Kanapeczki z bagietki z camembertem i suszonymi pomidorami
+    r37 = recipe("Kanapeczki z bagietki z camembertem i suszonymi pomidorami",
+                 "wnetrze,ogrod,koktajl", "wegetarianskie", 1, 3.00, 5,
+                 "Suszone pomidory dają tę umami-głębię zamiast szynki; wersja jeszcze ciekawsza jeśli dodać karmelizowaną cebulę", prep_time=10,
+                 instructions="1. Bagietkę pokrój w skośne plastry (~1.5 cm). Każdy posmaruj serkiem śmietankowym.\n2. Połóż plasterek camemberta.\n3. Ułóż suszone pomidory (możesz je lekko posiekać).\n4. Dodaj garść rukoli i kilka orzechów.\n5. Skrop miodem tuż przed podaniem.",
+                 group_name="Kanapeczki z bagietki")
+    ri(r37, bagietka,        1,    "szt",   "exact")
+    ri(r37, serek_smiet,     150,  "g",     "exact")
+    ri(r37, camembert,       100,  "g",     "exact", "½ szt")
+    ri(r37, suszone_pom_olej, 50,  "g",     "exact")
+    ri(r37, rukola,          None, None,    "descriptive", "1 garść")
+    ri(r37, orzechy,         None, None,    "descriptive", "1 garść")
+    ri(r37, miod,            None, None,    "descriptive", "do polania")
+
+    # 38 — Kanapeczki z bagietki wegańskie z awokado
+    r38 = recipe("Kanapeczki z bagietki wegańskie z awokado i suszonymi pomidorami",
+                 "wnetrze,ogrod,koktajl", "weganskie", 1, 4.00, 5,
+                 "Awokado od razu skropić cytryną żeby nie ściemniało; składać tuż przed podaniem", prep_time=10,
+                 instructions="1. Bagietkę pokrój w skośne plastry (~1.5 cm). Każdy posmaruj wegańskim serkiem śmietankowym.\n2. Awokado przekrój, wyjmij pestkę i pokrój w plasterki lub rozgnieć widelcem. Natychmiast skrop sokiem z cytryny.\n3. Ułóż awokado na kanapkach, dodaj suszone pomidory.\n4. Dodaj garść rukoli i kilka orzechów.\n5. Skrop syropem z agawy, dopraw solą. Składać tuż przed podaniem.",
+                 group_name="Kanapeczki z bagietki")
+    ri(r38, bagietka,          1,    "szt",   "exact")
+    ri(r38, serek_smiet_wegan, 150,  "g",     "exact")
+    ri(r38, awokado,           1,    "szt",   "exact")
+    ri(r38, suszone_pom_olej,  50,   "g",     "exact")
+    ri(r38, rukola,            None, None,    "descriptive", "1 garść")
+    ri(r38, orzechy,           None, None,    "descriptive", "1 garść")
+    ri(r38, syrop_klonowy,     None, None,    "descriptive", "do polania")
+    ri(r38, sok_cytryny,       None, None,    "descriptive", "kilka kropli")
+    ri(r38, sol,               None, None,    "to_taste")
 
     db.commit()
     count = db.query(Recipe).count()
