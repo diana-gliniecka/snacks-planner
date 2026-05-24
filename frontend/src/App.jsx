@@ -14,7 +14,7 @@ const TWEAK_DEFAULTS = {
 
 function Topbar({ step, setStep, canVisit }) {
   const steps = [
-    { n: 1, label: "Brief" },
+    { n: 1, label: "Szczegóły" },
     { n: 2, label: "Menu" },
     { n: 3, label: "Zakupy" },
   ];
@@ -22,7 +22,6 @@ function Topbar({ step, setStep, canVisit }) {
     <header className="topbar">
       <div className="brand">
         <span className="brand-mark"><em>Snacks</em> Planner</span>
-        <span className="brand-tag">v1 · próba kuchni</span>
       </div>
       <nav className="stepper" aria-label="Postęp">
         {steps.map((s, i) => (

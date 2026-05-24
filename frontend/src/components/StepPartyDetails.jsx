@@ -16,8 +16,8 @@ const EFFORT_TIERS = [
 const BUDGET_TIERS = [
   { value: 20, label: "Studencko",     tag: "kameralnie",  sub: "do 20 zł / os." },
   { value: 40, label: "Budżetowo",     tag: "wygodnie",    sub: "do 40 zł / os." },
-  { value: 60, label: "Klasa średnia", tag: "z rozmachem", sub: "do 60 zł / os." },
-  { value: 80, label: "Premium",       tag: "fine dining", sub: "do 80 zł / os." },
+  { value: 60, label: "Komfortowo",    tag: "z rozmachem", sub: "do 60 zł / os." },
+  { value: 80, label: "Premium",       tag: "wystawnie",   sub: "do 80 zł / os." },
 ];
 
 const EFFORT_LABELS = ["do 1h", "1h–2h", "powyżej 2h"];
@@ -113,7 +113,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
       {/* Header: intro text + live table */}
       <aside className="brief-preview">
         <div className="brief-intro">
-          <div className="brief-eyebrow">Brief · Krok 01 z 03</div>
+          <div className="brief-eyebrow">Twoje preferencje · Krok 1 z 3</div>
           <h1 className="brief-title">
             Dobra impreza<br />zaczyna się od <em>jedzenia</em>.
           </h1>
@@ -137,7 +137,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
           </div>
         </div>
         <div className="brief-stat">
-          <div className="brief-stat-label">Nakład</div>
+          <div className="brief-stat-label">Czas</div>
           <div className={`brief-stat-val${brief.effort == null ? " dim" : ""}`}
             style={{ fontStyle: brief.effort == null ? "italic" : "normal", fontSize: 22 }}>
             {brief.effort != null ? EFFORT_LABELS[brief.effort] : "—"}
@@ -281,7 +281,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
 
           <div className="cta-bar">
             <button className="btn btn-primary" disabled={!canProceed || loading} onClick={handleSubmit}>
-              {loading ? "Szukam dań…" : "Skomponuj menu"}
+              {loading ? "Szukam dań…" : "Pokaż menu!"}
               {!loading && (
                 <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
@@ -289,7 +289,7 @@ export default function StepPartyDetails({ brief, setBrief, onNext }) {
               )}
             </button>
             {!canProceed && (
-              <span className="form-help" style={{ margin: 0 }}>uzupełnij wszystkie pola</span>
+              <span className="form-help" style={{ margin: 0 }}>← wypełnij wszystkie pola, żeby zobaczyć menu</span>
             )}
           </div>
         </div>
