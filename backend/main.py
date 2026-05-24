@@ -144,28 +144,29 @@ def suggest_recipes(body: PartyInput, db: Session = Depends(get_db)):
     per_dish_budget = body.budget_per_person / 6
     recipes = [r for r in recipes if r.cost_per_person <= per_dish_budget]
 
-    # Deduplicate by group_name — keep the variant that best matches the requested diet
-    diet_priority = {
-        "mieszane":       ["miesne", "rybne", "wegetarianskie", "weganskie"],
-        "miesne":         ["miesne", "rybne", "wegetarianskie", "weganskie"],
-        "wegetarianskie": ["wegetarianskie", "weganskie"],
-        "weganskie":      ["weganskie"],
-        "rybne":          ["rybne", "wegetarianskie", "weganskie"],
-    }
-    priority = diet_priority.get(diet, [])
+    # Deduplicate by group_name — keep the variant that best matches the requested diet.
+    # For "mieszane" skip deduplication so all variants are available in the swap/add pool.
+    if diet != "mieszane":
+        diet_priority = {
+            "miesne":         ["miesne", "rybne", "wegetarianskie", "weganskie"],
+            "wegetarianskie": ["wegetarianskie", "weganskie"],
+            "weganskie":      ["weganskie"],
+            "rybne":          ["rybne", "wegetarianskie", "weganskie"],
+        }
+        priority = diet_priority.get(diet, [])
 
-    seen_groups: dict[str, Recipe] = {}
-    for r in recipes:
-        key = r.group_name if r.group_name else str(r.id)
-        if key not in seen_groups:
-            seen_groups[key] = r
-        else:
-            existing = seen_groups[key]
-            ex_score = min((priority.index(t) for t in existing.diet_tags.split(",") if t in priority), default=999)
-            cur_score = min((priority.index(t) for t in r.diet_tags.split(",") if t in priority), default=999)
-            if cur_score < ex_score:
+        seen_groups: dict[str, Recipe] = {}
+        for r in recipes:
+            key = r.group_name if r.group_name else str(r.id)
+            if key not in seen_groups:
                 seen_groups[key] = r
-    recipes = list(seen_groups.values())
+            else:
+                existing = seen_groups[key]
+                ex_score = min((priority.index(t) for t in existing.diet_tags.split(",") if t in priority), default=999)
+                cur_score = min((priority.index(t) for t in r.diet_tags.split(",") if t in priority), default=999)
+                if cur_score < ex_score:
+                    seen_groups[key] = r
+        recipes = list(seen_groups.values())
 
     return [
         RecipeSuggestion(
