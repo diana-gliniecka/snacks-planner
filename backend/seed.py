@@ -168,6 +168,12 @@ def seed():
     serek_smiet_wegan   = ing("serek śmietankowy wegański", A, "g")
     losos_wedzony       = ing("łosoś wędzony",              M, "g")
 
+    udka            = ing("udka z kurczaka (bez kości)",  M, "g")
+    koncentrat_pom  = ing("koncentrat pomidorowy",         S, "łyżka")
+    bulion_kur      = ing("bulion z kurczaka",             I, "ml")
+    cayenne         = ing("pieprz cayenne",                S, "łyżeczka")
+    ser_tarty       = ing("ser żółty (tarty)",             N, "g")
+
     db.flush()
 
     # --- Recipes ---
@@ -594,26 +600,36 @@ def seed():
     ri(r27, papryka_wednz, None, None,    "descriptive", "szczypta do dekoracji")
     ri(r27, sol,           None, None,    "to_taste")
 
-    # 28 — Mini tacos z pulled pork
-    r28 = recipe("Mini tacos z pulled pork",
-                 "grill,wnetrze,ogrod", "miesne", 3, 3.00, 16,
-                 "Mięso piecz dzień wcześniej — odgrzane z sosem smakuje jeszcze lepiej", prep_time=30,
-                 instructions="1. Wymieszaj paprykę wędzoną, kminek, czosnek i cebulę w proszku, cukier, sól i pieprz. Natrzyj mieszanką łopatkę ze wszystkich stron.\n2. Piecz w 150°C przez 4–5h (lub w wolnowarze 8h na low), aż mięso będzie się rozpadać.\n3. Rozdrobnij dwoma widelcami, wymieszaj z sosem BBQ i sokami z pieczenia.\n4. Kapustę poszatkuj cienko, skrop sokiem z limonki, posól — to szybki slaw.\n5. Tortille podgrzej na suchej patelni 30 sek z każdej strony.\n6. Nakładaj: mięso → slaw → śmietana → kolendra → jalapeño. Podawaj od razu.",
-                 group_name="Mini tacos")
-    ri(r28, lopatka,       800,  "g",     "exact")
-    ri(r28, papryka_wednz, 10,   "g",     "exact")
-    ri(r28, kminek,        5,    "g",     "exact")
-    ri(r28, czosnek_gran,  1,    "łyżeczka", "exact")
-    ri(r28, cebula_proszek, 1,   "łyżeczka", "exact")
-    ri(r28, cukier_brazy,  15,   "g",     "exact")
-    ri(r28, sos_bbq,       80,   "ml",    "exact")
-    ri(r28, tortilla_mini, 16,   "szt",   "exact")
-    ri(r28, kapusta_pek,   150,  "g",     "exact")
-    ri(r28, smetana,       100,  "ml",    "exact")
-    ri(r28, kolendra,      None, None,    "descriptive", "garść liści")
-    ri(r28, limonka,       1,    "szt",   "exact")
-    ri(r28, jalapeno,      None, None,    "descriptive", "1 szt. (opcjonalnie)")
-    ri(r28, sol,           None, None,    "to_taste")
+    # 28 — Tacos z kurczakiem
+    r28 = recipe("Tacos z kurczakiem",
+                 "wnetrze,ogrod", "miesne", 2, 3.00, 12,
+                 "Przyprawa taco może być przygotowana wcześniej. Sos powinien mieć konsystencję cienkiego syropu — jeśli za szybko redukuje, dolej wody.", prep_time=20,
+                 instructions="1. Wymieszaj składniki przyprawy taco w misce. Dodaj 2 łyżki bulionu z kurczaka i wymieszaj na luźną pastę.\n2. Dodaj kurczaka i obtocz go dokładnie w marynacie.\n3. Rozgrzej oliwę na dużej patelni na średnio-wysokim ogniu. Smaż kurczaka przez 3 minuty z każdej strony, aż lekko się przyrumieni. (Zostaw resztki marynaty w misce.)\n4. Wyjmij kurczaka i przełóż na płytki talerz.\n5. Wróć patelnię na ogień, zmniejsz do średniego. Dodaj pozostały bulion, koncentrat pomidorowy, cukier i zeskrob resztki marynaty z miski. Mieszaj, zdrapując dno patelni, i doprowadź do wrzenia.\n6. W międzyczasie rozdrobnij kurczaka widelcami lub posiekaj (nie przejmuj się, jeśli w środku jest jeszcze surowy).\n7. Wróć kurczaka do sosu, wymieszaj i gotuj na małym ogniu przez 2–3 minuty, aż sos zredukuje się do konsystencji cienkiego syropu (jeśli za szybko redukuje, dolej wody). Dopraw solą do smaku.\n8. Przełóż kurczaka z całym sosem do miski do podania. Podgrzej muszle taco lub tortille. Nałóż kurczaka, upewniając się, że jest dobrze nasączony sosem. Na wierzchu ułóż pomidora, awokado, cebulę, kolendrę, sałatę i kwaśną śmietanę.",
+                 group_name="Tacos")
+    ri(r28, udka,           700,  "g",        "exact")
+    ri(r28, oliwa,          1.5,  "łyżka",    "exact", "do smażenia")
+    ri(r28, oliwa,          1,    "łyżka",    "exact", "do marynaty")
+    ri(r28, koncentrat_pom, 2,    "łyżka",    "exact")
+    ri(r28, cukier,         2,    "łyżeczka", "exact")
+    ri(r28, bulion_kur,     250,  "ml",       "exact")
+    ri(r28, sok_limonki,    3,    "łyżka",    "exact")
+    ri(r28, czosnek,        2,    "szt",      "exact", "ząbki")
+    ri(r28, czosnek_gran,   2,    "łyżeczka", "exact")
+    ri(r28, cebula_proszek, 2,    "łyżeczka", "exact")
+    ri(r28, oregano_susz,   2,    "łyżeczka", "exact")
+    ri(r28, kminek,         3,    "łyżeczka", "exact")
+    ri(r28, papryka_mielona, 3,   "łyżeczka", "exact")
+    ri(r28, cayenne,        0.5,  "łyżeczka", "exact")
+    ri(r28, sol,            1,    "łyżeczka", "exact")
+    ri(r28, pieprz,         0.5,  "łyżeczka", "exact")
+    ri(r28, tortilla_mini,  12,   "szt",      "exact")
+    ri(r28, pomidor,        1,    "szt",      "exact")
+    ri(r28, cebula,         1,    "szt",      "exact")
+    ri(r28, awokado,        1,    "szt",      "exact")
+    ri(r28, kolendra,       None, None,       "descriptive", "do podania")
+    ri(r28, salata_lodowa,  120,  "g",        "exact")
+    ri(r28, ser_tarty,      150,  "g",        "exact")
+    ri(r28, smetana,        180,  "ml",       "exact")
     ri(r28, pieprz,        None, None,    "to_taste")
 
     # 29 — Paszteciki z pieczarkami
