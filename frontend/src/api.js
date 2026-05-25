@@ -18,6 +18,7 @@ function guessCategory(name) {
   const n = name.toLowerCase();
   if (/sałat|caprese|bruschett|bliny|tatar|tartink|jajk|koreczk|arbuz|roladk|carpaccio/.test(n)) return "na zimno";
   if (/burger|szaszłyk|kolb|grilla|skrzydełk|karkówk|udka|falafel|tarta|portobello|pasztec/.test(n)) return "na ciepło";
+  if (/muffin|browni|ciasto|sernik|ciasteczk|cookie|tort/.test(n)) return "słodkie";
   if (/hummus|guacamol|deska|bryndzówk|tapenad|makaronow/.test(n)) return "do dzielenia";
   return "do dzielenia";
 }
