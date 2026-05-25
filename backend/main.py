@@ -32,6 +32,15 @@ def on_startup():
         # — re-seed to populate real values.
         if not needs_seed and db.query(Recipe).filter(Recipe.prep_time_minutes == 0).count() == db.query(Recipe).count():
             needs_seed = True
+        # Re-seed when pulled pork tacos still exist (replaced by chicken tacos).
+        if not needs_seed and db.query(Recipe).filter(Recipe.name == "Mini tacos z pulled pork").count() > 0:
+            needs_seed = True
+        # Re-seed when new recipes (muffins, brownie) are missing.
+        if not needs_seed and db.query(Recipe).filter(Recipe.name == "Brownie wegańskie z fasoli").count() == 0:
+            needs_seed = True
+        # If pulled pork tacos still exist (replaced by chicken tacos), re-seed.
+        if not needs_seed and db.query(Recipe).filter(Recipe.name == "Mini tacos z pulled pork").count() > 0:
+            needs_seed = True
         if needs_seed:
             from seed import seed
             seed()

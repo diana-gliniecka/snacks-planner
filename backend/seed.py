@@ -174,6 +174,21 @@ def seed():
     cayenne         = ing("pieprz cayenne",                S, "łyżeczka")
     ser_tarty       = ing("ser żółty (tarty)",             N, "g")
 
+    maka_pszenna    = ing("mąka pszenna",                  D, "g")
+    proszek_piec    = ing("proszek do pieczenia",          D, "łyżeczka")
+    cytryna         = ing("cytryna",                       W, "szt")
+    mleko           = ing("mleko",                         N, "ml")
+    maliny          = ing("maliny (świeże lub mrożone)",   W, "g")
+    papilotki       = ing("papilotki do muffinów",         I, "szt")
+    soda            = ing("soda oczyszczona",              D, "łyżeczka")
+    kakao           = ing("kakao",                         D, "łyżka")
+    czekolada       = ing("gorzka czekolada (posiekana)",  D, "g")
+    cukier_puder    = ing("cukier puder",                  D, "g")
+    ekstrakt_wan    = ing("ekstrakt z wanilii",            S, "łyżeczka")
+    fasola_czerw    = ing("fasola czerwona (puszka)",      D, "szt")
+    siemie_lniane   = ing("siemię lniane (zmielone)",      D, "łyżka")
+    migdaly_mielone = ing("migdały (mielone)",             D, "g")
+
     db.flush()
 
     # --- Recipes ---
@@ -795,6 +810,56 @@ def seed():
     ri(r38, syrop_klonowy,     None, None,    "descriptive", "do polania")
     ri(r38, sok_cytryny,       None, None,    "descriptive", "kilka kropli")
     ri(r38, sol,               None, None,    "to_taste")
+
+    # 39 — Muffiny cytrynowe z malinami
+    r39 = recipe("Muffiny cytrynowe z malinami",
+                 "wnetrze,ogrod,koktajl", "wegetarianskie", 2, 1.00, 12,
+                 "Wszystkie składniki powinny być w temperaturze pokojowej. Skórkę cytrynową zetrzeć przed wyciskaniem soku.", prep_time=40,
+                 instructions="1. Masło roztopić i odstawić do przestudzenia.\n2. Do naczynia wlać sok z cytryny, dopełnić mlekiem do 200 ml. Przelać do miski, dodać roztrzepane jajko, przestudzone masło i skórkę cytrynową. Wymieszać.\n3. Dodać cukier i wymieszać.\n4. Przesiać do mieszanki mąkę z proszkiem do pieczenia i solą. Wymieszać tylko do połączenia — nie za długo.\n5. Delikatnie wmieszać maliny szpatułką.\n6. Formę do muffinów wyłożyć papilotkami, napełnić do ¾ wysokości.\n7. Piec w 180°C (bez termoobiegu) przez 25 minut lub do suchego patyczka.\n8. Pozostawić w formie 5–10 minut, następnie wystudzić na kratce.",
+                 group_name="Muffiny cytrynowe")
+    ri(r39, maslo,         60,   "g",        "exact")
+    ri(r39, maka_pszenna,  230,  "g",        "exact")
+    ri(r39, proszek_piec,  2,    "łyżeczka", "exact")
+    ri(r39, cukier,        150,  "g",        "exact")
+    ri(r39, sol,           0.25, "łyżeczka", "exact")
+    ri(r39, cytryna,       1,    "szt",      "exact", "sok i skórka")
+    ri(r39, mleko,         120,  "ml",       "exact")
+    ri(r39, jajka,         1,    "szt",      "exact")
+    ri(r39, maliny,        150,  "g",        "exact")
+    ri(r39, papilotki,     12,   "szt",      "exact")
+
+    # 40 — Muffiny czekoladowe z kawałkami czekolady
+    r40 = recipe("Muffiny czekoladowe z kawałkami czekolady",
+                 "wnetrze,ogrod,koktajl", "wegetarianskie", 2, 1.50, 12,
+                 "Wszystkie składniki powinny być w temperaturze pokojowej. Nie mieszać za długo — grudki w cieście są ok.", prep_time=30,
+                 instructions="1. W jednej misce wymieszać przesiane suche składniki: mąkę, proszek do pieczenia, sodę, kakao i cukier puder.\n2. W drugiej misce wymieszać mokre: mleko, olej, roztrzepane jajko i ekstrakt z wanilii.\n3. Wlać mokre składniki do suchych i wymieszać rózgą tylko do połączenia — nie dłużej.\n4. Wmieszać ¾ posiekanej czekolady.\n5. Formę do muffinów wyłożyć papilotkami, napełnić do ¾ wysokości. Na wierzch każdej muffinki dodać resztę czekolady.\n6. Piec w 190–200°C (bez termoobiegu) przez 20 minut.\n7. Wystudzić na kratce.",
+                 group_name="Muffiny czekoladowe")
+    ri(r40, maka_pszenna,  250,  "g",        "exact")
+    ri(r40, proszek_piec,  2,    "łyżeczka", "exact")
+    ri(r40, soda,          0.5,  "łyżeczka", "exact")
+    ri(r40, kakao,         2,    "łyżka",    "exact")
+    ri(r40, cukier_puder,  120,  "g",        "exact")
+    ri(r40, czekolada,     150,  "g",        "exact")
+    ri(r40, mleko,         250,  "ml",       "exact")
+    ri(r40, olej,          90,   "ml",       "exact")
+    ri(r40, jajka,         1,    "szt",      "exact")
+    ri(r40, ekstrakt_wan,  1,    "łyżeczka", "exact")
+    ri(r40, papilotki,     12,   "szt",      "exact")
+
+    # 41 — Brownie wegańskie z fasoli
+    r41 = recipe("Brownie wegańskie z fasoli",
+                 "wnetrze,ogrod,koktajl", "weganskie,wegetarianskie", 2, 2.50, 12,
+                 "Ciasto najlepiej smakuje po całkowitym wystudzeniu — idealne przygotowane dzień przed imprezą.", prep_time=60,
+                 instructions="1. Piekarnik nagrzej do 180°C, formę (ok. 21 cm) lekko wysmaruj olejem i wyłóż papierem do pieczenia. Siemię lniane zalej 8 łyżkami wrzątku i odstaw na 10 minut — powstanie żel.\n2. Fasolę odcedź i dobrze przepłucz. Fasolę, żel z siemienia, zmielone migdały, kakao, olej i cukier umieść w blenderze i zmiksuj na gładką pastę.\n3. Dodaj proszek do pieczenia i posiekaną czekoladę, wymieszaj.\n4. Masę przełóż do formy, wyrównaj powierzchnię i posyp ulubionymi dodatkami.\n5. Piecz na dolnym poziomie piekarnika przez ok. 50 minut. Po 30–40 minutach przykryj wierzch folią aluminiową.\n6. Odstaw do całkowitego ostygnięcia przed krojeniem.",
+                 group_name="Brownie z fasoli")
+    ri(r41, fasola_czerw,    1,    "szt",      "exact", "puszka ~400g")
+    ri(r41, siemie_lniane,   4,    "łyżka",    "exact")
+    ri(r41, migdaly_mielone, 100,  "g",        "exact", "ok. 1 szklanka")
+    ri(r41, kakao,           None, None,       "descriptive", "50 g")
+    ri(r41, cukier_brazy,    140,  "g",        "exact")
+    ri(r41, olej,            6,    "łyżka",    "exact", "rzepakowy")
+    ri(r41, proszek_piec,    1,    "łyżeczka", "exact")
+    ri(r41, czekolada,       100,  "g",        "exact", "tabliczka")
 
     db.commit()
     count = db.query(Recipe).count()
