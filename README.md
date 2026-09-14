@@ -1,28 +1,32 @@
-# Planer Imprezy
+# Snacks Planner
 
-Mobilna aplikacja webowa do planowania jedzenia na imprezy. Podaj szczegóły imprezy, wybierz dania z bazy przepisów i otrzymaj gotową listę zakupów.
+**English** · [Polski](README.pl.md)
+
+A mobile-first web app for planning party food. Enter the party details, pick dishes from the recipe database and get a ready-made shopping list.
 
 **Demo:** https://diana-gliniecka.github.io/snacks-planner/
 
-## Architektura
+> The app UI is in Polish.
 
-Aplikacja powstała jako full-stack: **React (Vite) + FastAPI + SQLAlchemy (SQLite/Postgres)**. Kod backendu nadal jest w katalogu `backend/`, a wersja full-stack jest oznaczona tagiem [`v1-fullstack`](https://github.com/diana-gliniecka/snacks-planner/tree/v1-fullstack).
+## Architecture
 
-Publiczne demo działa jako statyczna strona na GitHub Pages (bez kosztów hostingu serwera i bazy):
+The app was built as a full-stack project: **React (Vite) + FastAPI + SQLAlchemy (SQLite/Postgres)**. The backend code still lives in `backend/`, and the full-stack version is tagged [`v1-fullstack`](https://github.com/diana-gliniecka/snacks-planner/tree/v1-fullstack).
 
-- dane przepisów są eksportowane z `backend/seed.py` do `frontend/src/data/recipes.json` (`python backend/export_json.py`),
-- logika endpointów z `backend/main.py` (propozycje dań, skalowanie przepisów, lista zakupów) jest przeniesiona 1:1 do `frontend/src/planner.js` i działa w przeglądarce.
+The public demo runs as a static site on GitHub Pages:
 
-Po zmianie przepisów w `seed.py` uruchom ponownie `export_json.py`. Każdy push na `main` automatycznie publikuje demo (`.github/workflows/deploy.yml`).
+- recipe data is exported from `backend/seed.py` to `frontend/src/data/recipes.json` (`python backend/export_json.py`),
+- the endpoint logic from `backend/main.py` (dish suggestions, recipe scaling, shopping list) is ported 1:1 to `frontend/src/planner.js` and runs in the browser.
 
-## Wymagania
+After changing recipes in `seed.py`, re-run `export_json.py`. Every push to `main` automatically publishes the demo (`.github/workflows/deploy.yml`).
+
+## Requirements
 
 - Node.js 18+
-- Python 3.11+ (tylko do backendu / eksportu danych)
+- Python 3.11+ (only for the backend / data export)
 
-## Uruchomienie
+## Getting started
 
-### Frontend (wersja statyczna)
+### Frontend (static version)
 
 ```bash
 cd frontend
@@ -30,9 +34,9 @@ npm install
 npm run dev
 ```
 
-Otwórz http://localhost:5173
+Open http://localhost:5173
 
-### Backend (opcjonalnie)
+### Backend (optional)
 
 ```bash
 cd backend
@@ -41,18 +45,18 @@ python seed.py
 uvicorn main:app --reload
 ```
 
-## Struktura projektu
+## Project structure
 
 ```
 party-planner/
-├── .github/workflows/deploy.yml   # Build + deploy na GitHub Pages
+├── .github/workflows/deploy.yml   # Build + deploy to GitHub Pages
 ├── backend/
-│   ├── main.py          # FastAPI – endpointy API
-│   ├── database.py      # Silnik SQLAlchemy + sesja
-│   ├── models.py        # Modele tabel (ORM)
-│   ├── schemas.py       # Modele Pydantic (walidacja)
-│   ├── seed.py          # Wypełnienie bazy przepisami
-│   ├── export_json.py   # Eksport przepisów do JSON dla frontendu
+│   ├── main.py          # FastAPI – API endpoints
+│   ├── database.py      # SQLAlchemy engine + session
+│   ├── models.py        # Table models (ORM)
+│   ├── schemas.py       # Pydantic models (validation)
+│   ├── seed.py          # Seeds the database with recipes
+│   ├── export_json.py   # Exports recipes to JSON for the frontend
 │   └── requirements.txt
 ├── frontend/
 │   ├── index.html
@@ -60,24 +64,25 @@ party-planner/
 │   ├── vite.config.js
 │   └── src/
 │       ├── main.jsx
-│       ├── App.jsx            # Wizard 3-krokowy
-│       ├── api.js             # Warstwa danych (mapowanie na komponenty)
-│       ├── planner.js         # Logika z backendu działająca w przeglądarce
-│       ├── data/recipes.json  # Przepisy wyeksportowane z seed.py
-│       ├── index.css          # Mobilne style (bez frameworka)
+│       ├── App.jsx            # 3-step wizard
+│       ├── api.js             # Data layer (maps data to component shapes)
+│       ├── planner.js         # Backend logic running in the browser
+│       ├── data/recipes.json  # Recipes exported from seed.py
+│       ├── index.css          # Mobile styles (no framework)
 │       └── components/
-│           ├── StepPartyDetails.jsx   # Krok 1: formularz
-│           ├── StepSuggestions.jsx    # Krok 2: wybór dań
-│           └── StepShoppingList.jsx   # Krok 3: lista zakupów
-└── README.md
+│           ├── StepPartyDetails.jsx   # Step 1: party details form
+│           ├── StepSuggestions.jsx    # Step 2: dish selection
+│           └── StepShoppingList.jsx   # Step 3: shopping list
+├── README.md            # English
+└── README.pl.md         # Polish
 ```
 
-## Endpointy API (backend)
+## API endpoints (backend)
 
-| Metoda | Ścieżka | Opis |
-|--------|---------|------|
+| Method | Path | Description |
+|--------|------|-------------|
 | `GET` | `/api/health` | Health check |
-| `GET` | `/api/recipes` | Wszystkie przepisy (debug) |
-| `GET` | `/api/recipe/{id}` | Szczegóły przepisu (opcjonalnie `?guests=`) |
-| `POST` | `/api/suggest` | Propozycje dań wg kryteriów |
-| `POST` | `/api/shopping-list` | Scalona lista zakupów |
+| `GET` | `/api/recipes` | All recipes (debug) |
+| `GET` | `/api/recipe/{id}` | Recipe details (optional `?guests=`) |
+| `POST` | `/api/suggest` | Dish suggestions matching the criteria |
+| `POST` | `/api/shopping-list` | Merged shopping list |
