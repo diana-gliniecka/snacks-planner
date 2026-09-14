@@ -40,6 +40,23 @@ function CopyButton({ text }) {
   );
 }
 
+// Section header acts as a toggle but contains a CopyButton, so it can't be a <button> itself
+function toggleProps(open, onToggle) {
+  return {
+    role: "button",
+    tabIndex: 0,
+    "aria-expanded": open,
+    onClick: onToggle,
+    onKeyDown: (e) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        onToggle();
+      }
+    },
+  };
+}
+
 function RecipeAccordion({ dish, detail, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
 
@@ -276,9 +293,9 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
         {/* 5a. Mega-section: Produkty do kupienia */}
         {!loading && !error && (
           <section className="mega-section">
-            <button
+            <div
               className="mega-head"
-              onClick={() => setShopOpen((v) => !v)}
+              {...toggleProps(shopOpen, () => setShopOpen((v) => !v))}
             >
               <div className="mega-head-left">
                 <span className="mega-title">Produkty do kupienia</span>
@@ -292,7 +309,7 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
                   </svg>
                 </span>
               </div>
-            </button>
+            </div>
 
             {shopOpen && (
               <div className="mega-body">
@@ -336,9 +353,9 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
         {/* 5b. Mega-section: Przepisy krok po kroku */}
         {!loading && !error && menu.length > 0 && (
           <section className="mega-section">
-            <button
+            <div
               className="mega-head"
-              onClick={() => setRecipesOpen((v) => !v)}
+              {...toggleProps(recipesOpen, () => setRecipesOpen((v) => !v))}
             >
               <div className="mega-head-left">
                 <span className="mega-title">Przepisy krok po kroku</span>
@@ -354,7 +371,7 @@ export default function StepShoppingList({ brief, menu, onBack, onRestart }) {
                   </svg>
                 </span>
               </div>
-            </button>
+            </div>
 
             {recipesOpen && (
               <div className="mega-body">

@@ -1,4 +1,6 @@
-const BASE = "/api";
+// Static build: no backend — recipe data is bundled and endpoint logic runs in the browser.
+import recipes from "./data/recipes.json";
+import { recipeDetail, suggestRecipes, shoppingList } from "./planner.js";
 
 // Map design-form brief → backend PartyInput
 function briefToInput(brief) {
@@ -51,39 +53,22 @@ function toDish(r) {
 }
 
 export async function getRecipeDetail(id, guests) {
-  const url = guests
-    ? `${BASE}/recipe/${Number(id)}?guests=${Number(guests)}`
-    : `${BASE}/recipe/${Number(id)}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("Nie udało się pobrać przepisu.");
-  return res.json();
+  const detail = recipeDetail(recipes, Number(id), guests ? Number(guests) : null);
+  if (!detail) throw new Error("Nie udało się pobrać przepisu.");
+  return detail;
 }
 
 export async function getSuggestions(brief) {
-  const body = briefToInput(brief);
-  const res = await fetch(`${BASE}/suggest`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) throw new Error("Błąd podczas pobierania propozycji dań.");
-  const data = await res.json();
-  return data.map(toDish);
+  return suggestRecipes(recipes, briefToInput(brief)).map(toDish);
 }
 
 export async function getShoppingList(recipeIds, guests, numDishes, hungry) {
-  const res = await fetch(`${BASE}/shopping-list`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      recipe_ids: recipeIds.map(Number),
-      guests,
-      num_dishes: numDishes ?? 6,
-      hungry: hungry ?? false,
-    }),
+  const items = shoppingList(recipes, {
+    recipe_ids: recipeIds.map(Number),
+    guests,
+    num_dishes: numDishes ?? 6,
+    hungry: hungry ?? false,
   });
-  if (!res.ok) throw new Error("Błąd podczas generowania listy zakupów.");
-  const items = await res.json();
 
   // Group by category, separate to_taste items
   const AISLE_ORDER = [
