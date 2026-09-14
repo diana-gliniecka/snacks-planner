@@ -1,0 +1,3756 @@
+[
+ {
+  "id": 1,
+  "name": "Sałatka Cezar z kurczakiem wegetariańskim",
+  "party_types": "wnetrze,ogrod",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 20,
+  "cost_per_person": 6.0,
+  "base_servings": 4,
+  "notes": "Sos wymieszać osobno, dodać tuż przed podaniem",
+  "instructions": "1. Wymieszaj majonez, musztardę, kilka kropli octu, cukier, sól i pieprz — to sos.\n2. Kurczaka wegetariańskiego podsmaż na patelni do zrumienienia.\n3. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n4. Wszystko wyłóż na talerz, polej sosem tuż przed podaniem.\n5. Na wierzch zetrzyj parmezan.",
+  "group_name": "Sałatka Cezar",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 1,
+    "name": "liście sałaty",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 2,
+    "name": "pomidor",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 3,
+    "name": "suszone pomidory",
+    "category": "Suche produkty",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 4,
+    "name": "majonez",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 5,
+    "name": "musztarda",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 6,
+    "name": "ocet",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka kropli"
+   },
+   {
+    "ingredient_id": 7,
+    "name": "cukier",
+    "category": "Suche produkty",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 10,
+    "name": "kurczak wegetariański",
+    "category": "Alternatywy mięsa",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 11,
+    "name": "parmezan",
+    "category": "Nabiał",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "name": "Klasyczne burgery z grilla",
+  "party_types": "grill",
+  "diet_tags": "miesne",
+  "effort_level": 2,
+  "prep_time_minutes": 25,
+  "cost_per_person": 13.0,
+  "base_servings": 1,
+  "notes": "Kotlety grillować po 4–5 minut z każdej strony",
+  "instructions": "1. Mieloną wołowinę przypraw solą i pieprzem, uformuj kotlety.\n2. Grilluj kotlety po 4–5 minut z każdej strony.\n3. Pod koniec połóż na każdym kotlecie plaster cheddara i poczekaj aż się rozpuści.\n4. Bułki lekko opiecz na grillu.\n5. Złóż burgera: bułka, sałata, pomidor, kotlet, ketchup i musztarda.",
+  "group_name": "Burgery",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 12,
+    "name": "mielona wołowina",
+    "category": "Mięso i ryby",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 13,
+    "name": "bułka do burgera",
+    "category": "Pieczywo",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 14,
+    "name": "sałata lodowa",
+    "category": "Warzywa i owoce",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 2,
+    "name": "pomidor",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 15,
+    "name": "cheddar",
+    "category": "Nabiał",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 16,
+    "name": "ketchup",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 5,
+    "name": "musztarda",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "name": "Szaszłyki caprese",
+  "party_types": "grill,wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 15,
+  "cost_per_person": 4.0,
+  "base_servings": 2,
+  "notes": "Nabijać na wykałaczki lub małe patyczki do szaszłyków",
+  "instructions": "1. Mozzarellę pokrój w kostkę wielkości pomidorków.\n2. Na wykałaczkę nabij kolejno: pomidorek, listek bazylii, kostkę mozzarelli.\n3. Skrop oliwą i szczyptą soli.\n4. Tuż przed podaniem polej glazurą balsamiczną.",
+  "group_name": "Szaszłyki caprese",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 17,
+    "name": "pomidorki koktajlowe",
+    "category": "Warzywa i owoce",
+    "quantity": 6.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 18,
+    "name": "mozzarella świeża",
+    "category": "Nabiał",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 19,
+    "name": "świeża bazylia",
+    "category": "Warzywa i owoce",
+    "quantity": 6.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 21,
+    "name": "glazura balsamiczna",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "skropić przed podaniem"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "name": "Hummus z warzywami",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie,weganskie",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 3.0,
+  "base_servings": 1,
+  "notes": "Podawać na dużym talerzu, warzywa ułożyć wokół hummusu",
+  "instructions": "1. Marchewkę, ogórka i paprykę pokrój w słupki.\n2. Hummus przełóż na środek dużego talerza, skrop oliwą i posyp papryką mieloną.\n3. Ułóż warzywa wokół hummusu.",
+  "group_name": "Hummus z warzywami",
+  "is_universal": true,
+  "ingredients": [
+   {
+    "ingredient_id": 22,
+    "name": "hummus",
+    "category": "Suche produkty",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 23,
+    "name": "marchewka",
+    "category": "Warzywa i owoce",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 24,
+    "name": "ogórek",
+    "category": "Warzywa i owoce",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 25,
+    "name": "papryka",
+    "category": "Warzywa i owoce",
+    "quantity": 40.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "skropić przed podaniem"
+   },
+   {
+    "ingredient_id": 26,
+    "name": "papryka słodka mielona",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "name": "Guacamole z chipsami tortilla",
+  "party_types": "wnetrze,koktajl",
+  "diet_tags": "wegetarianskie,weganskie",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 3.5,
+  "base_servings": 4,
+  "notes": "Przygotować tuż przed podaniem, żeby awokado nie ściemniało",
+  "instructions": "1. Awokado przekrój, wyjmij pestki, wydrąż łyżką miąższ do miski.\n2. Rozgnieć widelcem na w miarę gładką masę.\n3. Dodaj sok z limonki, drobno posiekaną cebulę czerwoną, kolendrę, sól i chili.\n4. Wymieszaj i od razu podawaj z chipsami tortilla.",
+  "group_name": "Guacamole",
+  "is_universal": true,
+  "ingredients": [
+   {
+    "ingredient_id": 29,
+    "name": "awokado",
+    "category": "Warzywa i owoce",
+    "quantity": 2.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 30,
+    "name": "chipsy tortilla",
+    "category": "Suche produkty",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 31,
+    "name": "sok z limonki",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 28,
+    "name": "czerwona cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 40.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 32,
+    "name": "świeża kolendra",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 33,
+    "name": "chili",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "name": "Kolby kukurydzy z grilla",
+  "party_types": "grill",
+  "diet_tags": "wegetarianskie,weganskie",
+  "effort_level": 1,
+  "prep_time_minutes": 20,
+  "cost_per_person": 3.5,
+  "base_servings": 1,
+  "notes": "Grillować 15–20 minut, obracając co kilka minut",
+  "instructions": "1. Kolby kukurydzy posmaruj masłem, posól i popieprz.\n2. Grilluj na średnim ogniu 15–20 minut, obracając co kilka minut.\n3. Przed podaniem przeciąć kolbę na pół.\n4. Podawaj od razu z grilla.",
+  "group_name": "Kukurydza z grilla",
+  "is_universal": true,
+  "ingredients": [
+   {
+    "ingredient_id": 34,
+    "name": "kolba kukurydzy",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 35,
+    "name": "masło",
+    "category": "Nabiał",
+    "quantity": 10.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "name": "Bruschetta z pomidorami",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie,weganskie",
+  "effort_level": 2,
+  "prep_time_minutes": 20,
+  "cost_per_person": 3.0,
+  "base_servings": 4,
+  "notes": "Chleb opiec tuż przed podaniem, żeby pozostał chrupiący",
+  "instructions": "1. Pomidory pokrój w kostkę.\n2. Odstaw na 5 minut i odlej nadmiar soku.\n3. Dodaj posiekane liście bazylii, czosnek przeciśnięty przez praskę, sól i pieprz do smaku.\n4. Bagietkę pokrój w skośne plastry i opiecz w tosterze lub na grillu.\n5. Skrop grzanki oliwą i nałóż mieszankę pomidorową.\n6. Na wierzch dodaj kilka listków bazylii dla ozdoby.",
+  "group_name": "Bruschetta",
+  "is_universal": true,
+  "ingredients": [
+   {
+    "ingredient_id": 36,
+    "name": "bagietka",
+    "category": "Pieczywo",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 2,
+    "name": "pomidor",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 19,
+    "name": "świeża bazylia",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "name": "Sałatka Cezar wegańska",
+  "party_types": "wnetrze,ogrod",
+  "diet_tags": "weganskie",
+  "effort_level": 2,
+  "prep_time_minutes": 15,
+  "cost_per_person": 3.5,
+  "base_servings": 4,
+  "notes": "Sos wymieszać osobno, dodać tuż przed podaniem",
+  "instructions": "1. Wymieszaj majonez wegański, musztardę, kilka kropli octu, cukier, sól i pieprz — to sos.\n2. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n3. Wszystko wyłóż na talerz, polej sosem tuż przed podaniem.",
+  "group_name": "Sałatka Cezar",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 1,
+    "name": "liście sałaty",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 2,
+    "name": "pomidor",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 3,
+    "name": "suszone pomidory",
+    "category": "Suche produkty",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 45,
+    "name": "majonez wegański",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 5,
+    "name": "musztarda",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 6,
+    "name": "ocet",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka kropli"
+   },
+   {
+    "ingredient_id": 7,
+    "name": "cukier",
+    "category": "Suche produkty",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "name": "Sałatka Cezar z kurczakiem",
+  "party_types": "wnetrze,ogrod",
+  "diet_tags": "miesne",
+  "effort_level": 2,
+  "prep_time_minutes": 25,
+  "cost_per_person": 7.0,
+  "base_servings": 4,
+  "notes": "Sos wymieszać osobno, dodać tuż przed podaniem",
+  "instructions": "1. Wymieszaj majonez, musztardę, kilka kropli octu, cukier, sół i pieprz — to sos.\n2. Pierś z kurczaka usmaż na patelni lub z grilla, pokrój w paski.\n3. Liście sałaty porwij, pomidory pokrój w ćwiartki, suszone pomidory posiekaj.\n4. Wszystko wyłóż na talerz, ułóż kurczaka, polej sosem tuż przed podaniem.\n5. Na wierzch zetrzyj parmezan.",
+  "group_name": "Sałatka Cezar",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 1,
+    "name": "liście sałaty",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 2,
+    "name": "pomidor",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 3,
+    "name": "suszone pomidory",
+    "category": "Suche produkty",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 4,
+    "name": "majonez",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 5,
+    "name": "musztarda",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 6,
+    "name": "ocet",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka kropli"
+   },
+   {
+    "ingredient_id": 7,
+    "name": "cukier",
+    "category": "Suche produkty",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 27,
+    "name": "pierś z kurczaka",
+    "category": "Mięso i ryby",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 11,
+    "name": "parmezan",
+    "category": "Nabiał",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "name": "Szaszłyki wegańskie z tofu",
+  "party_types": "grill",
+  "diet_tags": "weganskie,wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 20,
+  "cost_per_person": 2.5,
+  "base_servings": 7,
+  "notes": "Marynować minimum 1-2 godziny przed grillowaniem",
+  "instructions": "1. Pokrojone składniki nałóż na wykałaczki.\n2. Wymieszaj sos sojowy, musztardę, miód, olej i czosnek.\n3. Szaszłyki włóż do marynaty do lodówki na minimum 1-2h.\n4. Grilluj około 10 min.",
+  "group_name": "Szaszłyki warzywne",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 25,
+    "name": "papryka",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "czerwona"
+   },
+   {
+    "ingredient_id": 25,
+    "name": "papryka",
+    "category": "Warzywa i owoce",
+    "quantity": 280.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "żółta lub pomarańczowa"
+   },
+   {
+    "ingredient_id": 38,
+    "name": "cukinia",
+    "category": "Warzywa i owoce",
+    "quantity": 280.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 39,
+    "name": "pieczarki",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "małe"
+   },
+   {
+    "ingredient_id": 40,
+    "name": "cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 41,
+    "name": "tofu",
+    "category": "Alternatywy mięsa",
+    "quantity": 350.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 42,
+    "name": "sos sojowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": "najlepiej ciemny"
+   },
+   {
+    "ingredient_id": 5,
+    "name": "musztarda",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": "miodowa, Dijon lub ostra"
+   },
+   {
+    "ingredient_id": 43,
+    "name": "miód",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki, przeciśnięte przez praskę"
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "name": "Szaszłyki z kurczakiem z warzywami",
+  "party_types": "grill",
+  "diet_tags": "miesne",
+  "effort_level": 2,
+  "prep_time_minutes": 20,
+  "cost_per_person": 3.5,
+  "base_servings": 7,
+  "notes": "Marynować minimum 1-2 godziny przed grillowaniem",
+  "instructions": "1. Pokrojone składniki nałóż na wykałaczki.\n2. Wymieszaj sos sojowy, musztardę, miód, olej i czosnek.\n3. Szaszłyki włóż do marynaty do lodówki na minimum 1-2h.\n4. Grilluj około 10 min.",
+  "group_name": "Szaszłyki warzywne",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 25,
+    "name": "papryka",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "czerwona"
+   },
+   {
+    "ingredient_id": 25,
+    "name": "papryka",
+    "category": "Warzywa i owoce",
+    "quantity": 280.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "żółta lub pomarańczowa"
+   },
+   {
+    "ingredient_id": 38,
+    "name": "cukinia",
+    "category": "Warzywa i owoce",
+    "quantity": 280.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 39,
+    "name": "pieczarki",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "małe"
+   },
+   {
+    "ingredient_id": 40,
+    "name": "cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 27,
+    "name": "pierś z kurczaka",
+    "category": "Mięso i ryby",
+    "quantity": 500.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 42,
+    "name": "sos sojowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": "najlepiej ciemny"
+   },
+   {
+    "ingredient_id": 5,
+    "name": "musztarda",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": "miodowa, Dijon lub ostra"
+   },
+   {
+    "ingredient_id": 43,
+    "name": "miód",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki, przeciśnięte przez praskę"
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "name": "Pizzerinki z salami",
+  "party_types": "wnetrze,ogrod",
+  "diet_tags": "miesne",
+  "effort_level": 2,
+  "prep_time_minutes": 90,
+  "cost_per_person": 2.0,
+  "base_servings": 12,
+  "notes": "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+  "instructions": "1. Rozrób drożdże w letniej wodzie (300 ml), odstaw na 5 minut.\n2. Wsyp mąkę i sól, dodaj wodę z drożdżami i oliwę. Zagniataj 5–8 minut aż ciasto będzie gładkie i elastyczne.\n3. Przykryj ściereczką i zostaw w ciepłym miejscu na min. 1 godzinę.\n4. Pieczarki podsmaż z odrobiną oleju na patelni 2–3 minuty.\n5. Ciasto podziel na 12 części, rozciągnij dłońmi w kształt koła. Ułóż na blasze z papierem.\n6. Posmaruj środek przecierem, posyp oregano.\n7. Nałóż 3/4 mozzarelli, ułóż salami i pieczarki, resztę mozzarelli na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
+  "group_name": "Pizzerinki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 46,
+    "name": "drożdże",
+    "category": "Suche produkty",
+    "quantity": 10.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 47,
+    "name": "mąka do pizzy",
+    "category": "Suche produkty",
+    "quantity": 500.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 52,
+    "name": "oregano",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 51,
+    "name": "przecier pomidorowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 39,
+    "name": "pieczarki",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "odrobina do smażenia"
+   },
+   {
+    "ingredient_id": 48,
+    "name": "salami",
+    "category": "Mięso i ryby",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 50,
+    "name": "mozzarella (starta)",
+    "category": "Nabiał",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "name": "Pizzerinki wegetariańskie",
+  "party_types": "wnetrze,ogrod",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 90,
+  "cost_per_person": 1.5,
+  "base_servings": 12,
+  "notes": "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+  "instructions": "1. Rozrób drożdże w letniej wodzie (300 ml), odstaw na 5 minut.\n2. Wsyp mąkę i sól, dodaj wodę z drożdżami i oliwę. Zagniataj 5–8 minut aż ciasto będzie gładkie i elastyczne.\n3. Przykryj ściereczką i zostaw w ciepłym miejscu na min. 1 godzinę.\n4. Pieczarki podsmaż z odrobiną oleju na patelni 2–3 minuty.\n5. Ciasto podziel na 12 części, rozciągnij dłońmi w kształt koła. Ułóż na blasze z papierem.\n6. Posmaruj środek przecierem, posyp oregano.\n7. Nałóż 3/4 mozzarelli, ułóż pieczarki, resztę mozzarelli na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
+  "group_name": "Pizzerinki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 46,
+    "name": "drożdże",
+    "category": "Suche produkty",
+    "quantity": 10.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 47,
+    "name": "mąka do pizzy",
+    "category": "Suche produkty",
+    "quantity": 500.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 52,
+    "name": "oregano",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 51,
+    "name": "przecier pomidorowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 39,
+    "name": "pieczarki",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "odrobina do smażenia"
+   },
+   {
+    "ingredient_id": 50,
+    "name": "mozzarella (starta)",
+    "category": "Nabiał",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "name": "Pizzerinki wegańskie",
+  "party_types": "wnetrze,ogrod",
+  "diet_tags": "weganskie",
+  "effort_level": 2,
+  "prep_time_minutes": 90,
+  "cost_per_person": 2.0,
+  "base_servings": 12,
+  "notes": "Ciasto rozciągać dłońmi, nie wałkować — lepiej zachowa strukturę",
+  "instructions": "1. Rozrób drożdże w letniej wodzie (300 ml), odstaw na 5 minut.\n2. Wsyp mąkę i sól, dodaj wodę z drożdżami i oliwę. Zagniataj 5–8 minut aż ciasto będzie gładkie i elastyczne.\n3. Przykryj ściereczką i zostaw w ciepłym miejscu na min. 1 godzinę.\n4. Pieczarki podsmaż z odrobiną oleju na patelni 2–3 minuty.\n5. Ciasto podziel na 12 części, rozciągnij dłońmi w kształt koła. Ułóż na blasze z papierem.\n6. Posmaruj środek przecierem, posyp oregano.\n7. Nałóż 3/4 sera wegańskiego, ułóż pieczarki, resztę sera na wierzch.\n8. Piecz 15 minut w 220–230°C na dolnej półce.",
+  "group_name": "Pizzerinki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 46,
+    "name": "drożdże",
+    "category": "Suche produkty",
+    "quantity": 10.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 47,
+    "name": "mąka do pizzy",
+    "category": "Suche produkty",
+    "quantity": 500.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 52,
+    "name": "oregano",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 51,
+    "name": "przecier pomidorowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 39,
+    "name": "pieczarki",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "odrobina do smażenia"
+   },
+   {
+    "ingredient_id": 49,
+    "name": "ser wegański do pizzy",
+    "category": "Alternatywy mięsa",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "name": "Ślimaki mięsne z ciasta francuskiego",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "miesne",
+  "effort_level": 1,
+  "prep_time_minutes": 25,
+  "cost_per_person": 1.0,
+  "base_servings": 13,
+  "notes": "Podawać gorące, prosto z piekarnika",
+  "instructions": "1. Rozwiń płat ciasta francuskiego na papierze do pieczenia.\n2. Posmaruj równomiernie przecierem pomidorowym i posyp ziołami prowansalskimi.\n3. Ułóż płasko plastry szynki, całość posyp tartą mozzarellą.\n4. Zwiń ciasto w ciasny rulon wzdłuż dłuższego boku i pokrój na plastry o grubości ok. 1,5–2 cm.\n5. Układaj płasko na blaszce i piecz w 200°C przez 15 minut, aż będą złociste.",
+  "group_name": "Ślimaki z ciasta francuskiego",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 53,
+    "name": "ciasto francuskie",
+    "category": "Inne",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 51,
+    "name": "przecier pomidorowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 60.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 54,
+    "name": "szynka w plastrach",
+    "category": "Mięso i ryby",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 50,
+    "name": "mozzarella (starta)",
+    "category": "Nabiał",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 55,
+    "name": "zioła prowansalskie",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "name": "Ślimaki wegetariańskie ze szpinakiem i fetą",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 30,
+  "cost_per_person": 1.0,
+  "base_servings": 13,
+  "notes": "Szpinak dobrze odcisnąć — mokry sprawi, że ciasto będzie rozmoczone",
+  "instructions": "1. Podsmaż szpinak z przeciśniętym czosnkiem i odrobiną oliwy, aż zwiędnie i odparuje z niego woda. Przestudź.\n2. Rozwiń płat ciasta francuskiego, rozłóż równomiernie podduszony szpinak.\n3. Pokrusz na wierzch ser feta oraz rozsyp tartą mozzarellę.\n4. Zwiń mocno w rulon i pokrój na kawałki ok. 1,5–2 cm.\n5. Piecz na blaszce wyłożonej papierem do pieczenia w 200°C przez 15–20 minut na złoty kolor.",
+  "group_name": "Ślimaki z ciasta francuskiego",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 53,
+    "name": "ciasto francuskie",
+    "category": "Inne",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 56,
+    "name": "szpinak",
+    "category": "Warzywa i owoce",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 57,
+    "name": "ser feta",
+    "category": "Nabiał",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 50,
+    "name": "mozzarella (starta)",
+    "category": "Nabiał",
+    "quantity": 75.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbek"
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "odrobina do smażenia"
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "name": "Faszerowane jajka z pastą pieczarkową",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 35,
+  "cost_per_person": 2.5,
+  "base_servings": 4,
+  "notes": "Pieczarki muszą być dobrze odsmażone — mokry farsz nie będzie się trzymał",
+  "instructions": "1. Jajka ugotuj na twardo, ostudź, obierz, przekrój wzdłuż na pół i wyjmij żółtka.\n2. Pieczarki i cebulę posiekaj jak najdrobniej. Podsmaż na maśle lub oleju, aż całkowicie odparuje z nich woda. Przestudź.\n3. Rozgnieć żółtka widelcem, dodaj grzyby z cebulą oraz majonez. Dopraw solą, pieprzem i wymieszaj.\n4. Nakładaj farsz łyżeczką w puste miejsca po żółtkach. Przed podaniem posyp szczypiorkiem.",
+  "group_name": "Faszerowane jajka",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 58,
+    "name": "jajka",
+    "category": "Nabiał",
+    "quantity": 6.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 39,
+    "name": "pieczarki",
+    "category": "Warzywa i owoce",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 40,
+    "name": "cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 4,
+    "name": "majonez",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 35,
+    "name": "masło",
+    "category": "Nabiał",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "1 łyżeczka do smażenia"
+   },
+   {
+    "ingredient_id": 59,
+    "name": "szczypiorek",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do posypania"
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "name": "Carpaccio z buraka z płatkami drożdżowymi",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "weganskie,wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 3.5,
+  "base_servings": 4,
+  "notes": "Użyć gotowych buraków w próżni — surowe wymagają długiego gotowania",
+  "instructions": "1. Słonecznik upraż na suchej patelni, aż lekko ściemnieje.\n2. Buraki pokrój w bardzo cienkie plastry i ułóż na dużym talerzu na zakładkę.\n3. W małym naczyniu wymieszaj oliwę z syropem i skrop buraki.\n4. Całość posyp obficie płatkami drożdżowymi oraz uprażonym słonecznikiem.",
+  "group_name": "Carpaccio z buraka",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 60,
+    "name": "buraki gotowane",
+    "category": "Warzywa i owoce",
+    "quantity": 400.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 61,
+    "name": "płatki drożdżowe nieaktywne",
+    "category": "Inne",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 62,
+    "name": "słonecznik łuskany",
+    "category": "Suche produkty",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 63,
+    "name": "syrop klonowy lub agawowy",
+    "category": "Inne",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 64,
+    "name": "rukola",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "mała garść (opcjonalnie)"
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "name": "Melon w szynce parmeńskiej",
+  "party_types": "grill,wnetrze,ogrod,koktajl",
+  "diet_tags": "miesne",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 5.0,
+  "base_servings": 6,
+  "notes": "Najlepszy schłodzony — przed podaniem wstawić do lodówki na min. 30 minut",
+  "instructions": "1. Melon przekrój na pół, łyżką wyjmij ze środka gniazda nasienne.\n2. Pokrój melon w łódki, odetnij skórę, a miąższ podziel na ok. 5-centymetrowe kawałki.\n3. Każdy plaster szynki przekrój wzdłuż na pół, aby powstały węższe paski.\n4. Owiń ściśle każdy kawałek melona paskiem szynki i ułóż na półmisku.",
+  "group_name": "Melon w szynce",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 65,
+    "name": "melon",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 66,
+    "name": "szynka parmeńska",
+    "category": "Mięso i ryby",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "name": "Chipsy z jarmużu",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "weganskie,wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 20,
+  "cost_per_person": 2.0,
+  "base_servings": 4,
+  "notes": "Piekarnik nie może być zbyt gorący — liście mają schnąć, a nie się smażyć",
+  "instructions": "1. Piekarnik rozgrzej do 150°C.\n2. Liście jarmużu porwij na mniejsze kawałki (odrzuć grube łodygi) i bardzo dokładnie osusz ręcznikiem.\n3. W misce wymieszaj jarmuż z oliwą, solą i czosnkiem granulowanym, dokładnie masując liście dłońmi.\n4. Rozłóż luźno na blasze z papierem i piecz przez 8–10 minut, uważając, by ich nie przypalić.",
+  "group_name": "Chipsy z jarmużu",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 67,
+    "name": "jarmuż",
+    "category": "Warzywa i owoce",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 68,
+    "name": "czosnek granulowany",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "name": "Tatar z łososia na grzankach",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "rybne",
+  "effort_level": 2,
+  "prep_time_minutes": 25,
+  "cost_per_person": 4.0,
+  "base_servings": 12,
+  "notes": "Łososia kroić tuż przed podaniem — ryba szybko traci świeżość",
+  "instructions": "1. Łososia pokrój w bardzo drobną kostkę (ok. 3mm).\n2. Ogórka obierz, usuń pestki, pokrój tak samo drobno.\n3. Cebulę i kapary drobno posiekaj.\n4. Wymieszaj wszystko z sokiem z cytryny, oliwą, solą i pieprzem.\n5. Bagietkę pokrój w skośne plastry (~1cm), skrop oliwą i grilluj lub piecz w 200°C przez 5–7 min aż będą chrupiące.\n6. Przed podaniem nakładaj tatar łyżeczką na każdą grzankę, udekoruj koperkiem.",
+  "group_name": "Tatar z łososia",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 69,
+    "name": "łosoś (sushi-grade)",
+    "category": "Mięso i ryby",
+    "quantity": 200.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 24,
+    "name": "ogórek",
+    "category": "Warzywa i owoce",
+    "quantity": 80.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 28,
+    "name": "czerwona cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 40.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 70,
+    "name": "kapary",
+    "category": "Przyprawy i sosy",
+    "quantity": 20.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 71,
+    "name": "koper świeży",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do dekoracji"
+   },
+   {
+    "ingredient_id": 72,
+    "name": "sok z cytryny",
+    "category": "Przyprawy i sosy",
+    "quantity": 15.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 36,
+    "name": "bagietka",
+    "category": "Pieczywo",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "name": "Sałatka z arbuza i fety z miętą",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 2.5,
+  "base_servings": 8,
+  "notes": "Podawać od razu — arbuz puszcza sok i salałka traci wygląd",
+  "instructions": "1. Arbuza pokrój w trójkąty lub kostki (~3cm).\n2. Fetę pokrusz lub pokrój w kostkę.\n3. Na talerzu lub w misce ułóż arbuza, posyp fetą i listkami mięty.\n4. Skrop oliwą i sokiem z limonki, posyp pieprzem.\n5. Jeśli używasz migdałów — uprażyj je chwilę na suchej patelni i posyp na wierzchu.\n6. Podawaj od razu po przygotowaniu.",
+  "group_name": "Sałatka z arbuza",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 73,
+    "name": "arbuz",
+    "category": "Warzywa i owoce",
+    "quantity": 800.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 57,
+    "name": "ser feta",
+    "category": "Nabiał",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 74,
+    "name": "mięta świeża",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka listków"
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 31,
+    "name": "sok z limonki",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 75,
+    "name": "płatki migdałów",
+    "category": "Suche produkty",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "name": "Grillowane halloumi z miodem i tymiankiem",
+  "party_types": "grill,wnetrze,ogrod",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 15,
+  "cost_per_person": 4.0,
+  "base_servings": 6,
+  "notes": "Podawać gorące — halloumi twardnieje i traci smak po ostygnięciu",
+  "instructions": "1. Halloumi pokrój w plastry grubości ~1cm.\n2. Posmaruj lekko oliwą z każdej strony.\n3. Grilluj na mocno rozgrzanym grillu lub patelni grillowej 2–3 min z każdej strony, aż pojawią się wyraźne paski.\n4. Przełóż na talerz, od razu skrop miodem, posyp listkami tymianku i pieprzem.\n5. Podawaj gorące — halloumi twardnieje po ostygnięciu.",
+  "group_name": "Grillowane halloumi",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 76,
+    "name": "halloumi",
+    "category": "Nabiał",
+    "quantity": 400.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 43,
+    "name": "miód",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 77,
+    "name": "tymianek świeży",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka gałązek"
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 33,
+    "name": "chili",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "szczypta płatków (opcjonalnie)"
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "name": "Skrzydełka w glazurze teriyaki",
+  "party_types": "wnetrze,ogrod,grill",
+  "diet_tags": "miesne",
+  "effort_level": 1,
+  "prep_time_minutes": 45,
+  "cost_per_person": 3.0,
+  "base_servings": 6,
+  "notes": "Marynować minimum 2h — najlepiej całą noc w lodówce",
+  "instructions": "1. Czosnek i imbir zetrzyj na tarce.\n2. Wymieszaj z sosem sojowym, miodem, olejem sezamowym i octem — to marynata.\n3. Zalej nią skrzydełka i odstaw minimum 2h (najlepiej całą noc).\n4. Piecz w 200°C przez 35–40 min, przewracając w połowie.\n5. W ostatnich 5 min posmaruj dodatkową glazurą z odlanej marynaty zagęszczonej skrobią dla lepszego błysku.\n6. Posyp sezamem i szczypiorkiem.",
+  "group_name": "Skrzydełka teriyaki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 78,
+    "name": "skrzydełka kurczaka",
+    "category": "Mięso i ryby",
+    "quantity": 1000.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 42,
+    "name": "sos sojowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 4.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 43,
+    "name": "miód",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 79,
+    "name": "imbir świeży",
+    "category": "Warzywa i owoce",
+    "quantity": 15.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 80,
+    "name": "olej sezamowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 15.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 81,
+    "name": "ocet ryżowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 20.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 82,
+    "name": "skrobia ziemniaczana",
+    "category": "Suche produkty",
+    "quantity": 10.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 83,
+    "name": "sezam",
+    "category": "Suche produkty",
+    "quantity": 15.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 59,
+    "name": "szczypiorek",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do posypania"
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "name": "Grillowane plastry bakłażana",
+  "party_types": "grill,wnetrze,ogrod",
+  "diet_tags": "weganskie,wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 15,
+  "cost_per_person": 1.5,
+  "base_servings": 6,
+  "notes": "Solić i odciskać przed grillowaniem — usuwa gorycz i nadmiar wilgoci",
+  "instructions": "1. Bakłażana pokrój w plastry 1–1,5cm.\n2. Posól i odstaw na 20 min, potem osusz papierowym ręcznikiem — to usuwa gorycz.\n3. Skrop oliwą, dopraw czosnkiem granulowanym, oregano i pieprzem.\n4. Grilluj 3–4 min z każdej strony aż pojawią się paski i bakłażan będzie miękki.",
+  "group_name": "Grillowany bakłażan",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 84,
+    "name": "bakłażan",
+    "category": "Warzywa i owoce",
+    "quantity": 600.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "ok. 2 szt."
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 68,
+    "name": "czosnek granulowany",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 52,
+    "name": "oregano",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "name": "Baba ganoush",
+  "party_types": "grill,wnetrze,ogrod,koktajl",
+  "diet_tags": "weganskie,wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 35,
+  "cost_per_person": 2.0,
+  "base_servings": 8,
+  "notes": "Zwęglona skórka to sekret głębokiego, dymnego smaku — nie skracaj tego etapu",
+  "instructions": "1. Bakłażany nakłuj widelcem w kilku miejscach.\n2. Ułóż bezpośrednio na płomieniu gazowym lub pod grillem w piekarniku (230°C) i piecz 20–25 min, obracając co kilka minut, aż skórka będzie zwęglona a miąższ miękki.\n3. Przełóż do miski, przykryj folią na 10 min — skórka zejdzie łatwo. Odciśnij nadmiar wody z miąższu.\n4. Miąższ wymieszaj lub zblenduj z tahini, czosnkiem, sokiem z cytryny i kminkiem.\n5. Dopraw solą.\n6. Podawaj skropiony oliwą, z papryką wędzoną i natką. Najlepsze z pitą lub warzywami.",
+  "group_name": "Baba ganoush",
+  "is_universal": true,
+  "ingredients": [
+   {
+    "ingredient_id": 84,
+    "name": "bakłażan",
+    "category": "Warzywa i owoce",
+    "quantity": 800.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "ok. 2 duże szt."
+   },
+   {
+    "ingredient_id": 85,
+    "name": "tahini",
+    "category": "Suche produkty",
+    "quantity": 60.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 72,
+    "name": "sok z cytryny",
+    "category": "Przyprawy i sosy",
+    "quantity": 40.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 86,
+    "name": "kminek mielony",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 87,
+    "name": "natka pietruszki",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do dekoracji"
+   },
+   {
+    "ingredient_id": 88,
+    "name": "papryka wędzona",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "szczypta do dekoracji"
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "name": "Tacos z kurczakiem",
+  "party_types": "wnetrze,ogrod",
+  "diet_tags": "miesne",
+  "effort_level": 2,
+  "prep_time_minutes": 20,
+  "cost_per_person": 3.0,
+  "base_servings": 12,
+  "notes": "Przyprawa taco może być przygotowana wcześniej. Sos powinien mieć konsystencję cienkiego syropu — jeśli za szybko redukuje, dolej wody.",
+  "instructions": "1. Wymieszaj składniki przyprawy taco w misce. Dodaj 2 łyżki bulionu z kurczaka i wymieszaj na luźną pastę.\n2. Dodaj kurczaka i obtocz go dokładnie w marynacie.\n3. Rozgrzej oliwę na dużej patelni na średnio-wysokim ogniu. Smaż kurczaka przez 3 minuty z każdej strony, aż lekko się przyrumieni. (Zostaw resztki marynaty w misce.)\n4. Wyjmij kurczaka i przełóż na płytki talerz.\n5. Wróć patelnię na ogień, zmniejsz do średniego. Dodaj pozostały bulion, koncentrat pomidorowy, cukier i zeskrob resztki marynaty z miski. Mieszaj, zdrapując dno patelni, i doprowadź do wrzenia.\n6. W międzyczasie rozdrobnij kurczaka widelcami lub posiekaj (nie przejmuj się, jeśli w środku jest jeszcze surowy).\n7. Wróć kurczaka do sosu, wymieszaj i gotuj na małym ogniu przez 2–3 minuty, aż sos zredukuje się do konsystencji cienkiego syropu (jeśli za szybko redukuje, dolej wody). Dopraw solą do smaku.\n8. Przełóż kurczaka z całym sosem do miski do podania. Podgrzej muszle taco lub tortille. Nałóż kurczaka, upewniając się, że jest dobrze nasączony sosem. Na wierzchu ułóż pomidora, awokado, cebulę, kolendrę, sałatę i kwaśną śmietanę.",
+  "group_name": "Tacos",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 113,
+    "name": "udka z kurczaka (bez kości)",
+    "category": "Mięso i ryby",
+    "quantity": 700.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.5,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": "do smażenia"
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": "do marynaty"
+   },
+   {
+    "ingredient_id": 114,
+    "name": "koncentrat pomidorowy",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 7,
+    "name": "cukier",
+    "category": "Suche produkty",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 115,
+    "name": "bulion z kurczaka",
+    "category": "Inne",
+    "quantity": 250.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 31,
+    "name": "sok z limonki",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 2.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 68,
+    "name": "czosnek granulowany",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 105,
+    "name": "cebula w proszku",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 52,
+    "name": "oregano",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 86,
+    "name": "kminek mielony",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 26,
+    "name": "papryka słodka mielona",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 116,
+    "name": "pieprz cayenne",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 92,
+    "name": "mini tortille (8 cm)",
+    "category": "Pieczywo",
+    "quantity": 12.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 2,
+    "name": "pomidor",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 40,
+    "name": "cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 29,
+    "name": "awokado",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 32,
+    "name": "świeża kolendra",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do podania"
+   },
+   {
+    "ingredient_id": 14,
+    "name": "sałata lodowa",
+    "category": "Warzywa i owoce",
+    "quantity": 120.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 117,
+    "name": "ser żółty (tarty)",
+    "category": "Nabiał",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 94,
+    "name": "śmietana 18%",
+    "category": "Nabiał",
+    "quantity": 180.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "name": "Paszteciki z pieczarkami",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 40,
+  "cost_per_person": 1.5,
+  "base_servings": 16,
+  "notes": "Pieczarki smażyć aż do całkowitego odparowania płynu — mokry farsz rozmoczy ciasto",
+  "instructions": "1. Pieczarki drobno posiekaj. Cebulę i czosnek zeszklij na maśle, dodaj pieczarki i smaż na dużym ogniu 8–10 min aż odparuje cały płyn.\n2. Dodaj śmietanę, dopraw solą i pieprzem, wymieszaj z natką. Odstaw do ostygnięcia.\n3. Ciasto francuskie pokrój w prostokąty (~8x10cm). Na każdy prostokąt nakładaj łyżkę farszu, składaj i zlepiaj brzegi widelcem.\n4. Smaruj roztrzepanym jajkiem.\n5. Piecz w 200°C przez 18–20 min aż będą złociste.",
+  "group_name": "Paszteciki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 53,
+    "name": "ciasto francuskie",
+    "category": "Inne",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 58,
+    "name": "jajka",
+    "category": "Nabiał",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "do posmarowania"
+   },
+   {
+    "ingredient_id": 39,
+    "name": "pieczarki",
+    "category": "Warzywa i owoce",
+    "quantity": 400.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 40,
+    "name": "cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 120.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 2.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 35,
+    "name": "masło",
+    "category": "Nabiał",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 94,
+    "name": "śmietana 18%",
+    "category": "Nabiał",
+    "quantity": 50.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 87,
+    "name": "natka pietruszki",
+    "category": "Warzywa i owoce",
+    "quantity": 15.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 96,
+    "name": "tarta bułka",
+    "category": "Pieczywo",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "20g jeśli farsz za rzadki"
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "name": "Paszteciki z mięsem mielonym",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "miesne",
+  "effort_level": 1,
+  "prep_time_minutes": 40,
+  "cost_per_person": 1.5,
+  "base_servings": 16,
+  "notes": "Farsz musi być suchy — smaż na dużym ogniu aż całkowicie odparuje płyn",
+  "instructions": "1. Cebulę i czosnek zeszklij na oleju. Dodaj mięso mielone i smaż na dużym ogniu, rozbijając grudki, aż będzie brązowe i odparuje płyn — ok. 10 min.\n2. Dopraw majerankiem, papryką słodką, sosem Worcestershire, solą i pieprzem. Jeśli farsz jest za wilgotny, dodaj tartą bułkę.\n3. Odstaw do ostygnięcia.\n4. Ciasto pokrój w prostokąty (~8x10cm), nakładaj farsz, składaj i zlepiaj brzegi widelcem.\n5. Smaruj roztrzepanym jajkiem. Piecz w 200°C przez 18–20 min.",
+  "group_name": "Paszteciki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 53,
+    "name": "ciasto francuskie",
+    "category": "Inne",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 58,
+    "name": "jajka",
+    "category": "Nabiał",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "do posmarowania"
+   },
+   {
+    "ingredient_id": 97,
+    "name": "mięso mielone wieprzowo-wołowe",
+    "category": "Mięso i ryby",
+    "quantity": 400.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 40,
+    "name": "cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 120.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 2.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 98,
+    "name": "majeranek suszony",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 26,
+    "name": "papryka słodka mielona",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 99,
+    "name": "sos Worcestershire",
+    "category": "Przyprawy i sosy",
+    "quantity": 15.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 96,
+    "name": "tarta bułka",
+    "category": "Pieczywo",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "20g jeśli farsz za rzadki"
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "name": "Paszteciki wegańskie z soczewicą i suszonymi pomidorami",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "weganskie,wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 40,
+  "cost_per_person": 1.5,
+  "base_servings": 16,
+  "notes": "Farsz musi być suchy i zwarty — odciśnij soczewicę i podsusz na patelni jeśli potrzeba",
+  "instructions": "1. Soczewicę ugotuj w osolonej wodzie (~15 min) aż będzie miękka. Odcedź i lekko odciśnij.\n2. Cebulę i czosnek zeszklij na oliwie, dodaj kminek i paprykę wędzoną, smaż 1 min.\n3. Suszone pomidory drobno posiekaj.\n4. Wymieszaj soczewicę, cebulę, pomidory, sok z cytryny i natkę. Dopraw solą i pieprzem. Jeśli farsz nie jest zwarty, podsusz chwilę na patelni mieszając.\n5. Ciasto pokrój w prostokąty, nadziewaj, zlepiaj, smaruj mlekiem roślinnym.\n6. Piecz w 200°C przez 18–20 min.",
+  "group_name": "Paszteciki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 53,
+    "name": "ciasto francuskie",
+    "category": "Inne",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "wegańskie — sprawdź skład"
+   },
+   {
+    "ingredient_id": 102,
+    "name": "mleko roślinne",
+    "category": "Inne",
+    "quantity": 30.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": "do posmarowania"
+   },
+   {
+    "ingredient_id": 100,
+    "name": "soczewica czerwona",
+    "category": "Suche produkty",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 101,
+    "name": "suszone pomidory w oleju",
+    "category": "Suche produkty",
+    "quantity": 80.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 40,
+    "name": "cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 120.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 2.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 86,
+    "name": "kminek mielony",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 88,
+    "name": "papryka wędzona",
+    "category": "Przyprawy i sosy",
+    "quantity": 4.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 72,
+    "name": "sok z cytryny",
+    "category": "Przyprawy i sosy",
+    "quantity": 15.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 87,
+    "name": "natka pietruszki",
+    "category": "Warzywa i owoce",
+    "quantity": 15.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "name": "Szaszłyki z krewetek z grilla",
+  "party_types": "grill,wnetrze,ogrod,koktajl",
+  "diet_tags": "rybne",
+  "effort_level": 2,
+  "prep_time_minutes": 25,
+  "cost_per_person": 8.5,
+  "base_servings": 8,
+  "notes": "Nie marynować dłużej niż 30 min — kwas cytrynowy zaczyna 'gotować' krewetki",
+  "instructions": "1. Namocz drewniane patyczki w wodzie minimum 30 min.\n2. Krewetki obierz i usuń jelito (czarna nitka wzdłuż grzbietu).\n3. Wymieszaj oliwę z rozgniecionym czosnkiem, sokiem z cytryny i płatkami chili. Zalej krewetki i odstaw na 20–30 min.\n4. Nabijaj po 4 krewetki na patyczek, zginając każdą w literę C.\n5. Grilluj na mocno rozgrzanym grillu 2 min z każdej strony — gotowe gdy zmienią kolor na różowo-pomarańczowy i lekko się zwijają.\n6. Zdejmij z grilla, połóż kawałek masła na każdym szaszłyku i posyp natką. Podawaj z ćwiartkami limonki.",
+  "group_name": "Szaszłyki z krewetek",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 103,
+    "name": "krewetki tygrysie (surowe)",
+    "category": "Mięso i ryby",
+    "quantity": 600.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 3.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 37,
+    "name": "czosnek",
+    "category": "Warzywa i owoce",
+    "quantity": 3.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "ząbki"
+   },
+   {
+    "ingredient_id": 72,
+    "name": "sok z cytryny",
+    "category": "Przyprawy i sosy",
+    "quantity": 30.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 33,
+    "name": "chili",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "szczypta płatków"
+   },
+   {
+    "ingredient_id": 35,
+    "name": "masło",
+    "category": "Nabiał",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 87,
+    "name": "natka pietruszki",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "garść do posypania"
+   },
+   {
+    "ingredient_id": 104,
+    "name": "limonka",
+    "category": "Warzywa i owoce",
+    "quantity": 2.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "do podania"
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "name": "Sałatka ziemniaczana z ogórkami kiszonymi",
+  "party_types": "grill,wnetrze,ogrod",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 15,
+  "cost_per_person": 1.0,
+  "base_servings": 10,
+  "notes": "Najlepsza z młodych ziemniaków — podawać w temperaturze pokojowej lub lekko schłodzoną",
+  "instructions": "1. Ziemniaki ugotuj w osolonej wodzie do miękkości. Odcedź, ostudź i pokrój w kostkę.\n2. Ogórki kiszone pokrój w kostkę (twardszą skórkę obierz). Czerwoną cebulę pokrój w cienkie piórka.\n3. Wymieszaj śmietanę z majonezem, dopraw solą i pieprzem.\n4. Połącz ziemniaki, ogórki i cebulę z dressingiem. Wymieszaj i posyp szczypiorkiem.",
+  "group_name": "Sałatka ziemniaczana",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 106,
+    "name": "ziemniaki",
+    "category": "Warzywa i owoce",
+    "quantity": 1000.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 107,
+    "name": "ogórki kiszone",
+    "category": "Warzywa i owoce",
+    "quantity": 250.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 28,
+    "name": "czerwona cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 60.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 59,
+    "name": "szczypiorek",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "6 łyżek posiekanego"
+   },
+   {
+    "ingredient_id": 94,
+    "name": "śmietana 18%",
+    "category": "Nabiał",
+    "quantity": 180.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 4,
+    "name": "majonez",
+    "category": "Przyprawy i sosy",
+    "quantity": 60.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 33,
+  "name": "Sałatka z pomidorów z bazylią i parmezanem",
+  "party_types": "grill,wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 1.0,
+  "base_servings": 10,
+  "notes": "Podawać w temperaturze pokojowej — zimne pomidory tracą aromat",
+  "instructions": "1. Pomidory pokrój na cząstki lub plastry i ułóż na półmisku.\n2. Czerwoną cebulę pokrój w bardzo cienkie piórka. Namocz przez 5 minut w zimnej wodzie — usuwa gorzkość. Odcedź i osusz.\n3. Rozłóż cebulę na pomidorach.\n4. W małej miseczce wymieszaj oliwę, sok z cytryny i ocet. Polej pomidory.\n5. Posyp posiekaną bazylią i natką pietruszki.\n6. Dopraw pieprzem. Tuż przed podaniem posyp startym parmezanem.",
+  "group_name": "Sałatka z pomidorów",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 2,
+    "name": "pomidor",
+    "category": "Warzywa i owoce",
+    "quantity": 500.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 28,
+    "name": "czerwona cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 30.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 19,
+    "name": "świeża bazylia",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "2 łyżki posiekanej"
+   },
+   {
+    "ingredient_id": 87,
+    "name": "natka pietruszki",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "2 łyżki posiekanej"
+   },
+   {
+    "ingredient_id": 20,
+    "name": "oliwa z oliwek",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 72,
+    "name": "sok z cytryny",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "2 łyżeczki"
+   },
+   {
+    "ingredient_id": 6,
+    "name": "ocet",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "2 łyżeczki (winny lub jabłkowy)"
+   },
+   {
+    "ingredient_id": 11,
+    "name": "parmezan",
+    "category": "Nabiał",
+    "quantity": 10.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 34,
+  "name": "Kanapeczki z bagietki z prosciutto i camembertem",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "miesne",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 5.5,
+  "base_servings": 5,
+  "notes": "Składać tuż przed podaniem, żeby bagietka nie namiękła od serka",
+  "instructions": "1. Bagietkę pokrój w skośne plastry (~1.5 cm).\n2. Każdy plastr posmaruj serkiem śmietankowym.\n3. Połóż plasterek camemberta, a na nim prosciutto — lekko zmarszczone dla objętości.\n4. Ułóż garść rukoli i kilka orzechów.\n5. Tuż przed podaniem skrop delikatnie miodem.",
+  "group_name": "Kanapeczki z bagietki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 36,
+    "name": "bagietka",
+    "category": "Pieczywo",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 66,
+    "name": "szynka parmeńska",
+    "category": "Mięso i ryby",
+    "quantity": 60.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 109,
+    "name": "ser camembert",
+    "category": "Nabiał",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "½ szt"
+   },
+   {
+    "ingredient_id": 108,
+    "name": "serek śmietankowy",
+    "category": "Nabiał",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 64,
+    "name": "rukola",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "1 garść"
+   },
+   {
+    "ingredient_id": 110,
+    "name": "orzechy włoskie",
+    "category": "Suche produkty",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "1 garść"
+   },
+   {
+    "ingredient_id": 43,
+    "name": "miód",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do polania"
+   }
+  ]
+ },
+ {
+  "id": 35,
+  "name": "Kanapeczki z bagietki z łososiem wędzonym",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "rybne",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 5.5,
+  "base_servings": 5,
+  "notes": "Łososia układać tuż przed podaniem; czerwona cebula może być wcześniej zamarynowana w soku z cytryny — łagodnieje i ładnie różowieje",
+  "instructions": "1. Bagietkę pokrój w skośne plastry (~1.5 cm). Każdy posmaruj serkiem śmietankowym.\n2. Ułóż plasterki łososia wędzonego.\n3. Posyp kaparami i cienką różową cebulką.\n4. Skrop kilkoma kroplami soku z cytryny, połóż gałązkę kopru.\n5. Dopraw świeżo zmielonym pieprzem. Składać tuż przed podaniem.",
+  "group_name": "Kanapeczki z bagietki z łososiem",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 36,
+    "name": "bagietka",
+    "category": "Pieczywo",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 112,
+    "name": "łosoś wędzony",
+    "category": "Mięso i ryby",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 108,
+    "name": "serek śmietankowy",
+    "category": "Nabiał",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 70,
+    "name": "kapary",
+    "category": "Przyprawy i sosy",
+    "quantity": 15.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "ok. 1 łyżka"
+   },
+   {
+    "ingredient_id": 28,
+    "name": "czerwona cebula",
+    "category": "Warzywa i owoce",
+    "quantity": 40.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 71,
+    "name": "koper świeży",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka gałązek"
+   },
+   {
+    "ingredient_id": 72,
+    "name": "sok z cytryny",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka kropli"
+   },
+   {
+    "ingredient_id": 9,
+    "name": "pieprz",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 36,
+  "name": "Kanapeczki z bagietki z camembertem i suszonymi pomidorami",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 3.0,
+  "base_servings": 5,
+  "notes": "Suszone pomidory dają tę umami-głębię zamiast szynki; wersja jeszcze ciekawsza jeśli dodać karmelizowaną cebulę",
+  "instructions": "1. Bagietkę pokrój w skośne plastry (~1.5 cm). Każdy posmaruj serkiem śmietankowym.\n2. Połóż plasterek camemberta.\n3. Ułóż suszone pomidory (możesz je lekko posiekać).\n4. Dodaj garść rukoli i kilka orzechów.\n5. Skrop miodem tuż przed podaniem.",
+  "group_name": "Kanapeczki z bagietki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 36,
+    "name": "bagietka",
+    "category": "Pieczywo",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 108,
+    "name": "serek śmietankowy",
+    "category": "Nabiał",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 109,
+    "name": "ser camembert",
+    "category": "Nabiał",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "½ szt"
+   },
+   {
+    "ingredient_id": 101,
+    "name": "suszone pomidory w oleju",
+    "category": "Suche produkty",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 64,
+    "name": "rukola",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "1 garść"
+   },
+   {
+    "ingredient_id": 110,
+    "name": "orzechy włoskie",
+    "category": "Suche produkty",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "1 garść"
+   },
+   {
+    "ingredient_id": 43,
+    "name": "miód",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do polania"
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "name": "Kanapeczki z bagietki wegańskie z awokado i suszonymi pomidorami",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "weganskie",
+  "effort_level": 1,
+  "prep_time_minutes": 10,
+  "cost_per_person": 4.0,
+  "base_servings": 5,
+  "notes": "Awokado od razu skropić cytryną żeby nie ściemniało; składać tuż przed podaniem",
+  "instructions": "1. Bagietkę pokrój w skośne plastry (~1.5 cm). Każdy posmaruj wegańskim serkiem śmietankowym.\n2. Awokado przekrój, wyjmij pestkę i pokrój w plasterki lub rozgnieć widelcem. Natychmiast skrop sokiem z cytryny.\n3. Ułóż awokado na kanapkach, dodaj suszone pomidory.\n4. Dodaj garść rukoli i kilka orzechów.\n5. Skrop syropem z agawy, dopraw solą. Składać tuż przed podaniem.",
+  "group_name": "Kanapeczki z bagietki",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 36,
+    "name": "bagietka",
+    "category": "Pieczywo",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 111,
+    "name": "serek śmietankowy wegański",
+    "category": "Alternatywy mięsa",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 29,
+    "name": "awokado",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 101,
+    "name": "suszone pomidory w oleju",
+    "category": "Suche produkty",
+    "quantity": 50.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 64,
+    "name": "rukola",
+    "category": "Warzywa i owoce",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "1 garść"
+   },
+   {
+    "ingredient_id": 110,
+    "name": "orzechy włoskie",
+    "category": "Suche produkty",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "1 garść"
+   },
+   {
+    "ingredient_id": 63,
+    "name": "syrop klonowy lub agawowy",
+    "category": "Inne",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "do polania"
+   },
+   {
+    "ingredient_id": 72,
+    "name": "sok z cytryny",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "kilka kropli"
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "to_taste",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "name": "Muffiny cytrynowe z malinami",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 40,
+  "cost_per_person": 1.0,
+  "base_servings": 12,
+  "notes": "Wszystkie składniki powinny być w temperaturze pokojowej. Skórkę cytrynową zetrzeć przed wyciskaniem soku.",
+  "instructions": "1. Masło roztopić i odstawić do przestudzenia.\n2. Do naczynia wlać sok z cytryny, dopełnić mlekiem do 200 ml. Przelać do miski, dodać roztrzepane jajko, przestudzone masło i skórkę cytrynową. Wymieszać.\n3. Dodać cukier i wymieszać.\n4. Przesiać do mieszanki mąkę z proszkiem do pieczenia i solą. Wymieszać tylko do połączenia — nie za długo.\n5. Delikatnie wmieszać maliny szpatułką.\n6. Formę do muffinów wyłożyć papilotkami, napełnić do ¾ wysokości.\n7. Piec w 180°C (bez termoobiegu) przez 25 minut lub do suchego patyczka.\n8. Pozostawić w formie 5–10 minut, następnie wystudzić na kratce.",
+  "group_name": "Muffiny cytrynowe",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 35,
+    "name": "masło",
+    "category": "Nabiał",
+    "quantity": 60.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 118,
+    "name": "mąka pszenna",
+    "category": "Suche produkty",
+    "quantity": 230.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 119,
+    "name": "proszek do pieczenia",
+    "category": "Suche produkty",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 7,
+    "name": "cukier",
+    "category": "Suche produkty",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 8,
+    "name": "sól",
+    "category": "Przyprawy i sosy",
+    "quantity": 0.25,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 120,
+    "name": "cytryna",
+    "category": "Warzywa i owoce",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "sok i skórka"
+   },
+   {
+    "ingredient_id": 121,
+    "name": "mleko",
+    "category": "Nabiał",
+    "quantity": 120.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 58,
+    "name": "jajka",
+    "category": "Nabiał",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 122,
+    "name": "maliny (świeże lub mrożone)",
+    "category": "Warzywa i owoce",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 123,
+    "name": "papilotki do muffinów",
+    "category": "Inne",
+    "quantity": 12.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 39,
+  "name": "Muffiny czekoladowe z kawałkami czekolady",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 30,
+  "cost_per_person": 1.5,
+  "base_servings": 12,
+  "notes": "Wszystkie składniki powinny być w temperaturze pokojowej. Nie mieszać za długo — grudki w cieście są ok.",
+  "instructions": "1. W jednej misce wymieszać przesiane suche składniki: mąkę, proszek do pieczenia, sodę, kakao i cukier puder.\n2. W drugiej misce wymieszać mokre: mleko, olej, roztrzepane jajko i ekstrakt z wanilii.\n3. Wlać mokre składniki do suchych i wymieszać rózgą tylko do połączenia — nie dłużej.\n4. Wmieszać ¾ posiekanej czekolady.\n5. Formę do muffinów wyłożyć papilotkami, napełnić do ¾ wysokości. Na wierzch każdej muffinki dodać resztę czekolady.\n6. Piec w 190–200°C (bez termoobiegu) przez 20 minut.\n7. Wystudzić na kratce.",
+  "group_name": "Muffiny czekoladowe",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 118,
+    "name": "mąka pszenna",
+    "category": "Suche produkty",
+    "quantity": 250.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 119,
+    "name": "proszek do pieczenia",
+    "category": "Suche produkty",
+    "quantity": 2.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 124,
+    "name": "soda oczyszczona",
+    "category": "Suche produkty",
+    "quantity": 0.5,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 125,
+    "name": "kakao",
+    "category": "Suche produkty",
+    "quantity": 2.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 127,
+    "name": "cukier puder",
+    "category": "Suche produkty",
+    "quantity": 120.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 126,
+    "name": "gorzka czekolada (posiekana)",
+    "category": "Suche produkty",
+    "quantity": 150.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 121,
+    "name": "mleko",
+    "category": "Nabiał",
+    "quantity": 250.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": 90.0,
+    "unit": "ml",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 58,
+    "name": "jajka",
+    "category": "Nabiał",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 128,
+    "name": "ekstrakt z wanilii",
+    "category": "Przyprawy i sosy",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 123,
+    "name": "papilotki do muffinów",
+    "category": "Inne",
+    "quantity": 12.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": null
+   }
+  ]
+ },
+ {
+  "id": 40,
+  "name": "Brownie wegańskie z fasoli",
+  "party_types": "wnetrze,ogrod,koktajl",
+  "diet_tags": "weganskie,wegetarianskie",
+  "effort_level": 2,
+  "prep_time_minutes": 60,
+  "cost_per_person": 2.5,
+  "base_servings": 12,
+  "notes": "Ciasto najlepiej smakuje po całkowitym wystudzeniu — idealne przygotowane dzień przed imprezą.",
+  "instructions": "1. Piekarnik nagrzej do 180°C, formę (ok. 21 cm) lekko wysmaruj olejem i wyłóż papierem do pieczenia. Siemię lniane zalej 8 łyżkami wrzątku i odstaw na 10 minut — powstanie żel.\n2. Fasolę odcedź i dobrze przepłucz. Fasolę, żel z siemienia, zmielone migdały, kakao, olej i cukier umieść w blenderze i zmiksuj na gładką pastę.\n3. Dodaj proszek do pieczenia i posiekaną czekoladę, wymieszaj.\n4. Masę przełóż do formy, wyrównaj powierzchnię i posyp ulubionymi dodatkami.\n5. Piecz na dolnym poziomie piekarnika przez ok. 50 minut. Po 30–40 minutach przykryj wierzch folią aluminiową.\n6. Odstaw do całkowitego ostygnięcia przed krojeniem.",
+  "group_name": "Brownie z fasoli",
+  "is_universal": false,
+  "ingredients": [
+   {
+    "ingredient_id": 129,
+    "name": "fasola czerwona (puszka)",
+    "category": "Suche produkty",
+    "quantity": 1.0,
+    "unit": "szt",
+    "quantity_type": "exact",
+    "display_note": "puszka ~400g"
+   },
+   {
+    "ingredient_id": 130,
+    "name": "siemię lniane (zmielone)",
+    "category": "Suche produkty",
+    "quantity": 4.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 131,
+    "name": "migdały (mielone)",
+    "category": "Suche produkty",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "ok. 1 szklanka"
+   },
+   {
+    "ingredient_id": 125,
+    "name": "kakao",
+    "category": "Suche produkty",
+    "quantity": null,
+    "unit": null,
+    "quantity_type": "descriptive",
+    "display_note": "50 g"
+   },
+   {
+    "ingredient_id": 90,
+    "name": "brązowy cukier",
+    "category": "Suche produkty",
+    "quantity": 140.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 44,
+    "name": "olej roślinny",
+    "category": "Przyprawy i sosy",
+    "quantity": 6.0,
+    "unit": "łyżka",
+    "quantity_type": "exact",
+    "display_note": "rzepakowy"
+   },
+   {
+    "ingredient_id": 119,
+    "name": "proszek do pieczenia",
+    "category": "Suche produkty",
+    "quantity": 1.0,
+    "unit": "łyżeczka",
+    "quantity_type": "exact",
+    "display_note": null
+   },
+   {
+    "ingredient_id": 126,
+    "name": "gorzka czekolada (posiekana)",
+    "category": "Suche produkty",
+    "quantity": 100.0,
+    "unit": "g",
+    "quantity_type": "exact",
+    "display_note": "tabliczka"
+   }
+  ]
+ }
+]
