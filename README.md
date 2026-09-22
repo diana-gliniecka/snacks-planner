@@ -4,35 +4,23 @@
 
 A mobile-first web app for planning party food. Enter the party details, pick dishes from the recipe database and get a ready-made shopping list.
 
-**Demo:** https://diana-gliniecka.github.io/snacks-planner/
+**Demo:** https://diana-gliniecka.github.io/snacks-planner/ · *(the app UI is in Polish)*
 
-> The app UI is in Polish.
+## Why I built it
 
-## Architecture
-
-The app was built as a full-stack project: **React (Vite) + FastAPI + SQLAlchemy (SQLite/Postgres)**. The backend code still lives in `backend/`, and the full-stack version is tagged [`v1-fullstack`](https://github.com/diana-gliniecka/snacks-planner/tree/v1-fullstack).
-
-The public demo runs as a static site on GitHub Pages:
-
-- recipe data is exported from `backend/seed.py` to `frontend/src/data/recipes.json` (`python backend/export_json.py`),
-- the endpoint logic from `backend/main.py` (dish suggestions, recipe scaling, shopping list) is ported 1:1 to `frontend/src/planner.js` and runs in the browser.
-
-After changing recipes in `seed.py`, re-run `export_json.py`. Every push to `main` automatically publishes the demo (`.github/workflows/deploy.yml`).
-
-## Product thinking
-
-### Why I built it
 Two reasons. I wanted to find out whether I could, and I had a real deadline: a birthday party for about 20 people, where I needed help working out how much food to actually buy.
 
 That's the problem in a nutshell. Hosting a party means answering four questions at once — what to serve, how much to buy, how long it will take, and what it will cost. Recipe sites scale a single recipe. None of them plans a whole menu and turns it into one shopping list.
 
-### Approach
+## Approach
+
 - **Three steps, one question each:** party details → suggested menu → shopping list. Nobody has to plan everything at once.
 - **Mobile-first:** the shopping list gets used in the shop, on a phone.
 - **Small iterations:** around 10 small pull requests over 9 days, then changes driven by real use — recipe costs updated to real shop prices, corn changed to one cob per person because half a cob wasn't enough.
 - **AI as a pair programmer:** built with Claude Code. I made the product calls — the menu model, the diet rules, the portion maths — and used AI to get from decision to working feature fast. That's the shift: a PM can build the thing now, not just specify it.
 
-### Key decisions
+## Key decisions
+
 - **Six dishes as the baseline menu.** The per-person budget is split across 6 dishes. Adding more dishes shrinks each portion (`min(1, 6 / dishes)`), so the total amount of food stays realistic.
 - **Effort measured in time.** People think "I have an hour", not "medium difficulty". The three levels cap prep time per dish: 10 min, 20 min, or no limit.
 - **Diets overlap.** A vegan dish also suits vegetarians; a pescatarian menu also takes vegetarian dishes. Some dishes are marked universal and fit every diet.
@@ -40,30 +28,31 @@ That's the problem in a nutshell. Hosting a party means answering four questions
 - **Quantities round up.** Leftovers beat running out halfway through the party.
 - **The list follows the shop layout** — vegetables, meat, dairy, bread — and "to taste" items get their own section.
 
-### Database design
+## What using it taught me
+
+The first real problem wasn't on my list of things to build. Setting the guest count meant tapping a plus button — 21 times for my own party. Fine for 4 guests, infuriating for 21. The counter now has a field you can type into, with the buttons kept for small adjustments. Testing with 3 imaginary guests never surfaces that; one real party does.
+
+## How it's built
+
+**React (Vite) + FastAPI + SQLAlchemy (SQLite/Postgres).** The full-stack version is tagged [`v1-fullstack`](https://github.com/diana-gliniecka/snacks-planner/tree/v1-fullstack) and its code still lives in `backend/`. Because nothing in the app is ever written back to the database, the public demo runs as a static site instead: the recipe data is exported to `frontend/src/data/recipes.json`, and the endpoint logic from `backend/main.py` is ported 1:1 to `frontend/src/planner.js`, verified against the Python original on 1120 generated cases.
+
+How the data is modelled:
+
 - **`recipes` ↔ `recipe_ingredients` ↔ `ingredients`** (many-to-many). One ingredient row is shared by every dish, so tomatoes from three recipes add up to a single line on the shopping list.
 - **`quantity_type`: `exact` / `to_taste` / `descriptive`.** Real recipes don't always carry numbers ("a few sprigs of dill"). Only exact amounts are scaled and summed; the other two pass their text through untouched.
 - **`base_servings` + `cost_per_person`** let every recipe scale to any guest count and be filtered by budget.
 - **`group_name`** links variants of the same dish — Caesar salad with chicken and with vegetarian chicken. The menu shows the variant that best fits the chosen diet; the mixed setting keeps all variants so they can be swapped.
 - **An ingredient's `category` is its shop aisle**, which is what gives the shopping list its order.
 - **Trade-off:** diet tags and party types are comma-separated text rather than separate tables. Simple to seed for ~40 recipes, and the first thing I'd normalise as the data grows.
-- **`seed.py` is the single source of truth.** It fills SQLite locally and Postgres in production, and it's also exported to JSON — which is what lets the demo run as a free static site.
 
-### What using it taught me
-The first real problem wasn't on my list of things to build. Setting the guest count meant tapping a plus button — 21 times for my own party. Fine for 4 guests, infuriating for 21. The counter now has a field you can type into, with the buttons kept for small adjustments. Testing with 3 imaginary guests never surfaces that; one real party does.
+## What's next
 
-### What's next
 - More recipes, and more variety per party type.
 - Richer diet and allergen labelling, so filtering handles more real-world cases.
 
-## Requirements
+## Running it locally
 
-- Node.js 18+
-- Python 3.11+ (only for the backend / data export)
-
-## Getting started
-
-### Frontend (static version)
+Requires Node.js 18+ (and Python 3.11+ for the backend).
 
 ```bash
 cd frontend
@@ -71,9 +60,9 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173
+Open http://localhost:5173 — this runs the static version, no backend needed.
 
-### Backend (optional)
+The original backend is optional:
 
 ```bash
 cd backend
@@ -82,7 +71,10 @@ python seed.py
 uvicorn main:app --reload
 ```
 
-## Project structure
+`backend/seed.py` is the single source of truth for recipe data. After changing it, run `python backend/export_json.py` to refresh the JSON the frontend uses. Every push to `main` publishes the demo automatically (`.github/workflows/deploy.yml`).
+
+<details>
+<summary>Project structure and API endpoints</summary>
 
 ```
 party-planner/
@@ -114,8 +106,6 @@ party-planner/
 └── README.pl.md         # Polish
 ```
 
-## API endpoints (backend)
-
 | Method | Path | Description |
 |--------|------|-------------|
 | `GET` | `/api/health` | Health check |
@@ -123,3 +113,5 @@ party-planner/
 | `GET` | `/api/recipe/{id}` | Recipe details (optional `?guests=`) |
 | `POST` | `/api/suggest` | Dish suggestions matching the criteria |
 | `POST` | `/api/shopping-list` | Merged shopping list |
+
+</details>
