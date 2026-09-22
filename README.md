@@ -19,6 +19,43 @@ The public demo runs as a static site on GitHub Pages:
 
 After changing recipes in `seed.py`, re-run `export_json.py`. Every push to `main` automatically publishes the demo (`.github/workflows/deploy.yml`).
 
+## Product thinking
+
+### Why I built it
+Two reasons. I wanted to find out whether I could, and I had a real deadline: a birthday party for about 20 people, where I needed help working out how much food to actually buy.
+
+That's the problem in a nutshell. Hosting a party means answering four questions at once — what to serve, how much to buy, how long it will take, and what it will cost. Recipe sites scale a single recipe. None of them plans a whole menu and turns it into one shopping list.
+
+### Approach
+- **Three steps, one question each:** party details → suggested menu → shopping list. Nobody has to plan everything at once.
+- **Mobile-first:** the shopping list gets used in the shop, on a phone.
+- **Small iterations:** around 10 small pull requests over 9 days, then changes driven by real use — recipe costs updated to real shop prices, corn changed to one cob per person because half a cob wasn't enough.
+- **AI as a pair programmer:** built with Claude Code. I made the product calls — the menu model, the diet rules, the portion maths — and used AI to get from decision to working feature fast. That's the shift: a PM can build the thing now, not just specify it.
+
+### Key decisions
+- **Six dishes as the baseline menu.** The per-person budget is split across 6 dishes. Adding more dishes shrinks each portion (`min(1, 6 / dishes)`), so the total amount of food stays realistic.
+- **Effort measured in time.** People think "I have an hour", not "medium difficulty". The three levels cap prep time per dish: 10 min, 20 min, or no limit.
+- **Diets overlap.** A vegan dish also suits vegetarians; a pescatarian menu also takes vegetarian dishes. Some dishes are marked universal and fit every diet.
+- **"Very hungry" guests (+30%)** is a single switch instead of asking people to guess portions.
+- **Quantities round up.** Leftovers beat running out halfway through the party.
+- **The list follows the shop layout** — vegetables, meat, dairy, bread — and "to taste" items get their own section.
+
+### Database design
+- **`recipes` ↔ `recipe_ingredients` ↔ `ingredients`** (many-to-many). One ingredient row is shared by every dish, so tomatoes from three recipes add up to a single line on the shopping list.
+- **`quantity_type`: `exact` / `to_taste` / `descriptive`.** Real recipes don't always carry numbers ("a few sprigs of dill"). Only exact amounts are scaled and summed; the other two pass their text through untouched.
+- **`base_servings` + `cost_per_person`** let every recipe scale to any guest count and be filtered by budget.
+- **`group_name`** links variants of the same dish — Caesar salad with chicken and with vegetarian chicken. The menu shows the variant that best fits the chosen diet; the mixed setting keeps all variants so they can be swapped.
+- **An ingredient's `category` is its shop aisle**, which is what gives the shopping list its order.
+- **Trade-off:** diet tags and party types are comma-separated text rather than separate tables. Simple to seed for ~40 recipes, and the first thing I'd normalise as the data grows.
+- **`seed.py` is the single source of truth.** It fills SQLite locally and Postgres in production, and it's also exported to JSON — which is what lets the demo run as a free static site.
+
+### What using it taught me
+The first real problem wasn't on my list of things to build. Setting the guest count meant tapping a plus button — 21 times for my own party. Fine for 4 guests, infuriating for 21. The counter now has a field you can type into, with the buttons kept for small adjustments. Testing with 3 imaginary guests never surfaces that; one real party does.
+
+### What's next
+- More recipes, and more variety per party type.
+- Richer diet and allergen labelling, so filtering handles more real-world cases.
+
 ## Requirements
 
 - Node.js 18+
